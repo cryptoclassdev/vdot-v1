@@ -1,8 +1,8 @@
-import { notFound } from "next/navigation"
+import { notFound } from 'next/navigation'
 import Link from "next/link"
 import Image from "next/image"
 import { format } from "date-fns"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft } from 'lucide-react'
 import { PortableText } from "@portabletext/react"
 import { getPostBySlug, getAllPosts, getCommentsByPostId } from "@/lib/sanity.queries"
 import { urlFor } from "@/lib/sanity"
@@ -13,9 +13,11 @@ import { CommentList } from "@/components/blog/CommentList"
 
 export async function generateStaticParams() {
   const posts = await getAllPosts()
-  return posts.map((post) => ({
-    slug: post.slug.current,
-  }))
+  return posts
+    .filter((post) => post.slug && post.slug.current)
+    .map((post) => ({
+      slug: post.slug.current,
+    }))
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
