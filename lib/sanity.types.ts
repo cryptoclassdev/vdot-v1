@@ -37,7 +37,7 @@ export interface BlogPost {
   content: PortableTextBlock[]
   author: Author
   publishedAt: string
-  mainImage: SanityImage
+  featuredImage?: SanityImage  // ← Changed from mainImage (also made optional)
   categories: Category[]
 }
 

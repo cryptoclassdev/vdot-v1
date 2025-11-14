@@ -16,11 +16,11 @@ export function BlogCard({ post }: BlogCardProps) {
         <div className="relative aspect-video w-full overflow-hidden">
           <Image
             src={
-              post.mainImage
-                ? urlFor(post.mainImage).width(600).height(400).url()
-                : "/placeholder.svg?height=400&width=600"
+              post.featuredImage
+                ? urlFor(post.featuredImage).width(600).height(400).url()
+                : "/placeholder.svg?height=400&width=600&query=blog post thumbnail"
             }
-            alt={post.mainImage?.alt || post.title}
+            alt={post.featuredImage?.alt || post.title}
             fill
             className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
@@ -48,7 +48,9 @@ export function BlogCard({ post }: BlogCardProps) {
           </h3>
 
           {/* Excerpt */}
-          <p className="mb-4 line-clamp-3 text-sm text-muted-foreground">{post.excerpt || "No excerpt available"}</p>
+          <p className="mb-4 line-clamp-3 text-sm text-muted-foreground">
+            {post.excerpt || "Read more to discover the full story..."}
+          </p>
 
           {/* Meta */}
           <div className="flex items-center gap-3 text-xs text-muted-foreground">

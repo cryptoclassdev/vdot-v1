@@ -1,5 +1,5 @@
-import { client } from "./sanity"
-import type { BlogPost, Category, Comment } from "./sanity.types"
+import { client } from './sanity.client'
+import type { BlogPost, Category } from './sanity.types'
 
 export async function getAllPosts(): Promise<BlogPost[]> {
   return client.fetch(
@@ -16,22 +16,12 @@ export async function getAllPosts(): Promise<BlogPost[]> {
         "bio": pt::text(bio)
       },
       publishedAt,
-      mainImage,
+      featuredImage,  // ← Changed from mainImage
       "categories": categories[]->{ 
         _id,
         title,
         slug
       }
-    }`,
-  )
-}
-
-export async function getAllCategories(): Promise<Category[]> {
-  return client.fetch(
-    `*[_type == "category"] | order(title asc) {
-      _id,
-      title,
-      slug
     }`,
   )
 }
@@ -51,7 +41,7 @@ export async function getPostsByCategory(categorySlug: string): Promise<BlogPost
         "bio": pt::text(bio)
       },
       publishedAt,
-      mainImage,
+      featuredImage,  // ← Changed from mainImage
       "categories": categories[]->{ 
         _id,
         title,
@@ -80,7 +70,7 @@ export async function searchPosts(query: string): Promise<BlogPost[]> {
         "bio": pt::text(bio)
       },
       publishedAt,
-      mainImage,
+      featuredImage,  // ← Changed from mainImage
       "categories": categories[]->{ 
         _id,
         title,
@@ -106,7 +96,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
         "bio": pt::text(bio)
       },
       publishedAt,
-      mainImage,
+      featuredImage,  // ← Changed from mainImage
       "categories": categories[]->{ 
         _id,
         title,
@@ -117,18 +107,27 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
   )
 }
 
-export async function getCommentsByPostId(postId: string): Promise<Comment[]> {
+export async function getAllCategories(): Promise<Category[]> {
   return client.fetch(
-    `*[_type == "comment" && post._ref == $postId && approved == true] | order(createdAt desc) {
+    `*[_type == "category"] | order(title asc) {
+      _id,
+      title,
+      slug,
+      description
+    }`,
+  )
+}
+
+export async function getCommentsByPostId(postId: string) {
+  return client.fetch(
+    `*[_type == "comment" && post._ref == $postId && approved == true] | order(_createdAt desc) {
       _id,
       name,
       email,
-      body,
-      createdAt,
+      comment,
+      _createdAt,
       approved
     }`,
     { postId },
   )
 }
-
-// Additional query functions can be added here
