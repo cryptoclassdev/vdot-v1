@@ -4,9 +4,9 @@ import type React from "react"
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
+import { useRouter } from 'next/navigation'
 import { Button } from "@/components/ui/button"
-import { Search, Users, Handshake, Shield, Calculator, ChevronDown } from "lucide-react"
+import { Search, Users, Handshake, Shield, Calculator, ChevronDown } from 'lucide-react'
 import { Footer } from "@/components/Footer"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 
@@ -638,8 +638,8 @@ export default function Home() {
                     alt="mukul-dp"
                     className="h-full w-full object-cover transition-all duration-300 group-hover/card:blur-sm"
                   />
-                  <div className="absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 md:p-5 lg:p-6">
+                  <div className="absolute inset-0 rounded-2xl bg-black/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
+                  <div className="absolute inset-0 rounded-2xl flex flex-col items-center justify-center p-4 text-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 md:p-5 lg:p-6">
                     <h3 className="mb-1.5 text-xl font-bold text-white md:text-2xl lg:text-3xl xl:text-xl 2xl:text-2xl">
                       The Intern
                     </h3>
@@ -657,8 +657,8 @@ export default function Home() {
                     alt="pedro-dp"
                     className="h-full w-full object-cover transition-all duration-300 group-hover/card:blur-sm"
                   />
-                  <div className="absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 md:p-5 lg:p-6">
+                  <div className="absolute inset-0 rounded-2xl bg-black/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
+                  <div className="absolute inset-0 rounded-2xl flex flex-col items-center justify-center p-4 text-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 md:p-5 lg:p-6">
                     <h3 className="mb-1.5 text-xl font-bold text-white md:text-2xl lg:text-3xl xl:text-xl 2xl:text-2xl">
                       Pedro
                     </h3>
@@ -1005,7 +1005,16 @@ export default function Home() {
                 <div
                   onClick={(e) => {
                     e.stopPropagation()
-                    handleLinkCardTap("mobile-youtube")
+                    if (activeLinkCard === "mobile-youtube") {
+                      window.open(
+                        "https://www.youtube.com/@validatorcom",
+                        "_blank",
+                        "noopener,noreferrer",
+                      )
+                    } else {
+                      // First tap - show overlay
+                      handleLinkCardTap("mobile-youtube")
+                    }
                   }}
                   className={`group/linkcard relative flex aspect-square items-center justify-center overflow-hidden rounded-2xl bg-red-600 shadow-lg transition-all duration-300 origin-center ${
                     activeLinkCard === "mobile-youtube" ? "!scale-[1.1] !shadow-2xl !z-10" : ""
@@ -1147,7 +1156,7 @@ export default function Home() {
                 {/* Column 4 - Red YouTube and Orange Calculator */}
                 <div className="flex flex-1 flex-col gap-6 md:gap-7 lg:gap-8 xl:gap-9 2xl:gap-10">
                   <Link
-                    href="#youtube"
+                    href="https://www.youtube.com/@validatorcom"
                     aria-label="YouTube"
                     className="group/linkcard relative flex aspect-square transform-gpu items-center justify-center overflow-hidden rounded-2xl bg-red-600 shadow-xl transition-all duration-300 will-change-transform group-has-[.group\/linkcard:hover]:scale-75 hover:!scale-[1.3] hover:shadow-2xl hover:z-10 2xl:hover:!scale-[1.35]"
                   >
