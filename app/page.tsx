@@ -95,6 +95,15 @@ export default function Home() {
       <header className="sticky top-0 z-50 border-border bg-background">
         <div className="flex items-center justify-between px-4 py-4 lg:px-8">
           {/* Logo - Using semantic brand color tokens */}
+          <Link href="/">
+            <div className="flex items-center gap-1">
+              <span className="relative inline-block">
+                <div className="h-6 w-6 rounded bg-brand-navy" />
+              </span>
+              <div className="h-6 w-6 rounded bg-brand-cyan" />
+              <div className="h-6 w-6 rounded bg-brand-orange" />
+            </div>
+          </Link>
           <div className="flex items-center gap-1">
             <span className="relative inline-block">
               <div className="h-6 w-6 rounded bg-brand-navy" />
