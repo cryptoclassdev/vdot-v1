@@ -1287,7 +1287,7 @@ export default function Home() {
                     onClick={() => setIsWalletDropdownOpen(!isWalletDropdownOpen)}
                     className="bg-[#DBFF70] rounded-full px-4 py-3 text-xs font-bold text-gray-900 shadow-lg hover:bg-[#c9ed5f] flex items-center gap-2"
                   >
-                    Select Your Wallet
+                    {selectedWallet.charAt(0).toUpperCase() + selectedWallet.slice(1)}
                     <ChevronDown
                       className={`h-4 w-4 transition-transform ${isWalletDropdownOpen ? "rotate-180" : ""}`}
                     />
@@ -1415,7 +1415,7 @@ export default function Home() {
                       onClick={() => setIsWalletDropdownOpen(!isWalletDropdownOpen)}
                       className="bg-[#DBFF70] rounded-full px-4 py-3 text-xs font-bold text-gray-900 shadow-lg hover:bg-[#c9ed5f] sm:px-4 sm:py-3 sm:text-xs md:px-6 md:py-4 md:text-sm lg:px-8 lg:py-5 lg:text-xl 2xl:px-12 2xl:py-7 2xl:text-xl flex items-center gap-2"
                     >
-                      Select Your Wallet
+                      {selectedWallet.charAt(0).toUpperCase() + selectedWallet.slice(1)}
                       <ChevronDown
                         className={`h-4 w-4 transition-transform ${isWalletDropdownOpen ? "rotate-180" : ""}`}
                       />
