@@ -4,18 +4,26 @@ import type React from "react"
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Search, Users, Handshake, Shield, Calculator, ChevronDown } from 'lucide-react'
+import { Search, Users, Handshake, Shield, Calculator, ChevronDown } from "lucide-react"
 import { Footer } from "@/components/Footer"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { LazyLoadVideo } from "@/components/LazyLoadVideo"
 
 export default function Home() {
   const router = useRouter()
   const [activeCard, setActiveCard] = useState<string | null>(null)
   const [activeLinkCard, setActiveLinkCard] = useState<string | null>(null)
   const [isWalletDropdownOpen, setIsWalletDropdownOpen] = useState(false)
+  const [selectedWallet, setSelectedWallet] = useState<"phantom" | "solflare" | "backpack">("phantom")
   const [solAmount, setSolAmount] = useState(100)
+
+  const walletVideos = {
+    phantom: "https://res.cloudinary.com/di6zkr8of/video/upload/v1763801836/phantom-video_pbwzom.mp4",
+    solflare: "https://res.cloudinary.com/di6zkr8of/video/upload/v1763801829/solflare-video_wlhnsu.mp4",
+    backpack: "https://res.cloudinary.com/di6zkr8of/video/upload/v1763801833/backpack-video_isfydc.mp4",
+  }
 
   const [validatorData, setValidatorData] = useState<{
     activeStake: number
@@ -865,7 +873,7 @@ export default function Home() {
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.993a.077.077 0 0 1-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 0-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 0-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z" />
+                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.993a.077.077 0 0 1-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 0-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z" />
                   </svg>
                   <div
                     className={`absolute inset-0 rounded-2xl bg-black/70 opacity-0 transition-opacity duration-300 ${
@@ -1006,11 +1014,7 @@ export default function Home() {
                   onClick={(e) => {
                     e.stopPropagation()
                     if (activeLinkCard === "mobile-youtube") {
-                      window.open(
-                        "https://www.youtube.com/@validatorcom",
-                        "_blank",
-                        "noopener,noreferrer",
-                      )
+                      window.open("https://www.youtube.com/@validatorcom", "_blank", "noopener,noreferrer")
                     } else {
                       // First tap - show overlay
                       handleLinkCardTap("mobile-youtube")
@@ -1233,7 +1237,7 @@ export default function Home() {
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.993a.077.077 0 0 1-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 0-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 0-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z" />
+                      <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.993a.077.077 0 0 1-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 0-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z" />
                     </svg>
                     <div className="absolute inset-0 rounded-2xl bg-black/70 opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100" />
                     <div className="absolute inset-0 rounded-2xl flex flex-col items-center justify-center px-4 py-4 text-center opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100 md:px-6 md:py-6 xl:px-8 xl:py-8 2xl:px-10 2xl:py-10">
@@ -1294,7 +1298,10 @@ export default function Home() {
                     <div className="absolute right-0 top-full mt-2 w-[240px] rounded-2xl bg-white shadow-2xl border-2 border-gray-100 overflow-hidden z-50">
                       {/* Phantom */}
                       <button
-                        onClick={() => setIsWalletDropdownOpen(false)}
+                        onClick={() => {
+                          setSelectedWallet("phantom")
+                          setIsWalletDropdownOpen(false)
+                        }}
                         className="w-full flex items-center gap-3 px-5 py-4 hover:bg-purple-50 transition-colors border-b border-gray-100"
                       >
                         <div className="flex h-10 w-10 items-center justify-center rounded-lg overflow-hidden">
@@ -1309,7 +1316,10 @@ export default function Home() {
 
                       {/* Solflare */}
                       <button
-                        onClick={() => setIsWalletDropdownOpen(false)}
+                        onClick={() => {
+                          setSelectedWallet("solflare")
+                          setIsWalletDropdownOpen(false)
+                        }}
                         className="w-full flex items-center gap-3 px-5 py-4 hover:bg-orange-50 transition-colors border-b border-gray-100"
                       >
                         <div className="flex h-10 w-10 items-center justify-center rounded-lg overflow-hidden">
@@ -1324,7 +1334,10 @@ export default function Home() {
 
                       {/* Backpack */}
                       <button
-                        onClick={() => setIsWalletDropdownOpen(false)}
+                        onClick={() => {
+                          setSelectedWallet("backpack")
+                          setIsWalletDropdownOpen(false)
+                        }}
                         className="w-full flex items-center gap-3 px-5 py-4 hover:bg-red-50 transition-colors border-b border-gray-100"
                       >
                         <div className="flex h-10 w-10 items-center justify-center rounded-lg overflow-hidden">
@@ -1337,8 +1350,8 @@ export default function Home() {
                         <span className="text-base font-bold text-gray-900">Backpack</span>
                       </button>
 
-                      {/* Ledger */}
-                      <button
+                      {/* Ledger - commented out for now */}
+                      {/* <button
                         onClick={() => setIsWalletDropdownOpen(false)}
                         className="w-full flex items-center gap-3 px-5 py-4 hover:bg-amber-50 transition-colors"
                       >
@@ -1350,7 +1363,7 @@ export default function Home() {
                           />
                         </div>
                         <span className="text-base font-bold text-gray-900">Ledger</span>
-                      </button>
+                      </button> */}
                     </div>
                   )}
                 </div>
@@ -1359,14 +1372,13 @@ export default function Home() {
 
             {/* Device mockup - Centered */}
             <div className="mb-8 flex justify-center">
-              <div className="relative h-[280px] w-[150px] rounded-[40px]" style={{ transform: "rotate(-5deg)" }}>
-                <div className="flex h-full w-full items-center justify-center">
-                  <img
-                    src="/images/design-mode/5-phantom%201.png"
-                    alt="Phantom wallet showing 30 SOL staking interface"
-                    className="h-full w-full object-contain"
-                  />
-                </div>
+              <div className="relative h-[280px] w-[150px] rounded-[40px]">
+                <LazyLoadVideo
+                  src={walletVideos[selectedWallet]}
+                  alt={`${selectedWallet} wallet staking interface`}
+                  className="h-full w-full"
+                  poster="/images/design-mode/5-phantom%201.png"
+                />
               </div>
             </div>
           </div>
@@ -1374,17 +1386,13 @@ export default function Home() {
           {/* Desktop Layout - Absolute Positioning */}
           {/* Device mockup - left side */}
           <div className="hidden sm:block absolute left-[5%] top-1/2 z-10 -translate-y-1/2 sm:left-[8%] md:left-[6%] lg:left-[8%] xl:left-[10%] 2xl:left-[12%]">
-            <div
-              className="relative h-[450px] w-[240px] sm:h-[450px] sm:w-[240px] md:h-[550px] md:w-[290px] lg:h-[650px] lg:w-[340px] xl:h-[750px] xl:w-[390px] 2xl:h-[850px] 2xl:w-[440px]"
-              style={{ transform: "rotate(-5deg)" }}
-            >
-              <div className="flex h-full w-full items-center justify-center">
-                <img
-                  src="/images/design-mode/5-phantom%201.png"
-                  alt="Phantom wallet showing 30 SOL staking interface"
-                  className="h-full w-full object-contain"
-                />
-              </div>
+            <div className="relative h-[450px] w-[240px] sm:h-[450px] sm:w-[240px] md:h-[550px] md:w-[290px] lg:h-[650px] lg:w-[340px] xl:h-[750px] xl:w-[390px] 2xl:h-[850px] 2xl:w-[440px]">
+              <LazyLoadVideo
+                src={walletVideos[selectedWallet]}
+                alt={`${selectedWallet} wallet staking interface`}
+                className="h-full w-full"
+                poster="/images/design-mode/5-phantom%201.png"
+              />
             </div>
           </div>
 
@@ -1418,7 +1426,10 @@ export default function Home() {
                       <div className="absolute right-0 top-full mt-2 w-[240px] sm:w-[240px] md:w-[280px] lg:w-[320px] xl:w-[360px] 2xl:w-[400px] rounded-2xl bg-white shadow-2xl border-2 border-gray-100 overflow-hidden z-50">
                         {/* Phantom */}
                         <button
-                          onClick={() => setIsWalletDropdownOpen(false)}
+                          onClick={() => {
+                            setSelectedWallet("phantom")
+                            setIsWalletDropdownOpen(false)
+                          }}
                           className="w-full flex items-center gap-3 px-5 py-4 sm:px-5 sm:py-4 md:px-6 md:py-5 hover:bg-purple-50 transition-colors border-b border-gray-100"
                         >
                           <div className="flex h-10 w-10 sm:h-10 sm:w-10 md:h-12 md:w-12 items-center justify-center rounded-lg overflow-hidden">
@@ -1435,7 +1446,10 @@ export default function Home() {
 
                         {/* Solflare */}
                         <button
-                          onClick={() => setIsWalletDropdownOpen(false)}
+                          onClick={() => {
+                            setSelectedWallet("solflare")
+                            setIsWalletDropdownOpen(false)
+                          }}
                           className="w-full flex items-center gap-3 px-5 py-4 sm:px-5 sm:py-4 md:px-6 md:py-5 hover:bg-orange-50 transition-colors border-b border-gray-100"
                         >
                           <div className="flex h-10 w-10 sm:h-10 sm:w-10 md:h-12 md:w-12 items-center justify-center rounded-lg overflow-hidden">
@@ -1452,7 +1466,10 @@ export default function Home() {
 
                         {/* Backpack */}
                         <button
-                          onClick={() => setIsWalletDropdownOpen(false)}
+                          onClick={() => {
+                            setSelectedWallet("backpack")
+                            setIsWalletDropdownOpen(false)
+                          }}
                           className="w-full flex items-center gap-3 px-5 py-4 sm:px-5 sm:py-4 md:px-6 md:py-5 hover:bg-red-50 transition-colors border-b border-gray-100"
                         >
                           <div className="flex h-10 w-10 sm:h-10 sm:w-10 md:h-12 md:w-12 items-center justify-center rounded-lg overflow-hidden">
@@ -1467,8 +1484,8 @@ export default function Home() {
                           </span>
                         </button>
 
-                        {/* Ledger */}
-                        <button
+                        {/* Ledger - commented out for now */}
+                        {/* <button
                           onClick={() => setIsWalletDropdownOpen(false)}
                           className="w-full flex items-center gap-3 px-5 py-4 sm:px-5 sm:py-4 md:px-6 md:py-5 hover:bg-amber-50 transition-colors"
                         >
@@ -1482,7 +1499,7 @@ export default function Home() {
                           <span className="text-base sm:text-base md:text-lg lg:text-xl font-bold text-gray-900">
                             Ledger
                           </span>
-                        </button>
+                        </button>*/}
                       </div>
                     )}
                   </div>
