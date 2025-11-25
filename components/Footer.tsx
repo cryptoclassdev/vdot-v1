@@ -46,7 +46,7 @@ export function Footer() {
                 Security
               </Link>
               <a
-                href="https://cryptoclass.mintlify.app/"
+                href="https://docs.validator.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block break-words text-base font-semibold text-white transition-colors hover:text-white/80 md:text-lg xl:text-xl 2xl:text-2xl"
@@ -64,7 +64,7 @@ export function Footer() {
                 Privacy Policy
               </Link>
               <a
-                href="https://cryptoclass.mintlify.app/"
+                href="https://docs.validator.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block break-words text-base font-semibold text-white transition-colors hover:text-white/80 md:text-lg xl:text-xl 2xl:text-2xl"
