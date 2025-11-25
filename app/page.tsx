@@ -130,7 +130,7 @@ export default function Home() {
               About
             </Link>
             <Link
-              href="https://cryptoclass.mintlify.app/"
+              href="https://docs.validator.com/"
               className="text-sm font-bold text-foreground transition-colors hover:text-muted-foreground"
             >
               Support
@@ -932,7 +932,7 @@ export default function Home() {
                     e.stopPropagation()
                     if (activeLinkCard === "mobile-partnerships") {
                       // Second tap - navigate to Partnerships page
-                      window.open("https://cryptoclass.mintlify.app/", "_blank", "noopener,noreferrer")
+                      window.open("https://docs.validator.com/", "_blank", "noopener,noreferrer")
                     } else {
                       // First tap - show overlay
                       handleLinkCardTap("mobile-partnerships")
@@ -969,7 +969,7 @@ export default function Home() {
                     e.stopPropagation()
                     if (activeLinkCard === "mobile-vault") {
                       window.open(
-                        "https://cryptoclass.mintlify.app/staking/introduction#why-stake-with-validator-com%3F",
+                        "https://docs.validator.com/staking/introduction#why-stake-with-validator-com%3F",
                         "_blank",
                         "noopener,noreferrer",
                       )
@@ -1090,7 +1090,7 @@ export default function Home() {
                     </div>
                   </Link>
                   <a
-                    href="https://cryptoclass.mintlify.app/"
+                    href="https://docs.validator.com/"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Partnerships"
