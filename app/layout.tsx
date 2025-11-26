@@ -6,6 +6,9 @@ import "./globals.css"
 export const metadata: Metadata = {
   title: "validator.com: Safe and Trusted Solana Staking",
   description: "Earn staking rewards with your feet up.",
+  icons: {
+    icon: "/favicon.png",
+  },
     generator: 'v0.app'
 }
 
