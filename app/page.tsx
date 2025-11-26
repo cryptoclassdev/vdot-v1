@@ -107,37 +107,37 @@ export default function Home() {
           <nav className="hidden items-center gap-8 md:flex">
             <Link
               href="#link-hub"
-              className="text-sm font-bold text-foreground transition-colors hover:text-muted-foreground"
+              className="text-lg font-bold text-foreground transition-colors hover:text-muted-foreground"
             >
               Link Hub
             </Link>
             <Link
               href="#rewards"
-              className="text-sm font-bold text-foreground transition-colors hover:text-muted-foreground"
+              className="text-lg font-bold text-foreground transition-colors hover:text-muted-foreground"
             >
               Rewards
             </Link>
             <Link
               href="#staking"
-              className="text-sm font-bold text-foreground transition-colors hover:text-muted-foreground"
+              className="text-lg font-bold text-foreground transition-colors hover:text-muted-foreground"
             >
               Tutorials
             </Link>
             <Link
               href="#team"
-              className="text-sm font-bold text-foreground transition-colors hover:text-muted-foreground"
+              className="text-lg font-bold text-foreground transition-colors hover:text-muted-foreground"
             >
               About
             </Link>
             <Link
               href="https://docs.validator.com/"
-              className="text-sm font-bold text-foreground transition-colors hover:text-muted-foreground"
+              className="text-lg font-bold text-foreground transition-colors hover:text-muted-foreground"
             >
               Support
             </Link>
             <Link
               href="/blog"
-              className="text-sm font-bold text-foreground transition-colors hover:text-muted-foreground"
+              className="text-lg font-bold text-foreground transition-colors hover:text-muted-foreground"
             >
               Blog
             </Link>

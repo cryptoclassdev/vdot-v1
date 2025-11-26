@@ -82,29 +82,29 @@ export default function BlogPage() {
           <nav className="hidden items-center gap-8 md:flex">
             <Link
               href="/#link-hub"
-              className="text-sm font-bold text-foreground transition-colors hover:text-muted-foreground"
+              className="text-lg font-bold text-foreground transition-colors hover:text-muted-foreground"
             >
               Link Hub
             </Link>
             <Link
               href="/#rewards"
-              className="text-sm font-bold text-foreground transition-colors hover:text-muted-foreground"
+              className="text-lg font-bold text-foreground transition-colors hover:text-muted-foreground"
             >
               Rewards
             </Link>
-            <Link href="#" className="text-sm font-bold text-foreground transition-colors hover:text-muted-foreground">
+            <Link href="#" className="text-lg font-bold text-foreground transition-colors hover:text-muted-foreground">
               Tutorial
             </Link>
             <Link
               href="/#team"
-              className="text-sm font-bold text-foreground transition-colors hover:text-muted-foreground"
+              className="text-lg font-bold text-foreground transition-colors hover:text-muted-foreground"
             >
               About
             </Link>
-            <Link href="https://cryptoclass.mintlify.app/" className="text-sm font-bold text-foreground transition-colors hover:text-muted-foreground">
+            <Link href="https://docs.validator.com/" className="text-sm font-bold text-foreground transition-colors hover:text-muted-foreground">
               Support
             </Link>
-            <Link href="/blog" className="text-sm font-bold text-brand-cyan transition-colors hover:text-brand-cyan/80">
+            <Link href="/blog" className="text-lg font-bold text-brand-cyan transition-colors hover:text-brand-cyan/80">
               Blog
             </Link>
           </nav>
