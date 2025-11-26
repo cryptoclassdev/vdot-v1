@@ -4,8 +4,8 @@ import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "validator.com",
-  description: "Safe and Trusted Solana Staking",
+  title: "validator.com: Safe and Trusted Solana Staking",
+  description: "Earn staking rewards with your feet up.",
     generator: 'v0.app'
 }
 
