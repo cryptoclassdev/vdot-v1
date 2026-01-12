@@ -1,70 +1,13 @@
-"use client"
-
-import { useEffect, useState } from "react"
 import Link from "next/link"
-import { BlogCard } from "@/components/blog/BlogCard"
-import { SearchFilter } from "@/components/blog/SearchFilter"
-import { getAllPosts, getAllCategories, getPostsByCategory, searchPosts } from "@/lib/sanity.queries"
-import type { BlogPost, Category } from "@/lib/sanity.types"
+import { BlogContent } from "@/components/blog/BlogContent"
+import { getAllPosts, getAllCategories } from "@/lib/sanity.queries"
 import { Footer } from "@/components/Footer"
 
-export default function BlogPage() {
-  const [posts, setPosts] = useState<BlogPost[]>([])
-  const [allPosts, setAllPosts] = useState<BlogPost[]>([])
-  const [categories, setCategories] = useState<Category[]>([])
-  const [selectedCategory, setSelectedCategory] = useState("")
-  const [searchQuery, setSearchQuery] = useState("")
-  const [loading, setLoading] = useState(true)
+// ISR: Revalidate every hour as fallback, webhook handles instant updates
+export const revalidate = 3600
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const [postsData, categoriesData] = await Promise.all([getAllPosts(), getAllCategories()])
-        setPosts(postsData)
-        setAllPosts(postsData)
-        setCategories(categoriesData)
-      } catch (error) {
-        console.error("Error fetching blog data:", error)
-      } finally {
-        setLoading(false)
-      }
-    }
-    fetchData()
-  }, [])
-
-  const handleSearch = async (query: string) => {
-    setSearchQuery(query)
-    setSelectedCategory("")
-
-    if (!query.trim()) {
-      setPosts(allPosts)
-      return
-    }
-
-    try {
-      const results = await searchPosts(query)
-      setPosts(results)
-    } catch (error) {
-      console.error("Error searching posts:", error)
-    }
-  }
-
-  const handleCategoryChange = async (categorySlug: string) => {
-    setSelectedCategory(categorySlug)
-    setSearchQuery("")
-
-    if (!categorySlug) {
-      setPosts(allPosts)
-      return
-    }
-
-    try {
-      const results = await getPostsByCategory(categorySlug)
-      setPosts(results)
-    } catch (error) {
-      console.error("Error filtering by category:", error)
-    }
-  }
+export default async function BlogPage() {
+  const [posts, categories] = await Promise.all([getAllPosts(), getAllCategories()])
 
   return (
     <div className="min-h-screen bg-background">
@@ -142,39 +85,8 @@ export default function BlogPage() {
             </p>
           </div>
 
-          {/* Search and Filter */}
-          <SearchFilter
-            categories={categories}
-            onSearch={handleSearch}
-            onCategoryChange={handleCategoryChange}
-            selectedCategory={selectedCategory}
-          />
-
-          {/* Blog Posts Grid */}
-          {loading ? (
-            <div className="flex min-h-[400px] items-center justify-center">
-              <div className="text-center">
-                <div className="mb-4 inline-block h-12 w-12 animate-spin rounded-full border-4 border-brand-cyan border-t-transparent" />
-                <p className="text-muted-foreground">Loading posts...</p>
-              </div>
-            </div>
-          ) : posts.length === 0 ? (
-            <div className="flex min-h-[400px] items-center justify-center">
-              <div className="text-center">
-                <p className="text-xl text-muted-foreground">
-                  {searchQuery || selectedCategory
-                    ? "No posts found matching your criteria."
-                    : "No blog posts available yet."}
-                </p>
-              </div>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {posts.map((post) => (
-                <BlogCard key={post._id} post={post} />
-              ))}
-            </div>
-          )}
+          {/* Interactive Blog Content (Client Component) */}
+          <BlogContent initialPosts={posts} categories={categories} />
         </div>
       </main>
 
