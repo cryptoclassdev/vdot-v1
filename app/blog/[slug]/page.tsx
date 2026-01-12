@@ -11,6 +11,12 @@ import { Footer } from "@/components/Footer"
 import { CommentForm } from "@/components/blog/CommentForm"
 import { CommentList } from "@/components/blog/CommentList"
 
+// ISR: Revalidate every hour as fallback, webhook handles instant updates
+export const revalidate = 3600
+
+// Allow dynamic params for new posts created after build
+export const dynamicParams = true
+
 export async function generateStaticParams() {
   const posts = await getAllPosts()
   return posts
