@@ -4,12 +4,14 @@ import type React from "react"
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Search, Users, Handshake, Shield, Calculator, ChevronDown } from "lucide-react"
 import { Footer } from "@/components/Footer"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { LazyLoadVideo } from "@/components/LazyLoadVideo"
+import { blobAssets } from "@/lib/assets"
 
 export default function Home() {
   const router = useRouter()
@@ -20,9 +22,9 @@ export default function Home() {
   const [solAmount, setSolAmount] = useState(100)
 
   const walletVideos = {
-    phantom: "https://res.cloudinary.com/di6zkr8of/video/upload/v1763801836/phantom-video_pbwzom.mp4",
-    solflare: "https://res.cloudinary.com/di6zkr8of/video/upload/v1763801829/solflare-video_wlhnsu.mp4",
-    backpack: "https://res.cloudinary.com/di6zkr8of/video/upload/v1763801833/backpack-video_isfydc.mp4",
+    phantom: blobAssets.phantomVideo,
+    solflare: blobAssets.solflareVideo,
+    backpack: blobAssets.backpackVideo,
   }
 
   const [validatorData, setValidatorData] = useState<{
@@ -189,9 +191,12 @@ export default function Home() {
           {/* Right side - Staking interface mockup */}
           <div className="flex items-center justify-center">
             <div className="relative w-full max-w-md">
-              <img
-                src="https://res.cloudinary.com/di6zkr8of/image/upload/v1763991463/phantom-ss_jmysyq.png"
+              <Image
+                src={blobAssets.phantomScreenshot}
                 alt="Staking interface showing validator.com with 889,067 SOL and 6.95% APY"
+                width={448}
+                height={896}
+                sizes="(max-width: 448px) 100vw, 448px"
                 className="h-auto w-full rounded-3xl shadow-2xl"
               />
             </div>
@@ -224,9 +229,12 @@ export default function Home() {
                     <span className="relative z-10 bg-brand-cyan px-1.5 py-0.5 text-white sm:px-2 sm:py-0.5 md:px-3 md:py-1 lg:px-4 lg:py-1.5 xl:px-5 xl:py-2 2xl:px-6 2xl:py-3">
                       Strong
                     </span>
-                    <img
+                    <Image
                       src="/images/design-mode/blue-glitter.png"
                       alt=""
+                      width={112}
+                      height={112}
+                      sizes="(max-width: 640px) 32px, (max-width: 1280px) 72px, 112px"
                       className="absolute -right-4 -top-8 h-8 w-auto rotate-[24.89deg] sm:-right-6 sm:-top-10 sm:h-10 md:-right-10 md:-top-16 md:h-14 lg:-right-14 lg:-top-20 lg:h-18 xl:-right-16 xl:-top-24 xl:h-20 2xl:-right-20 2xl:-top-32 2xl:h-28"
                       aria-hidden="true"
                     />
@@ -341,10 +349,12 @@ export default function Home() {
                   activeCard === "mobile-hfp" ? "!scale-[1.1] !shadow-2xl !z-10" : ""
                 }`}
               >
-                <img
+                <Image
                   src="/team/HFP-DP.png"
                   alt="Team Member"
-                  className={`h-full w-full object-cover transition-all duration-300 group-hover/card:blur-sm ${
+                  fill
+                  sizes="(max-width: 640px) 33vw, 25vw"
+                  className={`object-cover transition-all duration-300 group-hover/card:blur-sm ${
                     activeCard === "mobile-hfp" ? "blur-sm" : ""
                   }`}
                 />
@@ -383,10 +393,12 @@ export default function Home() {
                   activeCard === "mobile-sebastian" ? "!scale-[1.1] !shadow-2xl !z-10" : ""
                 }`}
               >
-                <img
+                <Image
                   src="/team/Seb-DP.png"
                   alt="Team Member"
-                  className={`h-full w-full object-cover transition-all duration-300 group-hover/card:blur-sm ${
+                  fill
+                  sizes="(max-width: 640px) 33vw, 25vw"
+                  className={`object-cover transition-all duration-300 group-hover/card:blur-sm ${
                     activeCard === "mobile-sebastian" ? "blur-sm" : ""
                   }`}
                 />
@@ -426,10 +438,12 @@ export default function Home() {
                   activeCard === "mobile-dan" ? "!scale-[1.1] !shadow-2xl !z-10" : ""
                 }`}
               >
-                <img
+                <Image
                   src="/team/Dan-DP.png"
                   alt="Team Member"
-                  className={`h-full w-full object-cover transition-all duration-300 group-hover/card:blur-sm ${
+                  fill
+                  sizes="(max-width: 640px) 33vw, 25vw"
+                  className={`object-cover transition-all duration-300 group-hover/card:blur-sm ${
                     activeCard === "mobile-dan" ? "blur-sm" : ""
                   }`}
                 />
@@ -465,10 +479,12 @@ export default function Home() {
                   activeCard === "mobile-mukul" ? "!scale-[1.1] !shadow-2xl !z-10" : ""
                 }`}
               >
-                <img
+                <Image
                   src="/team/Mukul-DP.png"
                   alt="Team Member"
-                  className={`h-full w-full object-cover transition-all duration-300 group-hover/card:blur-sm ${
+                  fill
+                  sizes="(max-width: 640px) 33vw, 25vw"
+                  className={`object-cover transition-all duration-300 group-hover/card:blur-sm ${
                     activeCard === "mobile-mukul" ? "blur-sm" : ""
                   }`}
                 />
@@ -499,10 +515,12 @@ export default function Home() {
                   activeCard === "mobile-pedro" ? "!scale-[1.1] !shadow-2xl !z-10" : ""
                 }`}
               >
-                <img
+                <Image
                   src="/team/pedro.png"
                   alt="Team Member"
-                  className={`h-full w-full object-cover transition-all duration-300 group-hover/card:blur-sm ${
+                  fill
+                  sizes="(max-width: 640px) 33vw, 25vw"
+                  className={`object-cover transition-all duration-300 group-hover/card:blur-sm ${
                     activeCard === "mobile-pedro" ? "blur-sm" : ""
                   }`}
                 />
@@ -536,10 +554,12 @@ export default function Home() {
                   activeCard === "mobile-chris" ? "!scale-[1.1] !shadow-2xl !z-10" : ""
                 }`}
               >
-                <img
+                <Image
                   src="/team/Chris-DP.png"
                   alt="Team Member"
-                  className={`h-full w-full object-cover transition-all duration-300 group-hover/card:blur-sm ${
+                  fill
+                  sizes="(max-width: 640px) 33vw, 25vw"
+                  className={`object-cover transition-all duration-300 group-hover/card:blur-sm ${
                     activeCard === "mobile-chris" ? "blur-sm" : ""
                   }`}
                 />
@@ -569,10 +589,12 @@ export default function Home() {
             <div className="flex flex-1 flex-col gap-6 md:gap-7 lg:gap-8 xl:gap-9 2xl:gap-10">
               <Link href="/team/hfp" className="cursor-pointer">
                 <div className="group/card relative mt-16 aspect-square transform-gpu overflow-hidden rounded-2xl shadow-xl transition-all duration-300 will-change-transform group-has-[.group\/card:hover]:scale-75 hover:!scale-[1.3] hover:shadow-2xl hover:z-10 md:mt-20 lg:mt-24 xl:mt-28 2xl:hover:!scale-[1.35]">
-                  <img
+                  <Image
                     src="/team/HFP-DP.png"
                     alt="hfp-dp"
-                    className="h-full w-full object-cover transition-all duration-300 group-hover/card:blur-sm"
+                    fill
+                    sizes="25vw"
+                    className="object-cover transition-all duration-300 group-hover/card:blur-sm"
                   />
                   <div className="absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 md:p-5 lg:p-6">
@@ -592,10 +614,12 @@ export default function Home() {
             <div className="flex flex-1 flex-col gap-6 md:gap-7 lg:gap-8 xl:gap-9 2xl:gap-10">
               <Link href="/team/seb" className="cursor-pointer">
                 <div className="group/card relative aspect-square transform-gpu overflow-hidden rounded-2xl shadow-xl transition-all duration-300 will-change-transform group-has-[.group\/card:hover]:scale-75 hover:!scale-[1.3] hover:shadow-2xl hover:z-10 2xl:hover:!scale-[1.35]">
-                  <img
+                  <Image
                     src="/team/Seb-DP.png"
                     alt="seb-dp"
-                    className="h-full w-full object-cover transition-all duration-300 group-hover/card:blur-sm"
+                    fill
+                    sizes="25vw"
+                    className="object-cover transition-all duration-300 group-hover/card:blur-sm"
                   />
                   <div className="absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 md:p-5 lg:p-6">
@@ -614,10 +638,12 @@ export default function Home() {
               </Link>
               <Link href="/team/dan" className="cursor-pointer">
                 <div className="group/card relative aspect-square transform-gpu overflow-hidden rounded-2xl shadow-xl transition-all duration-300 will-change-transform group-has-[.group\/card:hover]:scale-75 hover:!scale-[1.3] hover:shadow-2xl hover:z-10 2xl:hover:!scale-[1.35]">
-                  <img
+                  <Image
                     src="/team/Dan-DP.png"
                     alt="dan-dp"
-                    className="h-full w-full object-cover transition-all duration-300 group-hover/card:blur-sm"
+                    fill
+                    sizes="25vw"
+                    className="object-cover transition-all duration-300 group-hover/card:blur-sm"
                   />
                   <div className="absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 md:p-5 lg:p-6">
@@ -641,10 +667,12 @@ export default function Home() {
             <div className="flex flex-1 flex-col gap-6 md:gap-7 lg:gap-8 xl:gap-9 2xl:gap-10">
               <Link href="/team/mukul" className="cursor-pointer">
                 <div className="group/card relative mt-12 aspect-square transform-gpu overflow-hidden rounded-2xl shadow-xl transition-all duration-300 will-change-transform group-has-[.group\/card:hover]:scale-75 hover:!scale-[1.3] hover:shadow-2xl hover:z-10 md:mt-16 lg:mt-20 xl:mt-24 2xl:hover:!scale-[1.35]">
-                  <img
+                  <Image
                     src="/team/Mukul-DP.png"
                     alt="mukul-dp"
-                    className="h-full w-full object-cover transition-all duration-300 group-hover/card:blur-sm"
+                    fill
+                    sizes="25vw"
+                    className="object-cover transition-all duration-300 group-hover/card:blur-sm"
                   />
                   <div className="absolute inset-0 rounded-2xl bg-black/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
                   <div className="absolute inset-0 rounded-2xl flex flex-col items-center justify-center p-4 text-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 md:p-5 lg:p-6">
@@ -660,10 +688,12 @@ export default function Home() {
               </Link>
               <Link href="/team/pedro" className="cursor-pointer">
                 <div className="group/card relative aspect-square transform-gpu overflow-hidden rounded-2xl shadow-xl transition-all duration-300 will-change-transform group-has-[.group\/card:hover]:scale-75 hover:!scale-[1.3] hover:shadow-2xl hover:z-10 2xl:hover:!scale-[1.35]">
-                  <img
+                  <Image
                     src="/team/pedro.png"
                     alt="pedro-dp"
-                    className="h-full w-full object-cover transition-all duration-300 group-hover/card:blur-sm"
+                    fill
+                    sizes="25vw"
+                    className="object-cover transition-all duration-300 group-hover/card:blur-sm"
                   />
                   <div className="absolute inset-0 rounded-2xl bg-black/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
                   <div className="absolute inset-0 rounded-2xl flex flex-col items-center justify-center p-4 text-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 md:p-5 lg:p-6">
@@ -688,10 +718,12 @@ export default function Home() {
             <div className="flex flex-1 flex-col gap-6 md:gap-7 lg:gap-8 xl:gap-9 2xl:gap-10">
               <Link href="/team/chris" className="cursor-pointer">
                 <div className="group/card relative mt-36 aspect-square transform-gpu overflow-hidden rounded-2xl shadow-xl transition-all duration-300 will-change-transform group-has-[.group\/card:hover]:scale-75 hover:!scale-[1.3] hover:shadow-2xl hover:z-10 2xl:hover:!scale-[1.35]">
-                  <img
+                  <Image
                     src="/team/Chris-DP.png"
                     alt="chris-dp"
-                    className="h-full w-full object-cover transition-all duration-300 group-hover/card:blur-sm"
+                    fill
+                    sizes="25vw"
+                    className="object-cover transition-all duration-300 group-hover/card:blur-sm"
                   />
                   <div className="absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 md:p-5 lg:p-6">
@@ -1305,9 +1337,12 @@ export default function Home() {
                         className="w-full flex items-center gap-3 px-5 py-4 hover:bg-purple-50 transition-colors border-b border-gray-100"
                       >
                         <div className="flex h-10 w-10 items-center justify-center rounded-lg overflow-hidden">
-                          <img
+                          <Image
                             src="/images/design-mode/Phantom-Icon_App_60x60.png"
                             alt="Phantom"
+                            width={40}
+                            height={40}
+                            sizes="40px"
                             className="h-full w-full object-cover"
                           />
                         </div>
@@ -1323,9 +1358,13 @@ export default function Home() {
                         className="w-full flex items-center gap-3 px-5 py-4 hover:bg-orange-50 transition-colors border-b border-gray-100"
                       >
                         <div className="flex h-10 w-10 items-center justify-center rounded-lg overflow-hidden">
-                          <img
+                          <Image
                             src="/images/design-mode/solflare-icon.svg"
                             alt="Solflare"
+                            width={40}
+                            height={40}
+                            sizes="40px"
+                            unoptimized
                             className="h-full w-full object-contain"
                           />
                         </div>
@@ -1341,9 +1380,12 @@ export default function Home() {
                         className="w-full flex items-center gap-3 px-5 py-4 hover:bg-red-50 transition-colors border-b border-gray-100"
                       >
                         <div className="flex h-10 w-10 items-center justify-center rounded-lg overflow-hidden">
-                          <img
+                          <Image
                             src="/images/design-mode/backpack-icon.png"
                             alt="Backpack"
+                            width={40}
+                            height={40}
+                            sizes="40px"
                             className="h-full w-full object-contain p-1.5"
                           />
                         </div>
@@ -1433,9 +1475,12 @@ export default function Home() {
                           className="w-full flex items-center gap-3 px-5 py-4 sm:px-5 sm:py-4 md:px-6 md:py-5 hover:bg-purple-50 transition-colors border-b border-gray-100"
                         >
                           <div className="flex h-10 w-10 sm:h-10 sm:w-10 md:h-12 md:w-12 items-center justify-center rounded-lg overflow-hidden">
-                            <img
+                            <Image
                               src="/images/design-mode/Phantom-Icon_App_60x60.png"
                               alt="Phantom"
+                              width={48}
+                              height={48}
+                              sizes="48px"
                               className="h-full w-full object-cover"
                             />
                           </div>
@@ -1453,9 +1498,13 @@ export default function Home() {
                           className="w-full flex items-center gap-3 px-5 py-4 sm:px-5 sm:py-4 md:px-6 md:py-5 hover:bg-orange-50 transition-colors border-b border-gray-100"
                         >
                           <div className="flex h-10 w-10 sm:h-10 sm:w-10 md:h-12 md:w-12 items-center justify-center rounded-lg overflow-hidden">
-                            <img
+                            <Image
                               src="/images/design-mode/solflare-icon.svg"
                               alt="Solflare"
+                              width={48}
+                              height={48}
+                              sizes="48px"
+                              unoptimized
                               className="h-full w-full object-contain"
                             />
                           </div>
@@ -1473,9 +1522,12 @@ export default function Home() {
                           className="w-full flex items-center gap-3 px-5 py-4 sm:px-5 sm:py-4 md:px-6 md:py-5 hover:bg-red-50 transition-colors border-b border-gray-100"
                         >
                           <div className="flex h-10 w-10 sm:h-10 sm:w-10 md:h-12 md:w-12 items-center justify-center rounded-lg overflow-hidden">
-                            <img
+                            <Image
                               src="/images/design-mode/backpack-icon.png"
                               alt="Backpack"
+                              width={48}
+                              height={48}
+                              sizes="48px"
                               className="h-full w-full object-contain p-1.5 sm:p-1.5 md:p-2"
                             />
                           </div>

@@ -44,7 +44,7 @@ export default async function BlogPage() {
             >
               About
             </Link>
-            <Link href="https://docs.validator.com/" className="text-sm font-bold text-foreground transition-colors hover:text-muted-foreground">
+            <Link href="https://docs.validator.com/" className="text-lg font-bold text-foreground transition-colors hover:text-muted-foreground">
               Support
             </Link>
             <Link href="/blog" className="text-lg font-bold text-brand-cyan transition-colors hover:text-brand-cyan/80">

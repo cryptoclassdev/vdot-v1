@@ -129,6 +129,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                       alt={post.author.name}
                       width={48}
                       height={48}
+                      sizes="48px"
                       className="rounded-full"
                     />
                   )}
@@ -141,12 +142,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
 
           {/* Featured Image */}
-          {post.mainImage && (
+          {post.featuredImage && (
             <div className="relative mb-12 aspect-video w-full overflow-hidden rounded-2xl">
               <Image
-                src={urlFor(post.mainImage).width(1200).height(675).url() || "/placeholder.svg"}
-                alt={post.mainImage.alt || post.title}
+                src={urlFor(post.featuredImage).width(1200).height(675).url() || "/placeholder.svg"}
+                alt={post.featuredImage.alt || post.title}
                 fill
+                sizes="(max-width: 896px) 100vw, 896px"
                 className="object-cover"
                 priority
               />
@@ -172,6 +174,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     alt={post.author.name}
                     width={80}
                     height={80}
+                    sizes="80px"
                     className="rounded-full"
                   />
                 )}
