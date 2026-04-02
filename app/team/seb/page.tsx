@@ -1,5 +1,6 @@
 "use client"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Mail, Twitter } from "lucide-react"
 
@@ -27,11 +28,7 @@ export default function SebPage() {
         <div className="mx-auto w-full max-w-5xl">
           <div className="grid gap-6 overflow-hidden rounded-3xl bg-white shadow-2xl lg:grid-cols-2 lg:gap-0">
             <div className="relative aspect-square overflow-hidden lg:aspect-auto">
-              <img
-                src="/images/design-mode/seb-pfp.png"
-                alt="Sebastian Montgomery"
-                className="h-full w-full object-cover"
-              />
+              <Image src="/images/design-mode/seb-pfp.png" alt="Sebastian Montgomery" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" priority />
             </div>
 
             <div className="flex flex-col justify-center p-6 lg:p-8 xl:p-10">

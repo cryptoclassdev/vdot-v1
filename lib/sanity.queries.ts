@@ -16,7 +16,7 @@ export async function getAllPosts(): Promise<BlogPost[]> {
         "bio": pt::text(bio)
       },
       publishedAt,
-      featuredImage,  // ← Changed from mainImage
+      featuredImage,
       "categories": categories[]->{ 
         _id,
         title,
@@ -41,7 +41,7 @@ export async function getPostsByCategory(categorySlug: string): Promise<BlogPost
         "bio": pt::text(bio)
       },
       publishedAt,
-      featuredImage,  // ← Changed from mainImage
+      featuredImage,
       "categories": categories[]->{ 
         _id,
         title,
@@ -70,7 +70,7 @@ export async function searchPosts(query: string): Promise<BlogPost[]> {
         "bio": pt::text(bio)
       },
       publishedAt,
-      featuredImage,  // ← Changed from mainImage
+      featuredImage,
       "categories": categories[]->{ 
         _id,
         title,
@@ -96,7 +96,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
         "bio": pt::text(bio)
       },
       publishedAt,
-      featuredImage,  // ← Changed from mainImage
+      featuredImage,
       "categories": categories[]->{ 
         _id,
         title,
