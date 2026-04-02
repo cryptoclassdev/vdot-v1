@@ -3,6 +3,7 @@
 import type React from "react"
 
 import { useEffect, useRef, useState } from "react"
+import Image from "next/image"
 
 interface LazyLoadVideoProps {
   src: string
@@ -71,7 +72,7 @@ export function LazyLoadVideo({
   return (
     <div className={`relative ${className}`} style={style}>
       {!isLoaded && poster && (
-        <img src={poster || "/placeholder.svg"} alt={alt} className="absolute inset-0 h-full w-full object-contain" />
+        <Image src={poster || "/placeholder.svg"} alt={alt} fill sizes="(max-width: 640px) 150px, 440px" className="object-contain" />
       )}
       <video
         ref={videoRef}

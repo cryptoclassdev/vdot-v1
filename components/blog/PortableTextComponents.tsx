@@ -16,10 +16,42 @@ export const portableTextComponents: PortableTextComponents = {
             alt={value.alt || "Blog image"}
             width={800}
             height={450}
+            sizes="(max-width: 896px) 100vw, 800px"
             className="rounded-lg"
           />
         </div>
       )
+    },
+    video: ({ value }) => {
+      if (!value?.asset?._ref) return null
+      const ref = value.asset._ref
+      const [, id, ext] = ref.split("-")
+      const url = `https://cdn.sanity.io/files/${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}/${process.env.NEXT_PUBLIC_SANITY_DATASET || "production"}/${id}.${ext}`
+      return (
+        <div className="my-8">
+          <video src={url} controls preload="metadata" className="w-full rounded-lg">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      )
+    },
+    file: ({ value }) => {
+      if (!value?.asset?._ref) return null
+      const ref = value.asset._ref
+      const parts = ref.split("-")
+      const ext = parts.pop()
+      const id = parts.slice(1).join("-")
+      const url = `https://cdn.sanity.io/files/${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}/${process.env.NEXT_PUBLIC_SANITY_DATASET || "production"}/${id}.${ext}`
+      if (ext && ["mp4", "webm", "mov"].includes(ext)) {
+        return (
+          <div className="my-8">
+            <video src={url} controls preload="metadata" className="w-full rounded-lg">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        )
+      }
+      return null
     },
   },
   block: {

@@ -1,5 +1,6 @@
 "use client"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Twitter } from "lucide-react"
 
@@ -32,8 +33,8 @@ export default function PedroPage() {
         <div className="mx-auto w-full max-w-4xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
             {/* Team member photo */}
-            <div className="aspect-square w-full max-w-md mx-auto overflow-hidden rounded-3xl shadow-2xl">
-              <img src="/team/pedro.png" alt="Pedro" className="h-full w-full object-cover" />
+            <div className="relative aspect-square w-full max-w-md mx-auto overflow-hidden rounded-3xl shadow-2xl">
+              <Image src="/team/pedro.png" alt="Pedro" fill sizes="(max-width: 1024px) 100vw, 448px" className="object-cover" priority />
             </div>
 
             {/* Content */}
