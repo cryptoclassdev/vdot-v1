@@ -112,15 +112,16 @@ export default function Home() {
     return ((solAmount * validatorData.apy) / 100).toFixed(2)
   }
 
-  const validatorDataProvenance = (() => {
-    if (validatorDataStatus === "live" && validatorDataUpdatedAt) {
-      return `Live data from stakewiz.com, refreshed on each visit.`
-    }
-    if (validatorDataStatus === "fallback") {
-      return `Showing reference values — live data from stakewiz.com is temporarily unavailable.`
-    }
-    return `Loading current data from stakewiz.com…`
-  })()
+  const validatorDataStatusLabel: Record<typeof validatorDataStatus, string> = {
+    live: "Live",
+    fallback: "Cached",
+    loading: "Syncing",
+  }
+  const validatorDataStatusSentence: Record<typeof validatorDataStatus, string> = {
+    live: "Data refreshed on each visit from ",
+    fallback: "Reference values shown; live data temporarily unavailable from ",
+    loading: "Fetching current data from ",
+  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -308,9 +309,9 @@ export default function Home() {
                 }`}
                 aria-hidden="true"
               />
-              {validatorDataStatus === "live" ? "Live" : validatorDataStatus === "fallback" ? "Cached" : "Syncing"}
+              {validatorDataStatusLabel[validatorDataStatus]}
             </span>
-            {validatorDataProvenance.replace("stakewiz.com", "")}
+            {validatorDataStatusSentence[validatorDataStatus]}
             <a
               href="https://stakewiz.com/validator/Va1idkzkB6LEmVFmxWbWU8Ao9qehC62Tjmf68L3uYKj"
               target="_blank"

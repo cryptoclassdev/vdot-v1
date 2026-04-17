@@ -61,7 +61,7 @@ export const portableTextComponents: PortableTextComponents = {
     h4: ({ children }) => <h4 className="mb-2 mt-4 text-xl font-bold text-foreground">{children}</h4>,
     normal: ({ children }) => <p className="mb-4 leading-relaxed text-foreground">{children}</p>,
     blockquote: ({ children }) => (
-      <blockquote className="my-6 border-l-4 border-brand-cyan pl-4 italic text-muted-foreground">
+      <blockquote className="my-8 max-w-prose pl-0 text-xl font-medium leading-snug text-foreground before:mr-1 before:text-brand-orange before:content-['\201C']">
         {children}
       </blockquote>
     ),
