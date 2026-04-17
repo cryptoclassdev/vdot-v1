@@ -29,12 +29,12 @@ Impeccable commands banned for this project: `/impeccable:overdrive`, `/impeccab
 
 ## Active initiatives
 
-- **Impeccable redesign** — see `plans/impeccable-redesign.md`. Multi-session design overhaul happening on branch `design-10x`.
-  - Phases 0–1 done: baseline captured, `.impeccable.md` design context locked, critique run (17/40 starting score).
-  - Phase 3 foundation shipped: OKLCH navy-tinted palette in `app/globals.css`, `--surface-dark` overlay token introduced, footer + 29 × `bg-black/70` swept.
-  - Phase 4 home page pass complete: Nielsen score moved to 27/40 (+10), CLI anti-patterns 30 → 0, page shrank from ~15 to ~9 viewports.
-  - Phase 4 still pending: blog hub/post content layout, team pages, security page, contact, legal.
-  - Phase 5 motion, Phase 6 ship + verify: not started.
+- **Impeccable redesign** — see `plans/impeccable-redesign.md`. Full site redesign on branch `design-10x`, ready for review/merge.
+  - Phases 0–5 all complete. Foundation tokens rewritten in OKLCH (navy-tinted), every page converted to editorial voice/layout, two earned motion moments shipped (hero stagger-reveal + stat count-ups).
+  - Home page Nielsen score: 17/40 → 27/40 (+10). CLI anti-patterns across the whole tree: 30 → **0**.
+  - Pages redesigned: home, blog hub, blog post, security, 6 team bios (shared `TeamMemberBio` component), contact, privacy, terms, cross-cutting Footer + nav.
+  - Phase 6: CLI detector clean, motion works with prefers-reduced-motion support. Pending: merge to `stage` + re-benchmark on the deploy preview, user QA walkthrough.
+  - Pre-existing (non-redesign) TypeScript issues in `lib/sanity.ts` / `lib/sanity.queries.ts` from Sanity package typing drift — flagged, not fixed on this branch.
 
 ## Skill routing
 

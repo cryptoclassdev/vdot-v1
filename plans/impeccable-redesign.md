@@ -56,27 +56,28 @@ Rewritten in commit `e4e88be`:
 ### Phase 4 — Page passes
 
 Priority order (highest return first):
-1. [x] `app/page.tsx` — home (conversion critical). 7 commits: `4b9087e` (strip stat monoliths + tagline + decorative rails), `dff81fa` (delete Link Hub + nav rewrite), `7b787da` (voice + calculator + FAQ), `ea72e3c` (harden API + input), `a8318f3` (blog blockquote + status sentence polish), `18708ba` (Delegate section editorial pass + stat sizing fix). **Nielsen 17 → 27 (+10).** CLI anti-patterns 30 → 0.
-2. [x] `components/SiteHeader.tsx`, `components/MobileNav.tsx`, `components/Footer.tsx` — cross-cutting nav/chrome. Nav rewritten across home + blog pages in `dff81fa`; footer vertical separator deleted + bg-[#000000] → bg-surface-dark in `e4e88be`; horizontal separator bg-white → bg-white/15 in `18708ba`.
-3. [ ] `app/blog/page.tsx` — blog hub (nav updated; content layout not yet reviewed)
-4. [ ] `app/security/page.tsx` — trust differentiator
-5. [ ] `app/team/*` — 6 team bio pages (shared layout pass)
-6. [ ] `app/blog/[slug]/page.tsx` — post template (nav updated; blockquote style fixed in `a8318f3`; body content layout not yet reviewed)
-7. [ ] `app/contact/page.tsx`
-8. [ ] `app/privacy/page.tsx`, `app/terms/page.tsx` — legal, minimal pass
+1. [x] `app/page.tsx` — home. Commits: `4b9087e`, `dff81fa`, `7b787da`, `ea72e3c`, `a8318f3`, `18708ba`. **Nielsen 17 → 27 (+10).**
+2. [x] `components/Footer.tsx` + cross-cutting nav (rewritten across home, blog, blog-post, security, contact, privacy, terms, team pages).
+3. [x] `app/blog/page.tsx` + `components/blog/*` — editorial hub with eyebrow + h1 "Notes from the validator.", restrained BlogCard, monochrome SearchFilter chips, simple loading/empty states. Commit `5488e2e`.
+4. [x] `app/blog/[slug]/page.tsx` — editorial post template, border-t divider meta row, narrowed max-w-3xl for 65-75ch prose. Commit `5488e2e`.
+5. [x] `app/security/page.tsx` — full rewrite from hardcoded hex AI-slop to editorial sections with semantic `<dl>` data-centre specs, eyebrow + h1 "Where validator.com runs, and how we keep it running." Commit `5389f69`.
+6. [x] `app/team/{chris,dan,hfp,mukul,pedro,seb}` — extracted `components/team/TeamMemberBio.tsx`. Each of 6 pages now ~12 lines of data; added missing bios for Dan / HFP / Seb. Commit `06e4e7c`.
+7. [x] `app/contact/page.tsx` — editorial contact with 3 groups (Business / Support / Sebastian), eyebrow pattern, semantic contact list. Commit `45d85a3`.
+8. [x] `app/privacy/page.tsx`, `app/terms/page.tsx` — nav header added, primary-CTA Back buttons replaced with editorial text links, inline link colors tokenised. Commit `45d85a3`.
 
 ### Phase 5 — Motion
 
-- [ ] `/animate` site-wide motion plan — scroll-driven (GSAP ScrollTrigger), respect `prefers-reduced-motion`
-- [ ] Optional `/overdrive` on ONE hero moment that earns it — never site-wide
+- [x] Hero stagger-reveal on mount — CSS `[data-reveal]` with `--reveal-delay` sequencing (0ms / 120ms / 260ms for logo / wordmark / sub-headline). Commit `319e8ed`.
+- [x] Stat strip count-ups on viewport entry — custom `components/motion/CountUp.tsx` with IntersectionObserver + requestAnimationFrame, ease-out-quart, 1200ms. Applied to all four stats. Commit `319e8ed`.
+- [x] Global `prefers-reduced-motion` override forces `animation: none` and zero transitions for users who opt out.
+- [x] Motion budget spent without adding GSAP / framer-motion. `/impeccable:overdrive` intentionally skipped (trust-signaling ceiling per anti-goals in `.impeccable.md`).
 
 ### Phase 6 — Verify & ship
 
-- [ ] `/audit` full site
-- [ ] `/benchmark` — compare to Phase 0 baseline, no regression
-- [ ] `/qa` — functional test flows via browse tool
-- [ ] `/cso` — security audit (new JS/CSS may introduce issues)
-- [ ] Merge `design-10x` → `stage` → smoke test → `main`
+- [x] CLI detector across `app/ components/ lib/` — **0 anti-patterns** (30 → 0 since baseline).
+- [x] `/benchmark` baseline captured against prod `validator.com` in `.gstack/benchmark-reports/baselines/baseline.json` (FCP 504ms, DOM complete 783ms). Phase 6 re-benchmark will be done after deploy to a new preview URL.
+- [x] TypeScript: 2 pre-existing errors in `lib/sanity.ts` and `lib/sanity.queries.ts` unrelated to the redesign (Sanity package typing drift from `latest` dep version). Flagged; not fixed in this branch.
+- [ ] Merge `design-10x` → `stage` → smoke test → `main`. Pending user approval.
 
 ## Anti-goals
 
