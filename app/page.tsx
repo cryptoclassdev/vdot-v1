@@ -359,7 +359,7 @@ export default function Home() {
                   }`}
                 />
                 <div
-                  className={`absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 ${
+                  className={`absolute inset-0 bg-surface-dark/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 ${
                     activeCard === "mobile-hfp" ? "opacity-100" : ""
                   }`}
                 />
@@ -403,7 +403,7 @@ export default function Home() {
                   }`}
                 />
                 <div
-                  className={`absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 ${
+                  className={`absolute inset-0 bg-surface-dark/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 ${
                     activeCard === "mobile-sebastian" ? "opacity-100" : ""
                   }`}
                 />
@@ -448,7 +448,7 @@ export default function Home() {
                   }`}
                 />
                 <div
-                  className={`absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 ${
+                  className={`absolute inset-0 bg-surface-dark/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 ${
                     activeCard === "mobile-dan" ? "opacity-100" : ""
                   }`}
                 />
@@ -489,7 +489,7 @@ export default function Home() {
                   }`}
                 />
                 <div
-                  className={`absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 ${
+                  className={`absolute inset-0 bg-surface-dark/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 ${
                     activeCard === "mobile-mukul" ? "opacity-100" : ""
                   }`}
                 />
@@ -525,7 +525,7 @@ export default function Home() {
                   }`}
                 />
                 <div
-                  className={`absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 ${
+                  className={`absolute inset-0 bg-surface-dark/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 ${
                     activeCard === "mobile-pedro" ? "opacity-100" : ""
                   }`}
                 />
@@ -564,7 +564,7 @@ export default function Home() {
                   }`}
                 />
                 <div
-                  className={`absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 ${
+                  className={`absolute inset-0 bg-surface-dark/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 ${
                     activeCard === "mobile-chris" ? "opacity-100" : ""
                   }`}
                 />
@@ -596,7 +596,7 @@ export default function Home() {
                     sizes="25vw"
                     className="object-cover transition-all duration-300 group-hover/card:blur-sm"
                   />
-                  <div className="absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
+                  <div className="absolute inset-0 bg-surface-dark/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 md:p-5 lg:p-6">
                     <h3 className="mb-1.5 text-xl font-bold text-white md:text-2xl lg:text-2xl">HFP</h3>
                     <p className="mb-2 text-base font-semibold text-white/90 md:text-lg lg:text-lg">Founder</p>
@@ -621,7 +621,7 @@ export default function Home() {
                     sizes="25vw"
                     className="object-cover transition-all duration-300 group-hover/card:blur-sm"
                   />
-                  <div className="absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
+                  <div className="absolute inset-0 bg-surface-dark/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 md:p-5 lg:p-6">
                     <h3 className="mb-1.5 text-xl font-bold text-white md:text-2xl lg:text-2xl">
                       Sebastian Montgomery
@@ -645,7 +645,7 @@ export default function Home() {
                     sizes="25vw"
                     className="object-cover transition-all duration-300 group-hover/card:blur-sm"
                   />
-                  <div className="absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
+                  <div className="absolute inset-0 bg-surface-dark/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 md:p-5 lg:p-6">
                     <h3 className="mb-1.5 text-xl font-bold text-white md:text-2xl lg:text-3xl xl:text-xl 2xl:text-2xl">
                       Dan Phillips
@@ -674,7 +674,7 @@ export default function Home() {
                     sizes="25vw"
                     className="object-cover transition-all duration-300 group-hover/card:blur-sm"
                   />
-                  <div className="absolute inset-0 rounded-2xl bg-black/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
+                  <div className="absolute inset-0 rounded-2xl bg-surface-dark/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
                   <div className="absolute inset-0 rounded-2xl flex flex-col items-center justify-center p-4 text-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 md:p-5 lg:p-6">
                     <h3 className="mb-1.5 text-xl font-bold text-white md:text-2xl lg:text-3xl xl:text-xl 2xl:text-2xl">
                       The Intern
@@ -695,7 +695,7 @@ export default function Home() {
                     sizes="25vw"
                     className="object-cover transition-all duration-300 group-hover/card:blur-sm"
                   />
-                  <div className="absolute inset-0 rounded-2xl bg-black/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
+                  <div className="absolute inset-0 rounded-2xl bg-surface-dark/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
                   <div className="absolute inset-0 rounded-2xl flex flex-col items-center justify-center p-4 text-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 md:p-5 lg:p-6">
                     <h3 className="mb-1.5 text-xl font-bold text-white md:text-2xl lg:text-3xl xl:text-xl 2xl:text-2xl">
                       Pedro
@@ -725,7 +725,7 @@ export default function Home() {
                     sizes="25vw"
                     className="object-cover transition-all duration-300 group-hover/card:blur-sm"
                   />
-                  <div className="absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
+                  <div className="absolute inset-0 bg-surface-dark/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 md:p-5 lg:p-6">
                     <h3 className="mb-1.5 text-xl font-bold text-white md:text-2xl lg:text-3xl xl:text-xl 2xl:text-2xl">
                       Chris
@@ -790,7 +790,7 @@ export default function Home() {
                     }`}
                   />
                   <div
-                    className={`absolute inset-0 rounded-2xl bg-black/70 opacity-0 transition-opacity duration-300 ${
+                    className={`absolute inset-0 rounded-2xl bg-surface-dark/70 opacity-0 transition-opacity duration-300 ${
                       activeLinkCard === "mobile-security" ? "opacity-100" : ""
                     }`}
                   />
@@ -831,7 +831,7 @@ export default function Home() {
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.244H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                   </svg>
                   <div
-                    className={`absolute inset-0 rounded-2xl bg-black/70 opacity-0 transition-opacity duration-300 ${
+                    className={`absolute inset-0 rounded-2xl bg-surface-dark/70 opacity-0 transition-opacity duration-300 ${
                       activeLinkCard === "mobile-twitter" ? "opacity-100" : ""
                     }`}
                   />
@@ -869,7 +869,7 @@ export default function Home() {
                     }`}
                   />
                   <div
-                    className={`absolute inset-0 rounded-2xl bg-black/70 opacity-0 transition-opacity duration-300 ${
+                    className={`absolute inset-0 rounded-2xl bg-surface-dark/70 opacity-0 transition-opacity duration-300 ${
                       activeLinkCard === "mobile-search" ? "opacity-100" : ""
                     }`}
                   />
@@ -908,7 +908,7 @@ export default function Home() {
                     <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.993a.077.077 0 0 1-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 0-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 0-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z" />
                   </svg>
                   <div
-                    className={`absolute inset-0 rounded-2xl bg-black/70 opacity-0 transition-opacity duration-300 ${
+                    className={`absolute inset-0 rounded-2xl bg-surface-dark/70 opacity-0 transition-opacity duration-300 ${
                       activeLinkCard === "mobile-discord" ? "opacity-100" : ""
                     }`}
                   />
@@ -945,7 +945,7 @@ export default function Home() {
                     }`}
                   />
                   <div
-                    className={`absolute inset-0 rounded-2xl bg-black/70 opacity-0 transition-opacity duration-300 ${
+                    className={`absolute inset-0 rounded-2xl bg-surface-dark/70 opacity-0 transition-opacity duration-300 ${
                       activeLinkCard === "mobile-community" ? "opacity-100" : ""
                     }`}
                   />
@@ -980,7 +980,7 @@ export default function Home() {
                     }`}
                   />
                   <div
-                    className={`absolute inset-0 rounded-2xl bg-black/70 opacity-0 transition-opacity duration-300 ${
+                    className={`absolute inset-0 rounded-2xl bg-surface-dark/70 opacity-0 transition-opacity duration-300 ${
                       activeLinkCard === "mobile-partnerships" ? "opacity-100" : ""
                     }`}
                   />
@@ -1028,7 +1028,7 @@ export default function Home() {
                     <path d="M12 13v3" strokeLinecap="round" />
                   </svg>
                   <div
-                    className={`absolute inset-0 rounded-2xl bg-black/70 opacity-0 transition-opacity duration-300 ${
+                    className={`absolute inset-0 rounded-2xl bg-surface-dark/70 opacity-0 transition-opacity duration-300 ${
                       activeLinkCard === "mobile-vault" ? "opacity-100" : ""
                     }`}
                   />
@@ -1066,7 +1066,7 @@ export default function Home() {
                     <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
                   </svg>
                   <div
-                    className={`absolute inset-0 rounded-2xl bg-black/70 opacity-0 transition-opacity duration-300 ${
+                    className={`absolute inset-0 rounded-2xl bg-surface-dark/70 opacity-0 transition-opacity duration-300 ${
                       activeLinkCard === "mobile-youtube" ? "opacity-100" : ""
                     }`}
                   />
@@ -1091,7 +1091,7 @@ export default function Home() {
                     className="group/linkcard relative mt-16 flex aspect-square transform-gpu items-center justify-center overflow-hidden rounded-2xl bg-pink-500 shadow-xl transition-all duration-300 will-change-transform group-has-[.group\/linkcard:hover]:scale-75 hover:!scale-[1.3] hover:shadow-2xl hover:z-10 md:mt-20 lg:mt-24 xl:mt-28 2xl:hover:!scale-[1.35]"
                   >
                     <Search className="h-12 w-12 text-white transition-all duration-300 group-hover/linkcard:blur-sm md:h-16 md:w-16 lg:h-20 lg:w-20" />
-                    <div className="absolute inset-0 rounded-2xl bg-black/70 opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100" />
+                    <div className="absolute inset-0 rounded-2xl bg-surface-dark/70 opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100" />
                     <div className="absolute inset-0 rounded-2xl flex flex-col items-center justify-center px-4 py-4 text-center opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100 md:px-6 md:py-6 xl:px-8 xl:py-8 2xl:px-10 2xl:py-10">
                       <h3 className="mb-2 text-xl font-bold text-white md:text-2xl lg:text-3xl xl:text-xl 2xl:text-2xl break-words">
                         Tutorial
@@ -1111,7 +1111,7 @@ export default function Home() {
                     className="group/linkcard relative flex aspect-square transform-gpu items-center justify-center overflow-hidden rounded-2xl bg-green-500 shadow-xl transition-all duration-300 will-change-transform group-has-[.group\/linkcard:hover]:scale-75 hover:!scale-[1.3] hover:shadow-2xl hover:z-10 2xl:hover:!scale-[1.35]"
                   >
                     <Users className="h-12 w-12 text-white transition-all duration-300 group-hover/linkcard:blur-sm md:h-16 md:w-16 lg:h-20 lg:w-20" />
-                    <div className="absolute inset-0 rounded-2xl bg-black/70 opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100" />
+                    <div className="absolute inset-0 rounded-2xl bg-surface-dark/70 opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100" />
                     <div className="absolute inset-0 rounded-2xl flex flex-col items-center justify-center px-4 py-4 text-center opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100 md:px-6 md:py-6 xl:px-8 xl:py-8 2xl:px-10 2xl:py-10">
                       <h3 className="mb-2 text-xl font-bold text-white md:text-2xl lg:text-3xl xl:text-xl 2xl:text-2xl break-words">
                         The Team
@@ -1129,7 +1129,7 @@ export default function Home() {
                     className="group/linkcard relative flex aspect-square transform-gpu items-center justify-center overflow-hidden rounded-2xl bg-blue-500 shadow-xl transition-all duration-300 will-change-transform group-has-[.group\/linkcard:hover]:scale-75 hover:!scale-[1.3] hover:shadow-2xl hover:z-10 2xl:hover:!scale-[1.35]"
                   >
                     <Handshake className="h-12 w-12 text-white transition-all duration-300 group-hover/linkcard:blur-sm md:h-16 md:w-16 lg:h-20 lg:w-20" />
-                    <div className="absolute inset-0 rounded-2xl bg-black/70 opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100" />
+                    <div className="absolute inset-0 rounded-2xl bg-surface-dark/70 opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100" />
                     <div className="absolute inset-0 rounded-2xl flex flex-col items-center justify-center px-4 py-4 text-center opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100 md:px-6 md:py-6 xl:px-8 xl:py-8 2xl:px-10 2xl:py-10">
                       <h3 className="mb-2 text-xl font-bold text-white md:text-2xl lg:text-3xl xl:text-xl 2xl:text-2xl break-words">
                         Support
@@ -1161,7 +1161,7 @@ export default function Home() {
                       <circle cx="12" cy="13" r="3" />
                       <path d="M12 13v3" strokeLinecap="round" />
                     </svg>
-                    <div className="absolute inset-0 rounded-2xl bg-black/70 opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100" />
+                    <div className="absolute inset-0 rounded-2xl bg-surface-dark/70 opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100" />
                     <div className="absolute inset-0 rounded-2xl flex flex-col items-center justify-center px-4 py-4 text-center opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100 md:px-6 md:py-6 xl:px-8 xl:py-8 2xl:px-10 2xl:py-10">
                       <h3 className="mb-2 text-xl font-bold text-white md:text-2xl lg:text-3xl xl:text-xl 2xl:text-2xl break-words">
                         Validator
@@ -1177,7 +1177,7 @@ export default function Home() {
                     className="group/linkcard relative flex aspect-square transform-gpu items-center justify-center overflow-hidden rounded-2xl bg-lime-500 shadow-xl transition-all duration-300 will-change-transform group-has-[.group\/linkcard:hover]:scale-75 hover:!scale-[1.3] hover:shadow-2xl hover:z-10 2xl:hover:!scale-[1.35]"
                   >
                     <Shield className="h-12 w-12 text-white transition-all duration-300 group-hover/linkcard:blur-sm md:h-16 md:w-16 lg:h-20 lg:w-20" />
-                    <div className="absolute inset-0 rounded-2xl bg-black/70 opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100" />
+                    <div className="absolute inset-0 rounded-2xl bg-surface-dark/70 opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100" />
                     <div className="absolute inset-0 rounded-2xl flex flex-col items-center justify-center px-4 py-4 text-center opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100 md:px-6 md:py-6 xl:px-8 xl:py-8 2xl:px-10 2xl:py-10">
                       <h3 className="mb-2 text-xl font-bold text-white md:text-2xl lg:text-3xl xl:text-xl 2xl:text-2xl break-words">
                         Security
@@ -1203,7 +1203,7 @@ export default function Home() {
                     >
                       <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
                     </svg>
-                    <div className="absolute inset-0 rounded-2xl bg-black/70 opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100" />
+                    <div className="absolute inset-0 rounded-2xl bg-surface-dark/70 opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100" />
                     <div className="absolute inset-0 rounded-2xl flex flex-col items-center justify-center px-4 py-4 text-center opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100 md:px-6 md:py-6 xl:px-8 xl:py-8 2xl:px-10 2xl:py-10">
                       <h3 className="mb-2 text-xl font-bold text-white md:text-2xl lg:text-3xl xl:text-xl 2xl:text-2xl break-words">
                         YouTube
@@ -1219,7 +1219,7 @@ export default function Home() {
                     className="group/linkcard relative flex aspect-square transform-gpu items-center justify-center overflow-hidden rounded-2xl bg-brand-orange shadow-xl transition-all duration-300 will-change-transform group-has-[.group\/linkcard:hover]:scale-75 hover:!scale-[1.3] hover:shadow-2xl hover:z-10 2xl:hover:!scale-[1.35]"
                   >
                     <Calculator className="h-12 w-12 text-white transition-all duration-300 group-hover/linkcard:blur-sm md:h-16 md:w-16 lg:h-20 lg:w-20" />
-                    <div className="absolute inset-0 rounded-2xl bg-black/70 opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100" />
+                    <div className="absolute inset-0 rounded-2xl bg-surface-dark/70 opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100" />
                     <div className="absolute inset-0 rounded-2xl flex flex-col items-center justify-center px-4 py-4 text-center opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100 md:px-6 md:py-6 xl:px-8 xl:py-8 2xl:px-10 2xl:py-10">
                       <h3 className="mb-2 text-xl font-bold text-white md:text-2xl lg:text-3xl xl:text-xl 2xl:text-2xl break-words">
                         Calculator
@@ -1247,7 +1247,7 @@ export default function Home() {
                     >
                       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.244H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                     </svg>
-                    <div className="absolute inset-0 rounded-2xl bg-black/70 opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100" />
+                    <div className="absolute inset-0 rounded-2xl bg-surface-dark/70 opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100" />
                     <div className="absolute inset-0 rounded-2xl flex flex-col items-center justify-center px-4 py-4 text-center opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100 md:px-6 md:py-6 xl:px-8 xl:py-8 2xl:px-10 2xl:py-10">
                       <h3 className="mb-2 text-xl font-bold text-white md:text-2xl lg:text-3xl xl:text-xl 2xl:text-2xl break-words">
                         Twitter
@@ -1271,7 +1271,7 @@ export default function Home() {
                     >
                       <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.993a.077.077 0 0 1-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 0-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 0-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z" />
                     </svg>
-                    <div className="absolute inset-0 rounded-2xl bg-black/70 opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100" />
+                    <div className="absolute inset-0 rounded-2xl bg-surface-dark/70 opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100" />
                     <div className="absolute inset-0 rounded-2xl flex flex-col items-center justify-center px-4 py-4 text-center opacity-0 transition-opacity duration-300 group-hover/linkcard:opacity-100 md:px-6 md:py-6 xl:px-8 xl:py-8 2xl:px-10 2xl:py-10">
                       <h3 className="mb-2 text-xl font-bold text-white md:text-2xl lg:text-3xl xl:text-xl 2xl:text-2xl break-words">
                         Discord

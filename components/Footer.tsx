@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export function Footer() {
   return (
-    <footer className="bg-[#000000] px-4 py-12 md:px-8">
+    <footer className="bg-surface-dark px-4 py-12 md:px-8">
       <div className="mx-auto max-w-7xl">
         {/* Main footer content */}
         <div className="mb-8 flex flex-col items-start justify-between gap-12 lg:flex-row lg:items-center">
@@ -19,9 +19,6 @@ export function Footer() {
               validator.com
             </h3>
           </div>
-
-          {/* Vertical separator */}
-          <div className="hidden h-64 w-px bg-white lg:block" />
 
           {/* Right side - Two column link grid */}
           <div className="grid w-full grid-cols-2 gap-x-8 gap-y-6 lg:w-auto lg:gap-x-16 xl:gap-x-18 2xl:gap-x-20">

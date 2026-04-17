@@ -3,7 +3,11 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Adding @font-face declarations for Degular custom font family */
+/* ---------------------------------------------------------------
+   Typography — Degular self-hosted family.
+   See .impeccable.md: Degular carries hierarchy as the sole display/body
+   face. System monospace is used only for addresses, hashes, and code.
+--------------------------------------------------------------- */
 @font-face {
   font-family: "Degular";
   src: url("/fonts/Degular-Thin.woff2") format("woff2");
@@ -11,7 +15,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: "Degular";
   src: url("/fonts/Degular-Regular.woff") format("woff");
@@ -19,7 +22,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: "Degular";
   src: url("/fonts/Degular-Medium.woff2") format("woff2");
@@ -27,7 +29,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: "Degular";
   src: url("/fonts/Degular-Semibold.woff2") format("woff2");
@@ -35,7 +36,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: "Degular";
   src: url("/fonts/Degular-Bold.woff2") format("woff2");
@@ -44,98 +44,129 @@
   font-display: swap;
 }
 
+/* ---------------------------------------------------------------
+   Design system — editorial light theme, tinted toward brand-navy.
+   Neutrals shift subtly toward hue 280° (brand-navy's hue family).
+   No pure black. No pure white. Brand accents stay rare — the 10%
+   in a 60/30/10 composition.
+--------------------------------------------------------------- */
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  /* Core surfaces */
+  --background: oklch(0.985 0.003 280);
+  --foreground: oklch(0.20 0.020 280);
+  --card: oklch(0.995 0.002 280);
+  --card-foreground: oklch(0.20 0.020 280);
+  --popover: oklch(0.985 0.003 280);
+  --popover-foreground: oklch(0.20 0.020 280);
 
-  /* Adding brand color tokens for the validator theme */
-  --brand-navy: #1a1a40;
-  --brand-navy-hover: #141432;
-  --brand-orange: #ec5228;
-  --brand-orange-hover: #d44820;
-  --brand-cyan: #28c2ec;
-  --brand-cyan-hover: #20a8d0;
+  /* Primary = brand navy. Use sparingly. */
+  --primary: oklch(0.23 0.12 280);
+  --primary-foreground: oklch(0.985 0.003 280);
+
+  /* Secondary / muted / accent = tinted surfaces for quiet emphasis */
+  --secondary: oklch(0.960 0.008 280);
+  --secondary-foreground: oklch(0.23 0.12 280);
+  --muted: oklch(0.950 0.008 280);
+  --muted-foreground: oklch(0.500 0.020 280);
+  --accent: oklch(0.940 0.010 280);
+  --accent-foreground: oklch(0.23 0.12 280);
+
+  /* Destructive — warm red, slightly softened for editorial restraint */
+  --destructive: oklch(0.630 0.220 25);
+  --destructive-foreground: oklch(0.985 0.003 280);
+
+  /* Borders, inputs, focus ring (ring uses orange for brand pop) */
+  --border: oklch(0.900 0.006 280);
+  --input: oklch(0.900 0.006 280);
+  --ring: oklch(0.66 0.21 32);
+
+  /* Chart palette derived from brand triad (OKLCH, reduced chroma at extremes) */
+  --chart-1: oklch(0.66 0.21 32);   /* brand orange */
+  --chart-2: oklch(0.75 0.13 217);  /* brand cyan */
+  --chart-3: oklch(0.23 0.12 280);  /* brand navy */
+  --chart-4: oklch(0.55 0.15 280);  /* muted navy-violet */
+  --chart-5: oklch(0.45 0.18 32);   /* deeper orange */
+
+  --radius: 0.625rem;
+
+  /* Sidebar surfaces (Shadcn contract; kept for component compat) */
+  --sidebar: oklch(0.985 0.003 280);
+  --sidebar-foreground: oklch(0.20 0.020 280);
+  --sidebar-primary: oklch(0.23 0.12 280);
+  --sidebar-primary-foreground: oklch(0.985 0.003 280);
+  --sidebar-accent: oklch(0.940 0.010 280);
+  --sidebar-accent-foreground: oklch(0.23 0.12 280);
+  --sidebar-border: oklch(0.900 0.006 280);
+  --sidebar-ring: oklch(0.66 0.21 32);
+
+  /* Brand colors — OKLCH with reduced chroma at lightness extremes */
+  --brand-navy: oklch(0.23 0.12 280);
+  --brand-navy-hover: oklch(0.18 0.11 280);
+  --brand-orange: oklch(0.66 0.21 32);
+  --brand-orange-hover: oklch(0.60 0.20 32);
+  --brand-cyan: oklch(0.75 0.13 217);
+  --brand-cyan-hover: oklch(0.68 0.12 217);
+
+  /* Dark surfaces for overlays, dark sections, and footer */
+  --surface-dark: oklch(0.18 0.02 280);
+  --surface-dark-strong: oklch(0.12 0.015 280);
 }
 
+/* Dark mode intentionally mirrors light. Editorial redesign committed
+   to light-mode-only for Phase 1–4 (see .impeccable.md). Keeping the
+   selector block inert means next-themes cannot silently break the UI
+   if a user's system preference toggles. A real dark palette is a
+   post-ship decision. */
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
-
-  /* Brand colors remain the same in dark mode */
-  --brand-navy: #1a1a40;
-  --brand-navy-hover: #141432;
-  --brand-orange: #ec5228;
-  --brand-orange-hover: #d44820;
-  --brand-cyan: #28c2ec;
-  --brand-cyan-hover: #20a8d0;
+  --background: oklch(0.985 0.003 280);
+  --foreground: oklch(0.20 0.020 280);
+  --card: oklch(0.995 0.002 280);
+  --card-foreground: oklch(0.20 0.020 280);
+  --popover: oklch(0.985 0.003 280);
+  --popover-foreground: oklch(0.20 0.020 280);
+  --primary: oklch(0.23 0.12 280);
+  --primary-foreground: oklch(0.985 0.003 280);
+  --secondary: oklch(0.960 0.008 280);
+  --secondary-foreground: oklch(0.23 0.12 280);
+  --muted: oklch(0.950 0.008 280);
+  --muted-foreground: oklch(0.500 0.020 280);
+  --accent: oklch(0.940 0.010 280);
+  --accent-foreground: oklch(0.23 0.12 280);
+  --destructive: oklch(0.630 0.220 25);
+  --destructive-foreground: oklch(0.985 0.003 280);
+  --border: oklch(0.900 0.006 280);
+  --input: oklch(0.900 0.006 280);
+  --ring: oklch(0.66 0.21 32);
+  --chart-1: oklch(0.66 0.21 32);
+  --chart-2: oklch(0.75 0.13 217);
+  --chart-3: oklch(0.23 0.12 280);
+  --chart-4: oklch(0.55 0.15 280);
+  --chart-5: oklch(0.45 0.18 32);
+  --sidebar: oklch(0.985 0.003 280);
+  --sidebar-foreground: oklch(0.20 0.020 280);
+  --sidebar-primary: oklch(0.23 0.12 280);
+  --sidebar-primary-foreground: oklch(0.985 0.003 280);
+  --sidebar-accent: oklch(0.940 0.010 280);
+  --sidebar-accent-foreground: oklch(0.23 0.12 280);
+  --sidebar-border: oklch(0.900 0.006 280);
+  --sidebar-ring: oklch(0.66 0.21 32);
+  --brand-navy: oklch(0.23 0.12 280);
+  --brand-navy-hover: oklch(0.18 0.11 280);
+  --brand-orange: oklch(0.66 0.21 32);
+  --brand-orange-hover: oklch(0.60 0.20 32);
+  --brand-cyan: oklch(0.75 0.13 217);
+  --brand-cyan-hover: oklch(0.68 0.12 217);
+  --surface-dark: oklch(0.18 0.02 280);
+  --surface-dark-strong: oklch(0.12 0.015 280);
 }
 
 @theme inline {
-  /* Configuring custom Degular font as font-custom and default font-sans */
+  /* Font stack — Degular as sole display/body. Mono for addresses/hashes only. */
   --font-custom: "Degular", system-ui, -apple-system, sans-serif;
   --font-sans: "Degular", system-ui, -apple-system, sans-serif;
-  --font-mono: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Cascadia Code", monospace;
+
+  /* Semantic color utilities */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -160,10 +191,12 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -173,13 +206,17 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Exposing brand colors as Tailwind utilities */
+  /* Brand colors as Tailwind utilities */
   --color-brand-navy: var(--brand-navy);
   --color-brand-navy-hover: var(--brand-navy-hover);
   --color-brand-orange: var(--brand-orange);
   --color-brand-orange-hover: var(--brand-orange-hover);
   --color-brand-cyan: var(--brand-cyan);
   --color-brand-cyan-hover: var(--brand-cyan-hover);
+
+  /* Dark surfaces for overlays and dark sections */
+  --color-surface-dark: var(--surface-dark);
+  --color-surface-dark-strong: var(--surface-dark-strong);
 }
 
 @layer base {
@@ -189,7 +226,7 @@
   body {
     @apply bg-background text-foreground;
   }
-  /* Added smooth scrolling for anchor links */
+  /* Smooth scroll kept for anchor navigation */
   html {
     scroll-behavior: smooth;
   }
