@@ -1,0 +1,242 @@
+[
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 352,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 394,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 437,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 476,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 510,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 547,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 577,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 600,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 622,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 649,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 668,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 696,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 761,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 802,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 840,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 879,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 916,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 951,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 999,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 1037,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 1062,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 1082,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 1100,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 1132,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 1148,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 1174,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 1190,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 1218,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "pure-black-white",
+    "name": "Pure black background",
+    "description": "Pure #000000 as a background color looks harsh and unnatural. Tint it slightly toward your brand hue (e.g., oklch(12% 0.01 250)) for a more refined feel.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/app/page.tsx",
+    "line": 1242,
+    "snippet": "bg-black"
+  },
+  {
+    "antipattern": "side-tab",
+    "name": "Side-tab accent border",
+    "description": "Thick colored border on one side of a card — the most recognizable tell of AI-generated UIs. Use a subtler accent or remove it entirely.",
+    "file": "/Users/vaibhavsharma/Seb/vdot-v1/components/blog/PortableTextComponents.tsx",
+    "line": 32,
+    "snippet": "border-l-4"
+  }
+]
