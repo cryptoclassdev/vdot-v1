@@ -177,23 +177,21 @@ export default function Home() {
               <div className="h-20 w-20 rounded-2xl bg-brand-orange sm:h-24 sm:w-24 md:h-28 md:w-28" />
             </div>
 
-            {/* Heading and tagline */}
-            <div className="w-full space-y-4 text-center">
-              <h1 className="break-words text-5xl font-bold leading-tight text-foreground sm:text-6xl md:text-7xl lg:text-8xl">
+            <div className="w-full space-y-5 text-center lg:text-left">
+              <h1 className="whitespace-nowrap text-5xl font-bold leading-[1.02] tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-[4.5rem] xl:text-[5rem]">
                 validator.com
               </h1>
-              <p className="break-words text-xl font-medium text-foreground sm:text-2xl md:text-3xl">
-                Earn staking rewards with your feet up.
+              <p className="mx-auto max-w-xl text-lg font-medium text-muted-foreground sm:text-xl md:text-2xl lg:mx-0">
+                A Solana validator. Operated transparently since 2022.
               </p>
             </div>
           </div>
 
-          {/* Right side - Staking interface mockup */}
           <div className="flex items-center justify-center">
             <div className="relative w-full max-w-md">
               <Image
                 src={blobAssets.phantomScreenshot}
-                alt="Staking interface showing validator.com with 889,067 SOL and 6.95% APY"
+                alt="validator.com delegation interface inside a Solana mobile wallet"
                 width={448}
                 height={896}
                 sizes="(max-width: 448px) 100vw, 448px"
@@ -713,7 +711,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stake in 30 SECONDS section */}
+      {/* Delegate in one click section */}
       <section
         id="staking"
         className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-20 md:px-8 lg:px-15"
@@ -727,7 +725,7 @@ export default function Home() {
             {/* Heading - In white area */}
             <div className="mb-2 flex items-start gap-2">
               <div className="flex-1 text-center">
-                <h2 className="mb-2 whitespace-nowrap text-3xl font-bold text-foreground">Stake in 30 SECONDS</h2>
+                <h2 className="mb-2 whitespace-nowrap text-3xl font-bold text-foreground">Delegate in one click</h2>
               </div>
               <div className="h-[40px] w-0.5 flex-shrink-0 rounded-full bg-brand-orange" />
             </div>
@@ -869,7 +867,7 @@ export default function Home() {
               <div className="flex-1 text-right">
                 {/* Heading - stays in white area */}
                 <h2 className="mb-2 whitespace-nowrap text-3xl font-bold text-foreground sm:mb-2 sm:text-3xl md:mb-2 md:text-4xl lg:mb-4 lg:text-5xl xl:mb-4 xl:text-6xl 2xl:mb-4 2xl:text-7xl">
-                  Stake in 30 SECONDS
+                  Delegate in one click
                 </h2>
 
                 <p className="mb-3 mt-12 break-words text-sm font-medium text-muted-foreground sm:mb-4 sm:mt-2 sm:text-sm sm:font-bold sm:text-white md:mt-0 md:text-base md:text-white lg:mb-5 lg:mt-2 lg:text-lg lg:text-white xl:mb-2 xl:mt-4 xl:text-xl xl:text-white 2xl:mt-4 2xl:text-2xl 2xl:text-white">
@@ -988,88 +986,78 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Calculate Staking Rewards section */}
+      {/* Staking calculator — editorial treatment, no orange wrap or nuclear-lime pill */}
       <section
         id="rewards"
-        className="relative flex min-h-screen flex-col items-center justify-center bg-background px-4 py-20 md:px-8 lg:px-15"
+        aria-labelledby="calculator-heading"
+        className="relative bg-background px-4 py-24 md:px-8 md:py-32 lg:px-15"
       >
-        <div className="mb-12 text-center md:mb-16">
-          <h2 className="break-words text-4xl font-bold text-foreground md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl">
-            Calculate Staking Rewards
+        <div className="mx-auto max-w-7xl">
+          <p className="text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground">
+            Your rewards
+          </p>
+          <h2
+            id="calculator-heading"
+            className="mt-3 max-w-3xl break-words text-4xl font-bold leading-[1.05] text-foreground md:text-6xl lg:text-7xl"
+          >
+            See what staking with us earns you.
           </h2>
-        </div>
+          <p className="mt-6 max-w-prose text-base text-muted-foreground md:text-lg">
+            Based on the current {validatorData.apy}% APY. Rewards compound every epoch — roughly every two days.
+          </p>
 
-        {/* Orange background calculator section */}
-        <div className="relative w-full rounded-3xl bg-brand-orange px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-12 lg:py-24 xl:px-16 xl:py-28 2xl:px-20 2xl:py-32">
-          <div className="mb-12 text-center md:mb-16">
-            <p className="break-words text-lg font-semibold text-white sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
-              This calculation is based on the current ~ {validatorData.apy}% APY.
-            </p>
-          </div>
-
-          <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-6 sm:gap-8 lg:flex-row lg:gap-8 xl:gap-9 2xl:gap-10">
-            <div className="w-full max-w-xs rounded-2xl bg-white p-6 shadow-xl sm:max-w-sm sm:p-8 md:p-10 lg:w-[400px] lg:max-w-none lg:p-8 xl:w-[480px] xl:p-10 2xl:w-[800px] 2xl:p-14">
-              <p className="mb-6 break-words text-center text-2xl font-bold text-foreground sm:text-3xl md:mb-8 md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
-                Your
-              </p>
-              <div className="mb-6 rounded-2xl bg-brand-navy px-6 py-8 sm:px-8 sm:py-10 md:mb-8 md:px-10 md:py-12 lg:px-6 lg:py-8 xl:mb-9 xl:px-8 xl:py-10 2xl:mb-10 2xl:px-12 2xl:py-14">
+          <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 md:mt-20 lg:grid-cols-3">
+            <div>
+              <label
+                htmlFor="sol-amount"
+                className="text-[0.75rem] font-medium uppercase tracking-[0.14em] text-muted-foreground"
+              >
+                Your stake
+              </label>
+              <div className="mt-3 flex items-baseline gap-1.5">
                 <input
+                  id="sol-amount"
                   type="text"
+                  inputMode="decimal"
                   value={formatNumber(solAmount)}
                   onChange={handleSolInputChange}
-                  className="w-full min-w-60 bg-transparent text-center text-5xl font-bold text-white outline-none placeholder:text-white/50 sm:text-6xl md:text-7xl lg:min-w-20 lg:text-5xl xl:text-5xl 2xl:text-5xl"
+                  className="w-full min-w-0 max-w-[9ch] border-b-2 border-transparent bg-transparent pb-1 text-5xl font-bold tabular-nums leading-none text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-brand-orange md:text-6xl lg:text-7xl"
                   placeholder="100"
+                  aria-label="Amount of SOL to stake"
                 />
+                <span className="text-xl font-medium text-muted-foreground md:text-2xl lg:text-3xl">
+                  SOL
+                </span>
               </div>
-              <p className="break-words text-center text-3xl font-bold text-foreground sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
-                SOL
+            </div>
+
+            <div>
+              <p className="text-[0.75rem] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                Annual yield
+              </p>
+              <p className="mt-3 flex items-baseline gap-1.5 text-5xl font-bold tabular-nums leading-none text-foreground md:text-6xl lg:text-7xl">
+                {validatorData.apy}
+                <span className="text-xl font-medium text-muted-foreground md:text-2xl lg:text-3xl">
+                  %
+                </span>
               </p>
             </div>
 
-            {/* Multiplication symbol */}
-            <div className="flex items-center justify-center lg:px-2 xl:px-3 2xl:px-4">
-              <span className="text-5xl font-bold text-brand-navy sm:text-6xl md:text-7xl lg:text-8xl xl:text-7xl 2xl:text-10xl">
-                ×
-              </span>
-            </div>
-
-            <div className="w-full max-w-xs rounded-2xl bg-white p-6 shadow-xl sm:max-w-sm sm:p-8 md:p-10 lg:w-[400px] lg:max-w-none lg:p-8 xl:w-[480px] xl:p-10 2xl:w-[800px] 2xl:p-14">
-              <div className="flex h-full flex-col items-center justify-center py-6 sm:py-8 md:py-10 xl:py-8 2xl:py-16">
-                <p className="mb-2 break-words text-center text-xl font-semibold text-foreground sm:text-2xl md:mb-3 md:text-3xl lg:text-3xl xl:text-3xl 2xl:text-4xl">
-                  the current
-                </p>
-                <div className="rounded-xl bg-brand-cyan px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 lg:px-7 lg:py-3.5 xl:px-6 xl:py-3 2xl:px-8 2xl:py-4">
-                  <p className="whitespace-nowrap text-center text-4xl font-bold text-white sm:text-5xl md:text-6xl lg:text-4xl xl:text-5xl 2xl:text-5xl">
-                    {validatorData.apy}% APY
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Equals symbol */}
-            <div className="flex items-center justify-center lg:px-2 xl:px-3 2xl:px-4">
-              <span className="text-5xl font-bold text-brand-navy sm:text-6xl md:text-7xl lg:text-8xl xl:text-7xl 2xl:text-10xl">
-                =
-              </span>
-            </div>
-
-            <div className="w-full max-w-xs rounded-2xl bg-white p-6 shadow-xl sm:max-w-sm sm:p-8 md:p-10 lg:w-[400px] lg:max-w-none lg:p-8 xl:w-[480px] xl:p-10 2xl:w-[800px] 2xl:p-14">
-              <div className="flex h-full flex-col items-center justify-center py-6 sm:py-8 md:py-10 xl:py-8 2xl:py-16">
-                <div className="mb-3 rounded-xl bg-[#DBFF70] px-4 py-2 sm:px-5 sm:py-2.5 md:mb-5 md:px-6 md:py-3 lg:px-7 lg:py-3.5 xl:px-6 xl:py-3 2xl:px-8 2xl:py-4">
-                  <p className="whitespace-nowrap text-center text-4xl font-bold text-gray-900 sm:text-5xl md:text-6xl lg:text-4xl xl:text-5xl 2xl:text-5xl">
-                    {calculateYearlyRewards()} SOL
-                  </p>
-                </div>
-                <p className="break-words text-center text-xl font-semibold text-foreground sm:text-2xl md:text-3xl lg:text-3xl xl:text-3xl 2xl:text-4xl">
-                  yearly rewards
-                </p>
-              </div>
+            <div>
+              <p className="text-[0.75rem] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                Yearly rewards
+              </p>
+              <p className="mt-3 flex items-baseline gap-1.5 text-5xl font-bold tabular-nums leading-none text-foreground md:text-6xl lg:text-7xl">
+                {calculateYearlyRewards()}
+                <span className="text-xl font-medium text-muted-foreground md:text-2xl lg:text-3xl">
+                  SOL
+                </span>
+              </p>
             </div>
           </div>
 
-          {/* *5% on staking rewards, 8% on JITO MEV earnings. */}
-          <p className="absolute bottom-2 left-0 right-0 text-center text-[10px] text-white/90 sm:bottom-3 sm:left-auto sm:right-6 sm:text-left sm:text-sm md:bottom-4 md:right-8 lg:bottom-6 lg:right-12 lg:text-base xl:bottom-8 xl:right-16 2xl:bottom-10 2xl:right-20 2xl:text-lg">
-            *5% on staking rewards, 8% on JITO MEV earnings.
+          <p className="mt-16 max-w-prose text-xs text-muted-foreground md:text-sm">
+            5% commission on staking rewards. 8% on Jito MEV earnings. No hidden fees.
           </p>
         </div>
       </section>
@@ -1077,12 +1065,17 @@ export default function Home() {
       {/* Support and FAQ Section */}
       <section id="support" className="relative bg-background">
         {/* FAQ Section */}
-        <div className="bg-gray-50 px-4 py-16 md:px-8 md:py-20 lg:px-15">
+        <div className="bg-muted px-4 py-24 md:px-8 md:py-28 lg:px-15">
           <div className="mx-auto max-w-5xl">
-            <h3 className="mb-8 text-3xl font-bold text-foreground md:mb-12 md:text-4xl lg:text-5xl">FAQ</h3>
+            <p className="mb-3 text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground">
+              Questions
+            </p>
+            <h2 className="mb-12 text-4xl font-bold leading-[1.05] text-foreground md:mb-16 md:text-5xl lg:text-6xl">
+              Everything else you might ask.
+            </h2>
 
             <Accordion type="single" collapsible className="w-full space-y-2">
-              <AccordionItem value="item-1" className="rounded-lg bg-white px-6 py-2">
+              <AccordionItem value="item-1" className="rounded-lg border border-border bg-card px-6 py-2">
                 <AccordionTrigger className="text-left text-base font-bold text-foreground md:text-lg">
                   What is staking?
                 </AccordionTrigger>
@@ -1093,7 +1086,7 @@ export default function Home() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-2" className="rounded-lg bg-white px-6 py-2">
+              <AccordionItem value="item-2" className="rounded-lg border border-border bg-card px-6 py-2">
                 <AccordionTrigger className="text-left text-base font-bold text-foreground md:text-lg">
                   Does the earned SOL compound?
                 </AccordionTrigger>
@@ -1103,18 +1096,18 @@ export default function Home() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-3" className="rounded-lg bg-white px-6 py-2">
+              <AccordionItem value="item-3" className="rounded-lg bg-card px-6 py-2">
                 <AccordionTrigger className="text-left text-base font-bold text-foreground md:text-lg">
-                  Is it safe to Stake my SOL?
+                  Is staking my SOL safe?
                 </AccordionTrigger>
                 <AccordionContent className="text-sm text-muted-foreground md:text-base">
-                  Yes, staking with validator.com is safe. Your SOL never leaves your wallet, and you maintain full
-                  custody of your tokens. We use enterprise-grade security measures and have a proven track record of
-                  reliable validator operations.
+                  Your SOL never leaves your wallet. Delegating assigns voting rights to the validator; the validator
+                  cannot move or spend your tokens. Solana also has no slashing, so your stake cannot be penalized
+                  away. You can unstake at any time.
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-4" className="rounded-lg bg-white px-6 py-2">
+              <AccordionItem value="item-4" className="rounded-lg border border-border bg-card px-6 py-2">
                 <AccordionTrigger className="text-left text-base font-bold text-foreground md:text-lg">
                   Why should I stake with validator.com?
                 </AccordionTrigger>
@@ -1125,7 +1118,7 @@ export default function Home() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-5" className="rounded-lg bg-white px-6 py-2">
+              <AccordionItem value="item-5" className="rounded-lg border border-border bg-card px-6 py-2">
                 <AccordionTrigger className="text-left text-base font-bold text-foreground md:text-lg">
                   How long is my SOL locked up for?
                 </AccordionTrigger>
@@ -1135,7 +1128,7 @@ export default function Home() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-6" className="rounded-lg bg-white px-6 py-2">
+              <AccordionItem value="item-6" className="rounded-lg border border-border bg-card px-6 py-2">
                 <AccordionTrigger className="text-left text-base font-bold text-foreground md:text-lg">
                   Where can I see my rewards?
                 </AccordionTrigger>
@@ -1145,7 +1138,7 @@ export default function Home() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-7" className="rounded-lg bg-white px-6 py-2">
+              <AccordionItem value="item-7" className="rounded-lg border border-border bg-card px-6 py-2">
                 <AccordionTrigger className="text-left text-base font-bold text-foreground md:text-lg">
                   How do I Unstake?
                 </AccordionTrigger>
@@ -1155,7 +1148,7 @@ export default function Home() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-8" className="rounded-lg bg-white px-6 py-2">
+              <AccordionItem value="item-8" className="rounded-lg border border-border bg-card px-6 py-2">
                 <AccordionTrigger className="text-left text-base font-bold text-foreground md:text-lg">
                   What does rent reserve mean?
                 </AccordionTrigger>
@@ -1166,7 +1159,7 @@ export default function Home() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-9" className="rounded-lg bg-white px-6 py-2">
+              <AccordionItem value="item-9" className="rounded-lg border border-border bg-card px-6 py-2">
                 <AccordionTrigger className="text-left text-base font-bold text-foreground md:text-lg">
                   What is MEV?
                 </AccordionTrigger>
@@ -1177,7 +1170,7 @@ export default function Home() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-10" className="rounded-lg bg-white px-6 py-2">
+              <AccordionItem value="item-10" className="rounded-lg border border-border bg-card px-6 py-2">
                 <AccordionTrigger className="text-left text-base font-bold text-foreground md:text-lg">
                   How much MEV do I get?
                 </AccordionTrigger>
@@ -1187,7 +1180,7 @@ export default function Home() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-11" className="rounded-lg bg-white px-6 py-2">
+              <AccordionItem value="item-11" className="rounded-lg border border-border bg-card px-6 py-2">
                 <AccordionTrigger className="text-left text-base font-bold text-foreground md:text-lg">
                   How do I claim MEV?
                 </AccordionTrigger>
@@ -1197,7 +1190,7 @@ export default function Home() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-12" className="rounded-lg bg-white px-6 py-2">
+              <AccordionItem value="item-12" className="rounded-lg border border-border bg-card px-6 py-2">
                 <AccordionTrigger className="text-left text-base font-bold text-foreground md:text-lg">
                   What on-site security does validator.com use?
                 </AccordionTrigger>
@@ -1208,7 +1201,7 @@ export default function Home() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-13" className="rounded-lg bg-white px-6 py-2">
+              <AccordionItem value="item-13" className="rounded-lg border border-border bg-card px-6 py-2">
                 <AccordionTrigger className="text-left text-base font-bold text-foreground md:text-lg">
                   Can slashing take my SOL?
                 </AccordionTrigger>
@@ -1218,7 +1211,7 @@ export default function Home() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-14" className="rounded-lg bg-white px-6 py-2">
+              <AccordionItem value="item-14" className="rounded-lg border border-border bg-card px-6 py-2">
                 <AccordionTrigger className="text-left text-base font-bold text-foreground md:text-lg">
                   How can I download a report of my earnings?
                 </AccordionTrigger>
@@ -1228,15 +1221,6 @@ export default function Home() {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-15" className="rounded-lg bg-white px-6 py-2">
-                <AccordionTrigger className="text-left text-base font-bold text-foreground md:text-lg">
-                  How do I claim MEV?
-                </AccordionTrigger>
-                <AccordionContent className="text-sm text-muted-foreground md:text-base">
-                  MEV rewards are automatically distributed to your wallet along with your regular staking rewards. You
-                  don't need to take any additional action to claim them.
-                </AccordionContent>
-              </AccordionItem>
             </Accordion>
           </div>
         </div>
