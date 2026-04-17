@@ -24,31 +24,33 @@ export default async function BlogPage() {
           {/* Navigation Links */}
           <nav className="hidden items-center gap-8 md:flex">
             <Link
-              href="/#link-hub"
-              className="text-lg font-bold text-foreground transition-colors hover:text-muted-foreground"
+              href="/#staking"
+              className="text-base font-medium text-foreground transition-colors hover:text-muted-foreground"
             >
-              Link Hub
+              Stake
             </Link>
             <Link
               href="/#rewards"
-              className="text-lg font-bold text-foreground transition-colors hover:text-muted-foreground"
+              className="text-base font-medium text-foreground transition-colors hover:text-muted-foreground"
             >
-              Rewards
-            </Link>
-            <Link href="#" className="text-lg font-bold text-foreground transition-colors hover:text-muted-foreground">
-              Tutorial
+              Calculator
             </Link>
             <Link
               href="/#team"
-              className="text-lg font-bold text-foreground transition-colors hover:text-muted-foreground"
+              className="text-base font-medium text-foreground transition-colors hover:text-muted-foreground"
             >
-              About
+              Team
             </Link>
-            <Link href="https://docs.validator.com/" className="text-lg font-bold text-foreground transition-colors hover:text-muted-foreground">
-              Support
-            </Link>
-            <Link href="/blog" className="text-lg font-bold text-brand-cyan transition-colors hover:text-brand-cyan/80">
+            <Link href="/blog" aria-current="page" className="text-base font-medium text-foreground underline decoration-brand-orange decoration-2 underline-offset-8 transition-colors hover:text-muted-foreground">
               Blog
+            </Link>
+            <Link
+              href="https://docs.validator.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-base font-medium text-foreground transition-colors hover:text-muted-foreground"
+            >
+              Docs
             </Link>
           </nav>
 
