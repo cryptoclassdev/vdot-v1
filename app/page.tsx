@@ -99,14 +99,19 @@ export default function Home() {
   const MAX_SOL_INPUT = 10_000_000 // Hard ceiling far beyond any realistic personal delegation
 
   const handleSolInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.replace(/,/g, "")
-    if (value === "") {
+    const raw = e.target.value.replace(/,/g, "")
+    if (raw === "") {
       setSolAmount(0)
       return
     }
-    const numValue = Number.parseFloat(value)
-    if (Number.isNaN(numValue) || numValue < 0) return
-    setSolAmount(Math.min(numValue, MAX_SOL_INPUT))
+    const parsed = Number.parseFloat(raw)
+    if (Number.isNaN(parsed)) {
+      // Non-numeric input — restore the DOM to the current valid state so the user sees their typo auto-revert
+      e.target.value = formatNumber(solAmount)
+      return
+    }
+    // Clamp to [0, MAX]. Negative inputs snap to 0; excessive inputs snap to ceiling.
+    setSolAmount(Math.max(0, Math.min(parsed, MAX_SOL_INPUT)))
   }
 
   const calculateYearlyRewards = () => {
