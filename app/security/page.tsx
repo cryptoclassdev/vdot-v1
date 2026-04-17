@@ -1,128 +1,184 @@
-"use client"
-
-import { ArrowLeft, Shield, Server, Lock } from "lucide-react"
+import Link from "next/link"
+import { ArrowLeft } from "lucide-react"
 import { Footer } from "@/components/Footer"
 
 export default function SecurityPage() {
   return (
     <div className="min-h-screen bg-background">
-      <div className="px-4 py-6 md:px-8 lg:px-16">
-        <button
-          onClick={() => window.history.back()}
-          className="inline-flex items-center gap-2 text-sm font-bold text-foreground transition-colors hover:text-[#FF6B35] md:text-base"
-        >
-          <ArrowLeft className="h-4 w-4 md:h-5 md:w-5" />
-          Back
-        </button>
-      </div>
+      <header className="sticky top-0 z-50 border-b border-border bg-background">
+        <div className="flex items-center justify-between px-4 py-4 lg:px-8">
+          <Link href="/" className="flex items-center gap-1">
+            <div className="h-6 w-6 rounded bg-brand-navy" />
+            <div className="h-6 w-6 rounded bg-brand-cyan" />
+            <div className="h-6 w-6 rounded bg-brand-orange" />
+          </Link>
 
-      {/* Hero Section */}
-      <section className="px-4 py-8 md:px-8 md:py-12 lg:px-16 lg:py-16">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-6 flex items-center gap-3">
-            <Shield className="h-10 w-10 text-[#1E3A5F] md:h-12 md:w-12 lg:h-14 lg:w-14" />
-            <h1 className="text-3xl font-bold text-foreground md:text-4xl lg:text-5xl xl:text-6xl">
-              What on-site security does validator.com use?
-            </h1>
-          </div>
+          <nav className="hidden items-center gap-8 md:flex">
+            <Link
+              href="/#staking"
+              className="text-base font-medium text-foreground transition-colors hover:text-muted-foreground"
+            >
+              Stake
+            </Link>
+            <Link
+              href="/#rewards"
+              className="text-base font-medium text-foreground transition-colors hover:text-muted-foreground"
+            >
+              Calculator
+            </Link>
+            <Link
+              href="/#team"
+              className="text-base font-medium text-foreground transition-colors hover:text-muted-foreground"
+            >
+              Team
+            </Link>
+            <Link
+              href="/blog"
+              className="text-base font-medium text-foreground transition-colors hover:text-muted-foreground"
+            >
+              Blog
+            </Link>
+            <Link
+              href="https://docs.validator.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-base font-medium text-foreground transition-colors hover:text-muted-foreground"
+            >
+              Docs
+            </Link>
+          </nav>
+
+          <Link
+            href="/#staking"
+            className="rounded-3xl bg-brand-orange px-6 py-2 font-bold text-white shadow-2xl transition-colors hover:bg-brand-orange-hover"
+          >
+            Stake Now
+          </Link>
         </div>
-      </section>
+      </header>
 
-      {/* Security Sections */}
-      <section className="px-4 pb-16 md:px-8 lg:px-16">
-        <div className="mx-auto max-w-6xl space-y-8 md:space-y-12">
-          {/* ServeTheWorld - Oslo, Norway */}
-          <div className="rounded-2xl border-2 border-[#1E3A5F] bg-white p-6 shadow-lg md:p-8 lg:p-10">
-            <div className="mb-6 flex items-start gap-4">
-              <Server className="mt-1 h-8 w-8 flex-shrink-0 text-[#1E3A5F] md:h-10 md:w-10" />
-              <div>
-                <h2 className="mb-2 text-2xl font-bold text-[#1E3A5F] md:text-3xl lg:text-4xl">
-                  ServeTheWorld - Oslo, Norway
-                </h2>
-                <p className="text-base leading-relaxed text-gray-700 md:text-lg">
-                  We use ServeTheWorld as our primary validator partner, with our hardware hosted in their high-security
-                  data centre in Oslo, Norway.
-                </p>
+      <main className="px-4 py-16 md:px-8 md:py-24 lg:px-15">
+        <article className="mx-auto max-w-3xl">
+          <Link
+            href="/"
+            className="mb-12 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Back to home
+          </Link>
+
+          <p className="text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground">
+            Security
+          </p>
+          <h1 className="mt-3 break-words text-4xl font-bold leading-[1.08] tracking-tight text-foreground md:text-5xl lg:text-6xl">
+            Where validator.com runs, and how we keep it running.
+          </h1>
+          <p className="mt-6 max-w-prose text-base text-muted-foreground md:text-lg">
+            Validator infrastructure lives in two physically secured data centres in different
+            regions, with automatic failover. Here is who operates each site and what they guarantee.
+          </p>
+
+          <section className="mt-16 border-t border-border pt-12 md:mt-20 md:pt-16">
+            <p className="text-[0.75rem] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+              Primary · Oslo, Norway
+            </p>
+            <h2 className="mt-3 text-3xl font-bold leading-tight text-foreground md:text-4xl">
+              ServeTheWorld
+            </h2>
+            <p className="mt-4 max-w-prose text-base leading-relaxed text-muted-foreground md:text-lg">
+              Our primary validator partner. Our hardware is hosted in their high-security data centre
+              in Oslo under Norwegian jurisdiction.
+            </p>
+
+            <dl className="mt-8 grid gap-y-5">
+              <div className="border-t border-border pt-5">
+                <dt className="text-sm font-semibold text-foreground md:text-base">
+                  24/7 staffed access control
+                </dt>
+                <dd className="mt-1 text-sm text-muted-foreground md:text-base">
+                  Security personnel on site around the clock.
+                </dd>
               </div>
-            </div>
-
-            <div className="space-y-3 pl-0 md:pl-14">
-              <h3 className="mb-4 text-lg font-semibold text-[#1E3A5F] md:text-xl">They provide:</h3>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <Lock className="mt-1 h-5 w-5 flex-shrink-0 text-[#1E3A5F]" />
-                  <span className="text-base leading-relaxed text-gray-700 md:text-lg">
-                    24/7 staffed access control and on-site security personnel
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Lock className="mt-1 h-5 w-5 flex-shrink-0 text-[#1E3A5F]" />
-                  <span className="text-base leading-relaxed text-gray-700 md:text-lg">
-                    Biometric access (facial recognition) plus secured entry perimeters
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Lock className="mt-1 h-5 w-5 flex-shrink-0 text-[#1E3A5F]" />
-                  <span className="text-base leading-relaxed text-gray-700 md:text-lg">
-                    Redundant power (dual feeds, UPS & generator backup) and environmental controls (fire suppression,
-                    HVAC)
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Lock className="mt-1 h-5 w-5 flex-shrink-0 text-[#1E3A5F]" />
-                  <span className="text-base leading-relaxed text-gray-700 md:text-lg">
-                    Controlled physical access and strong location security under Norwegian law
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Latitude.sh - Singapore */}
-          <div className="rounded-2xl border-2 border-[#00BCD4] bg-white p-6 shadow-lg md:p-8 lg:p-10">
-            <div className="mb-6 flex items-start gap-4">
-              <Server className="mt-1 h-8 w-8 flex-shrink-0 text-[#00BCD4] md:h-10 md:w-10" />
-              <div>
-                <h2 className="mb-2 text-2xl font-bold text-[#00BCD4] md:text-3xl lg:text-4xl">
-                  Latitude.sh - Singapore
-                </h2>
-                <p className="text-base leading-relaxed text-gray-700 md:text-lg">
-                  As a backup we also host hardware with Latitude.sh in Singapore, ensuring global redundancy and
-                  fail-over capability.
-                </p>
+              <div className="border-t border-border pt-5">
+                <dt className="text-sm font-semibold text-foreground md:text-base">
+                  Biometric facial recognition entry
+                </dt>
+                <dd className="mt-1 text-sm text-muted-foreground md:text-base">
+                  Combined with secured entry perimeters across the facility.
+                </dd>
               </div>
-            </div>
+              <div className="border-t border-border pt-5">
+                <dt className="text-sm font-semibold text-foreground md:text-base">
+                  Redundant power and environmental controls
+                </dt>
+                <dd className="mt-1 text-sm text-muted-foreground md:text-base">
+                  Dual power feeds, UPS plus generator backup, fire suppression, and HVAC.
+                </dd>
+              </div>
+              <div className="border-t border-border pt-5">
+                <dt className="text-sm font-semibold text-foreground md:text-base">
+                  Controlled physical access under Norwegian law
+                </dt>
+                <dd className="mt-1 text-sm text-muted-foreground md:text-base">
+                  Strong location security and data-protection standards.
+                </dd>
+              </div>
+            </dl>
+          </section>
 
-            <div className="space-y-3 pl-0 md:pl-14">
-              <h3 className="mb-4 text-lg font-semibold text-[#00BCD4] md:text-xl">The Latitude.sh site offers:</h3>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <Lock className="mt-1 h-5 w-5 flex-shrink-0 text-[#00BCD4]" />
-                  <span className="text-base leading-relaxed text-gray-700 md:text-lg">
-                    A globally distributed data-centre network (including Singapore) allowing rapid deployment and high
-                    reliability
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Lock className="mt-1 h-5 w-5 flex-shrink-0 text-[#00BCD4]" />
-                  <span className="text-base leading-relaxed text-gray-700 md:text-lg">
-                    Strong physical security policies — their "Security at Latitude.sh" documentation outlines robust
-                    information security governance (confidentiality, integrity, availability) for staff, partners, and
-                    hardware
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Lock className="mt-1 h-5 w-5 flex-shrink-0 text-[#00BCD4]" />
-                  <span className="text-base leading-relaxed text-gray-700 md:text-lg">
-                    Infrastructure built for secure workloads: private networking options, DDoS protection and network
-                    isolation support
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+          <section className="mt-16 border-t border-border pt-12 md:mt-20 md:pt-16">
+            <p className="text-[0.75rem] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+              Failover · Singapore
+            </p>
+            <h2 className="mt-3 text-3xl font-bold leading-tight text-foreground md:text-4xl">
+              Latitude.sh
+            </h2>
+            <p className="mt-4 max-w-prose text-base leading-relaxed text-muted-foreground md:text-lg">
+              Secondary hardware hosted with Latitude.sh in Singapore. Provides global redundancy and
+              fail-over capacity if the Oslo site is affected.
+            </p>
+
+            <dl className="mt-8 grid gap-y-5">
+              <div className="border-t border-border pt-5">
+                <dt className="text-sm font-semibold text-foreground md:text-base">
+                  Globally distributed data-centre network
+                </dt>
+                <dd className="mt-1 text-sm text-muted-foreground md:text-base">
+                  Including the Singapore presence, for rapid deployment and high reliability.
+                </dd>
+              </div>
+              <div className="border-t border-border pt-5">
+                <dt className="text-sm font-semibold text-foreground md:text-base">
+                  Information security governance
+                </dt>
+                <dd className="mt-1 text-sm text-muted-foreground md:text-base">
+                  Their &ldquo;Security at Latitude.sh&rdquo; policy covers confidentiality,
+                  integrity, and availability for staff, partners, and hardware.
+                </dd>
+              </div>
+              <div className="border-t border-border pt-5">
+                <dt className="text-sm font-semibold text-foreground md:text-base">
+                  Infrastructure built for secure workloads
+                </dt>
+                <dd className="mt-1 text-sm text-muted-foreground md:text-base">
+                  Private networking, DDoS protection, and network isolation support.
+                </dd>
+              </div>
+            </dl>
+          </section>
+
+          <p className="mt-20 max-w-prose border-t border-border pt-8 text-sm text-muted-foreground md:text-base">
+            Questions about our operational security?{" "}
+            <Link
+              href="/contact"
+              className="font-medium text-foreground underline decoration-muted-foreground/40 underline-offset-4 transition-colors hover:decoration-foreground"
+            >
+              Contact the team
+            </Link>
+            .
+          </p>
+        </article>
+      </main>
 
       <Footer />
     </div>
