@@ -67,26 +67,22 @@ export function BlogContent({ initialPosts, categories }: BlogContentProps) {
         selectedCategory={selectedCategory}
       />
 
-      {/* Blog Posts Grid */}
       {loading ? (
-        <div className="flex min-h-[400px] items-center justify-center">
-          <div className="text-center">
-            <div className="mb-4 inline-block h-12 w-12 animate-spin rounded-full border-4 border-brand-cyan border-t-transparent" />
-            <p className="text-muted-foreground">Loading posts...</p>
-          </div>
+        <div className="flex min-h-[400px] items-center" aria-live="polite" role="status">
+          <p className="text-sm font-medium uppercase tracking-[0.14em] text-muted-foreground">
+            Loading posts…
+          </p>
         </div>
       ) : posts.length === 0 ? (
-        <div className="flex min-h-[400px] items-center justify-center">
-          <div className="text-center">
-            <p className="text-xl text-muted-foreground">
-              {searchQuery || selectedCategory
-                ? "No posts found matching your criteria."
-                : "No blog posts available yet."}
-            </p>
-          </div>
+        <div className="flex min-h-[400px] items-center" aria-live="polite" role="status">
+          <p className="max-w-prose text-base text-muted-foreground md:text-lg">
+            {searchQuery || selectedCategory
+              ? "No posts match that search or filter yet."
+              : "Nothing published yet. Check back soon."}
+          </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-x-10 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
             <BlogCard key={post._id} post={post} />
           ))}

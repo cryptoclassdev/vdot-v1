@@ -23,25 +23,29 @@ export function SearchFilter({ categories, onSearch, onCategoryChange, selectedC
   }
 
   return (
-    <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-      {/* Search Input */}
-      <div className="relative flex-1 md:max-w-md">
-        <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
+    <div className="mb-14 flex flex-col gap-6 border-b border-border pb-8 md:flex-row md:items-center md:justify-between md:gap-10">
+      <div className="relative flex-1 md:max-w-sm">
+        <Search
+          className="absolute left-0 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
+          aria-hidden="true"
+        />
         <input
           type="text"
-          placeholder="Search articles..."
+          placeholder="Search"
           value={searchQuery}
           onChange={handleSearchChange}
-          className="w-full rounded-full border border-border bg-background py-3 pl-12 pr-4 text-foreground placeholder:text-muted-foreground focus:border-brand-cyan focus:outline-none focus:ring-2 focus:ring-brand-cyan/20"
+          aria-label="Search blog posts"
+          className="w-full border-b border-transparent bg-transparent py-2 pl-6 pr-4 text-base text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-brand-orange"
         />
       </div>
 
-      {/* Category Filter */}
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by category">
         <button
           onClick={() => onCategoryChange("")}
-          className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
-            selectedCategory === "" ? "bg-brand-cyan text-white" : "bg-muted text-foreground hover:bg-muted/80"
+          className={`rounded-full px-3 py-1.5 text-xs font-medium uppercase tracking-[0.14em] transition-colors ${
+            selectedCategory === ""
+              ? "bg-foreground text-background"
+              : "text-muted-foreground hover:text-foreground"
           }`}
         >
           All
@@ -50,10 +54,10 @@ export function SearchFilter({ categories, onSearch, onCategoryChange, selectedC
           <button
             key={category._id}
             onClick={() => onCategoryChange(category.slug.current)}
-            className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+            className={`rounded-full px-3 py-1.5 text-xs font-medium uppercase tracking-[0.14em] transition-colors ${
               selectedCategory === category.slug.current
-                ? "bg-brand-cyan text-white"
-                : "bg-muted text-foreground hover:bg-muted/80"
+                ? "bg-foreground text-background"
+                : "text-muted-foreground hover:text-foreground"
             }`}
           >
             {category.title}

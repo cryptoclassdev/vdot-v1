@@ -64,30 +64,21 @@ export default async function BlogPage() {
         </div>
       </header>
 
-      {/* Blog Content */}
-      <main className="px-4 py-20 md:px-8 lg:px-15">
+      <main className="px-4 py-24 md:px-8 md:py-32 lg:px-15">
         <div className="mx-auto max-w-7xl">
-          {/* Logo Section */}
-          <div className="mb-12 flex flex-col items-center gap-4">
-            {/* Three colored squares logo */}
-            <div className="flex items-center gap-2">
-              <div className="h-8 w-8 rounded-lg bg-brand-navy md:h-10 md:w-10" />
-              <div className="h-8 w-8 rounded-lg bg-brand-cyan md:h-10 md:w-10" />
-              <div className="h-8 w-8 rounded-lg bg-brand-orange md:h-10 md:w-10" />
-            </div>
-            {/* Brand name */}
-            <h2 className="text-2xl font-bold text-foreground md:text-3xl">validator.com</h2>
-          </div>
-
-          {/* Page Header */}
-          <div className="mb-12 text-center">
-            <h1 className="mb-4 text-5xl font-bold text-foreground md:text-6xl lg:text-7xl">Blog</h1>
-            <p className="text-lg text-muted-foreground md:text-xl">
-              Insights, updates, and stories from the validator.com team
+          <div className="mb-16 max-w-3xl md:mb-20">
+            <p className="text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground">
+              Writing
+            </p>
+            <h1 className="mt-3 break-words text-5xl font-bold leading-[1.05] tracking-tight text-foreground md:text-7xl lg:text-8xl">
+              Notes from the validator.
+            </h1>
+            <p className="mt-6 max-w-prose text-base text-muted-foreground md:text-lg">
+              Operator notes, Solana ecosystem research, and occasional tutorials from the team
+              running validator.com.
             </p>
           </div>
 
-          {/* Interactive Blog Content (Client Component) */}
           <BlogContent initialPosts={posts} categories={categories} />
         </div>
       </main>

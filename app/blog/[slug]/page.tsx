@@ -90,56 +90,51 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
       </header>
 
-      {/* Blog Post Content */}
-      <main className="px-4 py-12 md:px-8 lg:px-15">
-        <article className="mx-auto max-w-4xl">
-          {/* Back Button */}
+      <main className="px-4 py-16 md:px-8 md:py-24 lg:px-15">
+        <article className="mx-auto max-w-3xl">
           <Link
             href="/blog"
-            className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-brand-cyan transition-colors hover:text-brand-cyan/80"
+            className="mb-12 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to Blog
+            Back to writing
           </Link>
 
-          {/* Categories */}
           {post.categories && post.categories.length > 0 && (
-            <div className="mb-4 flex flex-wrap gap-2">
-              {post.categories.map((category) => (
-                <span
-                  key={category._id}
-                  className="rounded-full bg-brand-cyan/10 px-3 py-1 text-sm font-semibold text-brand-cyan"
-                >
-                  {category.title}
+            <div className="mb-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[0.7rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+              {post.categories.map((category, i) => (
+                <span key={category._id} className="flex items-center gap-3">
+                  {i > 0 && <span aria-hidden="true" className="text-muted-foreground/50">·</span>}
+                  <span>{category.title}</span>
                 </span>
               ))}
             </div>
           )}
 
-          {/* Title */}
-          <h1 className="mb-6 text-4xl font-bold text-foreground md:text-5xl lg:text-6xl">{post.title}</h1>
+          <h1 className="mb-8 break-words text-4xl font-bold leading-[1.08] tracking-tight text-foreground md:text-5xl lg:text-6xl">
+            {post.title}
+          </h1>
 
-          {/* Meta */}
-          <div className="mb-8 flex items-center gap-4 text-muted-foreground">
+          <div className="mb-12 flex items-center gap-4 text-sm text-muted-foreground">
             {post.author && (
               <>
                 <div className="flex items-center gap-3">
                   {post.author.image && (
                     <Image
-                      src={urlFor(post.author.image).width(48).height(48).url() || "/placeholder.svg"}
+                      src={urlFor(post.author.image).width(40).height(40).url() || "/placeholder.svg"}
                       alt={post.author.name}
-                      width={48}
-                      height={48}
-                      sizes="48px"
+                      width={40}
+                      height={40}
+                      sizes="40px"
                       className="rounded-full"
                     />
                   )}
-                  <span className="font-semibold text-foreground">{post.author.name}</span>
+                  <span className="font-medium text-foreground">{post.author.name}</span>
                 </div>
-                <span>•</span>
+                <span aria-hidden="true" className="text-muted-foreground/50">·</span>
               </>
             )}
-            <time dateTime={post.publishedAt}>{format(new Date(post.publishedAt), "MMMM dd, yyyy")}</time>
+            <time dateTime={post.publishedAt}>{format(new Date(post.publishedAt), "MMMM d, yyyy")}</time>
           </div>
 
           {/* Featured Image */}
