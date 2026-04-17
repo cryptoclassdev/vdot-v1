@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { ChevronDown } from "lucide-react"
 import { Footer } from "@/components/Footer"
+import { SiteHeader } from "@/components/SiteHeader"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { LazyLoadVideo } from "@/components/LazyLoadVideo"
 import { CountUp } from "@/components/motion/CountUp"
@@ -131,70 +132,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Navigation Header */}
-      <header className="sticky top-0 z-50 border-border bg-background">
-        <div className="flex items-center justify-between px-4 py-4 lg:px-8">
-          {/* Logo - Using semantic brand color tokens */}
-          <Link href="/" className="flex items-center gap-1">
-            <span className="relative inline-block">
-              <div className="h-6 w-6 rounded bg-brand-navy" />
-            </span>
-            <div className="h-6 w-6 rounded bg-brand-cyan" />
-            <div className="h-6 w-6 rounded bg-brand-orange" />
-          </Link>
-
-          <nav className="hidden items-center gap-8 md:flex">
-            <Link
-              href="#staking"
-              className="text-base font-medium text-foreground transition-colors hover:text-muted-foreground"
-            >
-              Stake
-            </Link>
-            <Link
-              href="#rewards"
-              className="text-base font-medium text-foreground transition-colors hover:text-muted-foreground"
-            >
-              Calculator
-            </Link>
-            <Link
-              href="#team"
-              className="text-base font-medium text-foreground transition-colors hover:text-muted-foreground"
-            >
-              Team
-            </Link>
-            <Link
-              href="/blog"
-              className="text-base font-medium text-foreground transition-colors hover:text-muted-foreground"
-            >
-              Blog
-            </Link>
-            <Link
-              href="https://docs.validator.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-base font-medium text-foreground transition-colors hover:text-muted-foreground"
-            >
-              Docs
-            </Link>
-          </nav>
-
-          {/* CTA Button - Using brand orange token */}
-          <Link
-            href="#staking"
-            onClick={(e) => {
-              e.preventDefault()
-              const stakingSection = document.getElementById("staking")
-              if (stakingSection) {
-                stakingSection.scrollIntoView({ behavior: "smooth" })
-              }
-            }}
-          >
-            <Button className="bg-brand-orange rounded-3xl font-bold shadow-2xl text-white hover:bg-brand-orange-hover">
-              Stake Now
-            </Button>
-          </Link>
-        </div>
-      </header>
+      <SiteHeader currentPath="/" />
 
       {/* Hero Section */}
       <section className="relative flex min-h-screen items-center justify-center bg-background px-4 py-20 md:px-8 lg:px-15">

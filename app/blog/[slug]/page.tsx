@@ -8,6 +8,7 @@ import { getPostBySlug, getAllPosts, getCommentsByPostId } from "@/lib/sanity.qu
 import { urlFor } from "@/lib/sanity"
 import { portableTextComponents } from "@/components/blog/PortableTextComponents"
 import { Footer } from "@/components/Footer"
+import { SiteHeader } from "@/components/SiteHeader"
 import { CommentForm } from "@/components/blog/CommentForm"
 import { CommentList } from "@/components/blog/CommentList"
 
@@ -38,57 +39,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Navigation Header */}
-      <header className="sticky top-0 z-50 border-b border-border bg-background">
-        <div className="flex items-center justify-between px-4 py-4 lg:px-8">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-1">
-            <div className="h-6 w-6 rounded bg-brand-navy" />
-            <div className="h-6 w-6 rounded bg-brand-cyan" />
-            <div className="h-6 w-6 rounded bg-brand-orange" />
-          </Link>
-
-          <nav className="hidden items-center gap-8 md:flex">
-            <Link
-              href="/#staking"
-              className="text-base font-medium text-foreground transition-colors hover:text-muted-foreground"
-            >
-              Stake
-            </Link>
-            <Link
-              href="/#rewards"
-              className="text-base font-medium text-foreground transition-colors hover:text-muted-foreground"
-            >
-              Calculator
-            </Link>
-            <Link
-              href="/#team"
-              className="text-base font-medium text-foreground transition-colors hover:text-muted-foreground"
-            >
-              Team
-            </Link>
-            <Link href="/blog" className="text-base font-medium text-foreground underline decoration-brand-orange decoration-2 underline-offset-8 transition-colors hover:text-muted-foreground">
-              Blog
-            </Link>
-            <Link
-              href="https://docs.validator.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-base font-medium text-foreground transition-colors hover:text-muted-foreground"
-            >
-              Docs
-            </Link>
-          </nav>
-
-          {/* CTA Button */}
-          <Link
-            href="/"
-            className="rounded-3xl bg-brand-orange px-6 py-2 font-bold text-white shadow-2xl transition-colors hover:bg-brand-orange/90"
-          >
-            Stake Now
-          </Link>
-        </div>
-      </header>
+      <SiteHeader currentPath="/blog" />
 
       <main className="px-4 py-16 md:px-8 md:py-24 lg:px-15">
         <article className="mx-auto max-w-3xl">
