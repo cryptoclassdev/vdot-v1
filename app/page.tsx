@@ -33,32 +33,46 @@ export default function Home() {
     commission: number
     uptime: number
   }>({
-    activeStake: 510181, // Fallback — overwritten by live Stakewiz data
+    activeStake: 510181, // Reference values; replaced by live Stakewiz data on mount.
     apy: 8.2,
     commission: 5,
     uptime: 100,
   })
+  const [validatorDataStatus, setValidatorDataStatus] = useState<"loading" | "live" | "fallback">("loading")
+  const [validatorDataUpdatedAt, setValidatorDataUpdatedAt] = useState<Date | null>(null)
 
   useEffect(() => {
+    const controller = new AbortController()
     const fetchValidatorData = async () => {
       try {
-        const response = await fetch("https://api.stakewiz.com/validator/Va1idkzkB6LEmVFmxWbWU8Ao9qehC62Tjmf68L3uYKj")
+        const response = await fetch(
+          "https://api.stakewiz.com/validator/Va1idkzkB6LEmVFmxWbWU8Ao9qehC62Tjmf68L3uYKj",
+          { signal: controller.signal },
+        )
+        if (!response.ok) throw new Error(`stakewiz responded ${response.status}`)
         const data = await response.json()
 
-        if (data.activated_stake && data.total_apy) {
+        if (typeof data.activated_stake === "number" && typeof data.total_apy === "number") {
           setValidatorData({
             activeStake: Math.round(data.activated_stake),
             apy: Number.parseFloat(data.total_apy.toFixed(1)),
             commission: typeof data.commission === "number" ? data.commission : 5,
             uptime: typeof data.uptime === "number" ? Number.parseFloat(data.uptime.toFixed(2)) : 100,
           })
+          setValidatorDataStatus("live")
+          setValidatorDataUpdatedAt(new Date())
+        } else {
+          setValidatorDataStatus("fallback")
         }
       } catch (error) {
-        console.error("Failed to fetch validator data:", error)
+        if ((error as { name?: string }).name === "AbortError") return
+        console.error("Failed to fetch validator data from stakewiz:", error)
+        setValidatorDataStatus("fallback")
       }
     }
 
     fetchValidatorData()
+    return () => controller.abort()
   }, [])
 
   const formatNumber = (num: number) => {
@@ -81,20 +95,32 @@ export default function Home() {
     setActiveLinkCard(null)
   }
 
-  const handleSolInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.replace(/,/g, "") // Remove commas for parsing
-    const numValue = Number.parseFloat(value)
+  const MAX_SOL_INPUT = 10_000_000 // Hard ceiling far beyond any realistic personal delegation
 
-    if (!isNaN(numValue) && numValue >= 0) {
-      setSolAmount(numValue)
-    } else if (value === "") {
+  const handleSolInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.replace(/,/g, "")
+    if (value === "") {
       setSolAmount(0)
+      return
     }
+    const numValue = Number.parseFloat(value)
+    if (Number.isNaN(numValue) || numValue < 0) return
+    setSolAmount(Math.min(numValue, MAX_SOL_INPUT))
   }
 
   const calculateYearlyRewards = () => {
     return ((solAmount * validatorData.apy) / 100).toFixed(2)
   }
+
+  const validatorDataProvenance = (() => {
+    if (validatorDataStatus === "live" && validatorDataUpdatedAt) {
+      return `Live data from stakewiz.com, refreshed on each visit.`
+    }
+    if (validatorDataStatus === "fallback") {
+      return `Showing reference values — live data from stakewiz.com is temporarily unavailable.`
+    }
+    return `Loading current data from stakewiz.com…`
+  })()
 
   return (
     <div className="min-h-screen bg-background">
@@ -263,8 +289,28 @@ export default function Home() {
             </div>
           </dl>
 
-          <p className="mt-16 max-w-prose text-sm text-muted-foreground md:text-base">
-            Live data from{" "}
+          <p
+            className="mt-16 max-w-prose text-sm text-muted-foreground md:text-base"
+            aria-live="polite"
+            role="status"
+          >
+            <span
+              className="mr-2 inline-flex items-center gap-1.5 align-middle text-[0.7rem] font-medium uppercase tracking-[0.14em]"
+              aria-label={`Data status: ${validatorDataStatus}`}
+            >
+              <span
+                className={`h-1.5 w-1.5 rounded-full ${
+                  validatorDataStatus === "live"
+                    ? "bg-brand-orange"
+                    : validatorDataStatus === "fallback"
+                      ? "bg-muted-foreground"
+                      : "bg-muted-foreground/50 animate-pulse"
+                }`}
+                aria-hidden="true"
+              />
+              {validatorDataStatus === "live" ? "Live" : validatorDataStatus === "fallback" ? "Cached" : "Syncing"}
+            </span>
+            {validatorDataProvenance.replace("stakewiz.com", "")}
             <a
               href="https://stakewiz.com/validator/Va1idkzkB6LEmVFmxWbWU8Ao9qehC62Tjmf68L3uYKj"
               target="_blank"
