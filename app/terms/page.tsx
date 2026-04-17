@@ -1,33 +1,50 @@
-"use client"
 import Link from "next/link"
+import { ArrowLeft } from "lucide-react"
 import { Footer } from "@/components/Footer"
 
 export default function TermsOfUse() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Navigation Header */}
-      <header className="sticky top-0 z-50 border-border bg-background">
+      <header className="sticky top-0 z-50 border-b border-border bg-background">
         <div className="flex items-center justify-between px-4 py-4 lg:px-8">
-          {/* Logo */}
           <Link href="/" className="flex items-center gap-1">
             <div className="h-6 w-6 rounded bg-brand-navy" />
             <div className="h-6 w-6 rounded bg-brand-cyan" />
             <div className="h-6 w-6 rounded bg-brand-orange" />
           </Link>
 
-          {/* Back to Home */}
-          <button
-            onClick={() => window.history.back()}
-            className="text-sm font-bold text-foreground transition-colors hover:text-muted-foreground"
+          <nav className="hidden items-center gap-8 md:flex">
+            <Link href="/#staking" className="text-base font-medium text-foreground transition-colors hover:text-muted-foreground">Stake</Link>
+            <Link href="/#rewards" className="text-base font-medium text-foreground transition-colors hover:text-muted-foreground">Calculator</Link>
+            <Link href="/#team" className="text-base font-medium text-foreground transition-colors hover:text-muted-foreground">Team</Link>
+            <Link href="/blog" className="text-base font-medium text-foreground transition-colors hover:text-muted-foreground">Blog</Link>
+            <Link href="https://docs.validator.com/" target="_blank" rel="noopener noreferrer" className="text-base font-medium text-foreground transition-colors hover:text-muted-foreground">Docs</Link>
+          </nav>
+
+          <Link
+            href="/#staking"
+            className="rounded-3xl bg-brand-orange px-6 py-2 font-bold text-white shadow-2xl transition-colors hover:bg-brand-orange-hover"
           >
-            Back
-          </button>
+            Stake Now
+          </Link>
         </div>
       </header>
 
-      {/* Terms Content */}
-      <main className="mx-auto max-w-4xl px-4 py-12 md:px-8 md:py-16 lg:py-20">
-        <h1 className="mb-8 text-4xl font-bold text-foreground md:text-5xl lg:text-6xl">Terms of Use</h1>
+      <main className="mx-auto max-w-3xl px-4 py-16 md:px-8 md:py-24 lg:px-15">
+        <Link
+          href="/"
+          className="mb-12 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Back to home
+        </Link>
+
+        <p className="text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground">
+          Legal
+        </p>
+        <h1 className="mb-10 mt-3 text-4xl font-bold leading-[1.08] tracking-tight text-foreground md:text-5xl lg:text-6xl">
+          Terms of Use
+        </h1>
 
         <div className="space-y-8 text-foreground">
           <section>
@@ -145,7 +162,7 @@ export default function TermsOfUse() {
             <p className="leading-relaxed">
               Provider's Privacy Policy applies to use of this Site, and its terms are made a part of these Terms of Use
               by this reference. To view Provider's Privacy Policy, click{" "}
-              <a href="https://validator.com/pagepp" className="text-brand-cyan hover:underline">
+              <a href="https://validator.com/pagepp" className="font-medium text-foreground underline decoration-muted-foreground/40 underline-offset-4 transition-colors hover:decoration-foreground">
                 here
               </a>
               . Additionally, by using the Web Site, you acknowledge and agree that Internet transmissions are never
@@ -192,14 +209,14 @@ export default function TermsOfUse() {
           </section>
         </div>
 
-        {/* Back to Home Button */}
-        <div className="mt-12 text-center">
-          <button
-            onClick={() => window.history.back()}
-            className="inline-block rounded-3xl bg-brand-orange px-8 py-3 font-bold text-white shadow-2xl transition-colors hover:bg-brand-orange-hover"
+        <div className="mt-16 border-t border-border pt-8">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
-            Back
-          </button>
+            <ArrowLeft className="h-4 w-4" />
+            Back to home
+          </Link>
         </div>
       </main>
 
