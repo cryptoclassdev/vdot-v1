@@ -11,6 +11,7 @@ import { ChevronDown } from "lucide-react"
 import { Footer } from "@/components/Footer"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { LazyLoadVideo } from "@/components/LazyLoadVideo"
+import { CountUp } from "@/components/motion/CountUp"
 import { blobAssets } from "@/lib/assets"
 
 export default function Home() {
@@ -193,22 +194,30 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative flex min-h-screen items-center justify-center bg-background px-4 py-20 md:px-8 lg:px-15">
         <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* Left side - Brand elements and text */}
           <div className="flex flex-col items-center space-y-8">
-            {/* Three colored squares logo */}
-            <div className="flex items-center gap-3">
-              <span className="relative inline-block">
-                <div className="h-20 w-20 rounded-2xl bg-brand-navy sm:h-24 sm:w-24 md:h-28 md:w-28" />
-              </span>
+            <div
+              data-reveal
+              className="flex items-center gap-3"
+              style={{ ["--reveal-delay" as string]: "0ms" }}
+            >
+              <div className="h-20 w-20 rounded-2xl bg-brand-navy sm:h-24 sm:w-24 md:h-28 md:w-28" />
               <div className="h-20 w-20 rounded-2xl bg-brand-cyan sm:h-24 sm:w-24 md:h-28 md:w-28" />
               <div className="h-20 w-20 rounded-2xl bg-brand-orange sm:h-24 sm:w-24 md:h-28 md:w-28" />
             </div>
 
             <div className="w-full space-y-5 text-center lg:text-left">
-              <h1 className="whitespace-nowrap text-5xl font-bold leading-[1.02] tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-[4.5rem] xl:text-[5rem]">
+              <h1
+                data-reveal
+                style={{ ["--reveal-delay" as string]: "120ms" }}
+                className="whitespace-nowrap text-5xl font-bold leading-[1.02] tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-[4.5rem] xl:text-[5rem]"
+              >
                 validator.com
               </h1>
-              <p className="mx-auto max-w-xl text-lg font-medium text-muted-foreground sm:text-xl md:text-2xl lg:mx-0">
+              <p
+                data-reveal
+                style={{ ["--reveal-delay" as string]: "260ms" }}
+                className="mx-auto max-w-xl text-lg font-medium text-muted-foreground sm:text-xl md:text-2xl lg:mx-0"
+              >
                 A Solana validator. Operated transparently since 2022.
               </p>
             </div>
@@ -249,7 +258,10 @@ export default function Home() {
                 Active stake
               </dt>
               <dd className="mt-3 flex items-baseline gap-1.5 text-4xl font-bold tabular-nums leading-none text-foreground md:text-5xl lg:text-6xl">
-                {formatNumber(validatorData.activeStake)}
+                <CountUp
+                  value={validatorData.activeStake}
+                  format={(n) => formatNumber(Math.round(n))}
+                />
                 <span className="text-lg font-medium text-muted-foreground md:text-xl lg:text-2xl">
                   SOL
                 </span>
@@ -260,7 +272,7 @@ export default function Home() {
                 Annual yield
               </dt>
               <dd className="mt-3 flex items-baseline gap-1.5 text-4xl font-bold tabular-nums leading-none text-foreground md:text-5xl lg:text-6xl">
-                {validatorData.apy}
+                <CountUp value={validatorData.apy} format={(n) => n.toFixed(1)} />
                 <span className="text-lg font-medium text-muted-foreground md:text-xl lg:text-2xl">
                   %
                 </span>
@@ -271,7 +283,7 @@ export default function Home() {
                 Commission
               </dt>
               <dd className="mt-3 flex items-baseline gap-1.5 text-4xl font-bold tabular-nums leading-none text-foreground md:text-5xl lg:text-6xl">
-                {validatorData.commission}
+                <CountUp value={validatorData.commission} format={(n) => Math.round(n).toString()} />
                 <span className="text-lg font-medium text-muted-foreground md:text-xl lg:text-2xl">
                   %
                 </span>
@@ -282,7 +294,7 @@ export default function Home() {
                 Uptime
               </dt>
               <dd className="mt-3 flex items-baseline gap-1.5 text-4xl font-bold tabular-nums leading-none text-foreground md:text-5xl lg:text-6xl">
-                {validatorData.uptime}
+                <CountUp value={validatorData.uptime} format={(n) => n.toFixed(1)} />
                 <span className="text-lg font-medium text-muted-foreground md:text-xl lg:text-2xl">
                   %
                 </span>

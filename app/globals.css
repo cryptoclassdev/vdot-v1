@@ -231,3 +231,49 @@
     scroll-behavior: smooth;
   }
 }
+
+/* ---------------------------------------------------------------
+   Motion — two earned moments.
+   1. [data-reveal] — hero stagger rise on mount. Children set
+      --reveal-delay via inline style for sequencing.
+   2. CountUp — stat numerals tween from 0 to live value on first
+      viewport entry. Implemented via requestAnimationFrame in
+      components/motion/CountUp.tsx.
+
+   Both respect prefers-reduced-motion.
+--------------------------------------------------------------- */
+@keyframes reveal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(0.75rem);
+  animation: reveal-rise 0.9s cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
