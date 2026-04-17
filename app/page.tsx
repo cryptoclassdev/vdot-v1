@@ -243,14 +243,14 @@ export default function Home() {
             The validator, by the numbers
           </p>
 
-          <dl className="mt-12 grid gap-x-8 gap-y-14 sm:grid-cols-2 md:mt-16 lg:grid-cols-4">
+          <dl className="mt-12 grid gap-x-8 gap-y-14 sm:grid-cols-2 md:mt-16 xl:grid-cols-4">
             <div>
               <dt className="text-[0.75rem] font-medium uppercase tracking-[0.14em] text-muted-foreground">
                 Active stake
               </dt>
-              <dd className="mt-3 flex items-baseline gap-1.5 text-5xl font-bold tabular-nums leading-none text-foreground md:text-6xl lg:text-7xl">
+              <dd className="mt-3 flex items-baseline gap-1.5 text-4xl font-bold tabular-nums leading-none text-foreground md:text-5xl lg:text-6xl">
                 {formatNumber(validatorData.activeStake)}
-                <span className="text-xl font-medium text-muted-foreground md:text-2xl lg:text-3xl">
+                <span className="text-lg font-medium text-muted-foreground md:text-xl lg:text-2xl">
                   SOL
                 </span>
               </dd>
@@ -259,9 +259,9 @@ export default function Home() {
               <dt className="text-[0.75rem] font-medium uppercase tracking-[0.14em] text-muted-foreground">
                 Annual yield
               </dt>
-              <dd className="mt-3 flex items-baseline gap-1.5 text-5xl font-bold tabular-nums leading-none text-foreground md:text-6xl lg:text-7xl">
+              <dd className="mt-3 flex items-baseline gap-1.5 text-4xl font-bold tabular-nums leading-none text-foreground md:text-5xl lg:text-6xl">
                 {validatorData.apy}
-                <span className="text-xl font-medium text-muted-foreground md:text-2xl lg:text-3xl">
+                <span className="text-lg font-medium text-muted-foreground md:text-xl lg:text-2xl">
                   %
                 </span>
               </dd>
@@ -270,9 +270,9 @@ export default function Home() {
               <dt className="text-[0.75rem] font-medium uppercase tracking-[0.14em] text-muted-foreground">
                 Commission
               </dt>
-              <dd className="mt-3 flex items-baseline gap-1.5 text-5xl font-bold tabular-nums leading-none text-foreground md:text-6xl lg:text-7xl">
+              <dd className="mt-3 flex items-baseline gap-1.5 text-4xl font-bold tabular-nums leading-none text-foreground md:text-5xl lg:text-6xl">
                 {validatorData.commission}
-                <span className="text-xl font-medium text-muted-foreground md:text-2xl lg:text-3xl">
+                <span className="text-lg font-medium text-muted-foreground md:text-xl lg:text-2xl">
                   %
                 </span>
               </dd>
@@ -281,9 +281,9 @@ export default function Home() {
               <dt className="text-[0.75rem] font-medium uppercase tracking-[0.14em] text-muted-foreground">
                 Uptime
               </dt>
-              <dd className="mt-3 flex items-baseline gap-1.5 text-5xl font-bold tabular-nums leading-none text-foreground md:text-6xl lg:text-7xl">
+              <dd className="mt-3 flex items-baseline gap-1.5 text-4xl font-bold tabular-nums leading-none text-foreground md:text-5xl lg:text-6xl">
                 {validatorData.uptime}
-                <span className="text-xl font-medium text-muted-foreground md:text-2xl lg:text-3xl">
+                <span className="text-lg font-medium text-muted-foreground md:text-xl lg:text-2xl">
                   %
                 </span>
               </dd>
@@ -761,23 +761,16 @@ export default function Home() {
       {/* Delegate in one click section */}
       <section
         id="staking"
-        className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-20 md:px-8 lg:px-15"
-        style={{
-          background: "linear-gradient(180deg, #FFF 31.18%, rgba(0, 0, 0, 0.00) 31.24%), #28C2EC",
-        }}
+        className="relative flex min-h-screen items-center justify-center overflow-hidden bg-muted px-4 py-20 md:px-8 lg:px-15"
       >
         <div className="relative mx-auto h-full w-full max-w-[2188px] sm:h-screen">
           {/* Mobile Layout - Vertical Stack */}
           <div className="flex flex-col items-center justify-start pt-8 sm:hidden">
-            {/* Heading - In white area */}
-            <div className="mb-2 flex items-start gap-2">
-              <div className="flex-1 text-center">
-                <h2 className="mb-2 whitespace-nowrap text-3xl font-bold text-foreground">Delegate in one click</h2>
-              </div>
-              <div className="h-[40px] w-0.5 flex-shrink-0 rounded-full bg-brand-orange" />
+            <div className="mb-2 text-center">
+              <h2 className="mb-2 whitespace-nowrap text-3xl font-bold text-foreground">Delegate in one click</h2>
             </div>
 
-            {/* Subheading and Dropdown - In cyan area */}
+            {/* Subheading and Dropdown */}
             <div className="text-center">
               <p className="mb-3 break-words text-sm font-medium text-muted-foreground">
                 Your coins. Your custody. Your rewards.
@@ -787,7 +780,7 @@ export default function Home() {
                 <div className="relative">
                   <Button
                     onClick={() => setIsWalletDropdownOpen(!isWalletDropdownOpen)}
-                    className="bg-[#DBFF70] rounded-full px-4 py-3 text-xs font-bold text-gray-900 shadow-lg hover:bg-[#c9ed5f] flex items-center gap-2"
+                    className="bg-brand-orange rounded-full px-4 py-3 text-xs font-semibold text-white shadow-lg hover:bg-brand-orange-hover flex items-center gap-2"
                   >
                     {selectedWallet.charAt(0).toUpperCase() + selectedWallet.slice(1)}
                     <ChevronDown
@@ -797,14 +790,14 @@ export default function Home() {
 
                   {/* Wallet Dropdown Menu */}
                   {isWalletDropdownOpen && (
-                    <div className="absolute right-0 top-full mt-2 w-[240px] rounded-2xl bg-white shadow-2xl border-2 border-gray-100 overflow-hidden z-50">
+                    <div className="absolute right-0 top-full mt-2 w-[240px] rounded-2xl bg-card shadow-2xl border border-border overflow-hidden z-50">
                       {/* Phantom */}
                       <button
                         onClick={() => {
                           setSelectedWallet("phantom")
                           setIsWalletDropdownOpen(false)
                         }}
-                        className="w-full flex items-center gap-3 px-5 py-4 hover:bg-purple-50 transition-colors border-b border-gray-100"
+                        className="w-full flex items-center gap-3 px-5 py-4 hover:bg-accent transition-colors border-b border-border"
                       >
                         <div className="flex h-10 w-10 items-center justify-center rounded-lg overflow-hidden">
                           <Image
@@ -825,7 +818,7 @@ export default function Home() {
                           setSelectedWallet("solflare")
                           setIsWalletDropdownOpen(false)
                         }}
-                        className="w-full flex items-center gap-3 px-5 py-4 hover:bg-orange-50 transition-colors border-b border-gray-100"
+                        className="w-full flex items-center gap-3 px-5 py-4 hover:bg-accent transition-colors border-b border-border"
                       >
                         <div className="flex h-10 w-10 items-center justify-center rounded-lg overflow-hidden">
                           <Image
@@ -847,7 +840,7 @@ export default function Home() {
                           setSelectedWallet("backpack")
                           setIsWalletDropdownOpen(false)
                         }}
-                        className="w-full flex items-center gap-3 px-5 py-4 hover:bg-red-50 transition-colors border-b border-gray-100"
+                        className="w-full flex items-center gap-3 px-5 py-4 hover:bg-accent transition-colors border-b border-border"
                       >
                         <div className="flex h-10 w-10 items-center justify-center rounded-lg overflow-hidden">
                           <Image
@@ -925,7 +918,7 @@ export default function Home() {
                   <div className="relative">
                     <Button
                       onClick={() => setIsWalletDropdownOpen(!isWalletDropdownOpen)}
-                      className="bg-[#DBFF70] rounded-full px-4 py-3 text-xs font-bold text-gray-900 shadow-lg hover:bg-[#c9ed5f] sm:px-4 sm:py-3 sm:text-xs md:px-6 md:py-4 md:text-sm lg:px-8 lg:py-5 lg:text-xl 2xl:px-12 2xl:py-7 2xl:text-xl flex items-center gap-2"
+                      className="bg-brand-orange rounded-full px-4 py-3 text-xs font-semibold text-white shadow-lg hover:bg-brand-orange-hover sm:px-4 sm:py-3 sm:text-xs md:px-6 md:py-4 md:text-sm lg:px-8 lg:py-5 lg:text-xl 2xl:px-12 2xl:py-7 2xl:text-xl flex items-center gap-2"
                     >
                       {selectedWallet.charAt(0).toUpperCase() + selectedWallet.slice(1)}
                       <ChevronDown
@@ -935,14 +928,14 @@ export default function Home() {
 
                     {/* Wallet Dropdown Menu */}
                     {isWalletDropdownOpen && (
-                      <div className="absolute right-0 top-full mt-2 w-[240px] sm:w-[240px] md:w-[280px] lg:w-[320px] xl:w-[360px] 2xl:w-[400px] rounded-2xl bg-white shadow-2xl border-2 border-gray-100 overflow-hidden z-50">
+                      <div className="absolute right-0 top-full mt-2 w-[240px] sm:w-[240px] md:w-[280px] lg:w-[320px] xl:w-[360px] 2xl:w-[400px] rounded-2xl bg-card shadow-2xl border border-border overflow-hidden z-50">
                         {/* Phantom */}
                         <button
                           onClick={() => {
                             setSelectedWallet("phantom")
                             setIsWalletDropdownOpen(false)
                           }}
-                          className="w-full flex items-center gap-3 px-5 py-4 sm:px-5 sm:py-4 md:px-6 md:py-5 hover:bg-purple-50 transition-colors border-b border-gray-100"
+                          className="w-full flex items-center gap-3 px-5 py-4 sm:px-5 sm:py-4 md:px-6 md:py-5 hover:bg-accent transition-colors border-b border-border"
                         >
                           <div className="flex h-10 w-10 sm:h-10 sm:w-10 md:h-12 md:w-12 items-center justify-center rounded-lg overflow-hidden">
                             <Image
@@ -965,7 +958,7 @@ export default function Home() {
                             setSelectedWallet("solflare")
                             setIsWalletDropdownOpen(false)
                           }}
-                          className="w-full flex items-center gap-3 px-5 py-4 sm:px-5 sm:py-4 md:px-6 md:py-5 hover:bg-orange-50 transition-colors border-b border-gray-100"
+                          className="w-full flex items-center gap-3 px-5 py-4 sm:px-5 sm:py-4 md:px-6 md:py-5 hover:bg-accent transition-colors border-b border-border"
                         >
                           <div className="flex h-10 w-10 sm:h-10 sm:w-10 md:h-12 md:w-12 items-center justify-center rounded-lg overflow-hidden">
                             <Image
@@ -989,7 +982,7 @@ export default function Home() {
                             setSelectedWallet("backpack")
                             setIsWalletDropdownOpen(false)
                           }}
-                          className="w-full flex items-center gap-3 px-5 py-4 sm:px-5 sm:py-4 md:px-6 md:py-5 hover:bg-red-50 transition-colors border-b border-gray-100"
+                          className="w-full flex items-center gap-3 px-5 py-4 sm:px-5 sm:py-4 md:px-6 md:py-5 hover:bg-accent transition-colors border-b border-border"
                         >
                           <div className="flex h-10 w-10 sm:h-10 sm:w-10 md:h-12 md:w-12 items-center justify-center rounded-lg overflow-hidden">
                             <Image
@@ -1068,7 +1061,7 @@ export default function Home() {
                   inputMode="decimal"
                   value={formatNumber(solAmount)}
                   onChange={handleSolInputChange}
-                  className="w-full min-w-0 max-w-[9ch] border-b-2 border-transparent bg-transparent pb-1 text-5xl font-bold tabular-nums leading-none text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-brand-orange md:text-6xl lg:text-7xl"
+                  className="w-full min-w-0 max-w-[6ch] border-b-2 border-transparent bg-transparent pb-1 text-4xl font-bold tabular-nums leading-none text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-brand-orange md:text-5xl lg:text-6xl"
                   placeholder="100"
                   aria-label="Amount of SOL to stake"
                 />
@@ -1082,9 +1075,9 @@ export default function Home() {
               <p className="text-[0.75rem] font-medium uppercase tracking-[0.14em] text-muted-foreground">
                 Annual yield
               </p>
-              <p className="mt-3 flex items-baseline gap-1.5 text-5xl font-bold tabular-nums leading-none text-foreground md:text-6xl lg:text-7xl">
+              <p className="mt-3 flex items-baseline gap-1.5 text-4xl font-bold tabular-nums leading-none text-foreground md:text-5xl lg:text-6xl">
                 {validatorData.apy}
-                <span className="text-xl font-medium text-muted-foreground md:text-2xl lg:text-3xl">
+                <span className="text-lg font-medium text-muted-foreground md:text-xl lg:text-2xl">
                   %
                 </span>
               </p>
@@ -1094,9 +1087,9 @@ export default function Home() {
               <p className="text-[0.75rem] font-medium uppercase tracking-[0.14em] text-muted-foreground">
                 Yearly rewards
               </p>
-              <p className="mt-3 flex items-baseline gap-1.5 text-5xl font-bold tabular-nums leading-none text-foreground md:text-6xl lg:text-7xl">
+              <p className="mt-3 flex items-baseline gap-1.5 text-4xl font-bold tabular-nums leading-none text-foreground md:text-5xl lg:text-6xl">
                 {calculateYearlyRewards()}
-                <span className="text-xl font-medium text-muted-foreground md:text-2xl lg:text-3xl">
+                <span className="text-lg font-medium text-muted-foreground md:text-xl lg:text-2xl">
                   SOL
                 </span>
               </p>

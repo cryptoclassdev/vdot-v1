@@ -85,7 +85,7 @@ export function Footer() {
         </div>
 
         {/* Horizontal separator */}
-        <div className="mb-6 h-px bg-white" />
+        <div className="mb-6 h-px bg-white/15" />
 
         {/* Bottom section - Social icons and copyright */}
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
