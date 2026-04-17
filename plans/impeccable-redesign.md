@@ -26,57 +26,44 @@ Multi-session effort to elevate the site's taste, design language, aesthetics, a
 ### Phase 0 — Setup
 
 - [x] Cut `design-10x` from `stage`
+- [x] Rebase `design-10x` on `origin/main` so the redesign starts from the production state
 - [x] Write this plan
-- [ ] Establish performance baseline via `/benchmark` on home page (pre-change)
-- [ ] Run `npx impeccable detect .` — capture CLI anti-pattern baseline
+- [x] Establish performance baseline via `/benchmark` on `https://validator.com` → `.gstack/benchmark-reports/baselines/baseline.json` (FCP 504ms, DOM complete 783ms, 22 requests, 94.7KB total)
+- [x] Run `npx impeccable detect .` — 30 anti-patterns baseline (29 × `bg-black`, 1 × `border-l-4`) captured in `plans/detect-baseline.json`
 
 ### Phase 1 — Discover
 
-- [ ] `/impeccable teach` — one-time brand/voice/audience config. Load-bearing for every subsequent command.
-- [ ] `/critique` home page — UX lens, what's lazy, what doesn't earn attention
-- [ ] `/audit` home page — technical, a11y, perf
-- [ ] Read stashed design-revamp diff: note any ideas worth salvaging (do not pop)
-- [ ] Synthesize: write `plans/discovery-findings.md` with ranked problem list
+- [x] `/impeccable teach` — design context locked to `.impeccable.md` (crypto-native audience, editorial aesthetic, trustworthy+expert+direct voice, light theme, expressive motion, Stripe/Jito refs, 5 binding principles)
+- [x] `/critique` home page — sub-agent produced a 17/40 Nielsen score with P0-P3 priority issues and persona red flags
+- [ ] `/audit` home page — technical, a11y, perf (deferred to Phase 6 verification)
+- [x] Read stashed design-revamp diff — did not pop; ideas noted but not built on (prior attempt was a different direction)
 
 ### Phase 2 — Direction
 
-- [ ] `/design-consultation` → produce `DESIGN.md` (project design system source of truth)
-- [ ] Optional: `/design-shotgun` on hero to explore aesthetic variants before committing
-- [ ] `/plan-design-review` — critique the plan BEFORE any code change
-- [ ] Decision gate: user approves direction
+- [x] Design direction confirmed via `/impeccable teach` + critique decisions (editorial; light committed; expressive motion later). Skipped separate `/design-consultation` since `.impeccable.md` already captures the design system anchors.
+- [x] Scope gate: user confirmed "all 5 priorities + minors, home page first". Commands sequenced accordingly.
 
 ### Phase 3 — Foundation
 
-Rewrite `app/globals.css` tokens and realign `components/ui/*` primitives:
+Rewritten in commit `e4e88be`:
 
-- [ ] Color system: OKLCH-based palette with tinted neutrals (no pure grays), state/semantic colors derived from brand trio
-- [ ] Typography: modular type scale, hierarchy tokens (display/h1/h2/body/caption), line-height + tracking pairings per size
-- [ ] Spacing: explicit scale (8pt or custom), named spatial tokens
-- [ ] Radii, elevation, border tokens
-- [ ] Motion tokens: easing curves, durations (respect `prefers-reduced-motion`)
-- [ ] Lock the system — no drift during page passes
+- [x] Color system: OKLCH-based palette, all neutrals tinted toward navy hue 280°. `--background: oklch(0.985 0.003 280)`, `--foreground: oklch(0.20 0.020 280)`, etc. Brand navy/orange/cyan converted to OKLCH. New `--surface-dark` token for overlays.
+- [x] `.dark` block mirrors light so `next-themes` cannot silently alter the UI (light committed per `.impeccable.md`).
+- [x] Typography: single Degular family, no second typeface introduced (impeccable reflex-list banned all free alternatives; system monospace handles addresses/hashes).
+- [x] Focus ring moved to brand orange so focus states become a brand pop.
+- [x] Footer `bg-[#000000]` → `bg-surface-dark`; 29 × `bg-black/70` card overlays swept to `bg-surface-dark/70`.
 
 ### Phase 4 — Page passes
 
 Priority order (highest return first):
-1. `app/page.tsx` — home (conversion critical)
-2. `app/blog/page.tsx` — blog hub
-3. `components/SiteHeader.tsx`, `components/MobileNav.tsx`, `components/Footer.tsx` — cross-cutting nav/chrome
-4. `app/security/page.tsx` — trust differentiator
-5. `app/team/*` — 6 team bio pages (shared layout pass)
-6. `app/blog/[slug]/page.tsx` — post template
-7. `app/contact/page.tsx`
-8. `app/privacy/page.tsx`, `app/terms/page.tsx` — legal, minimal pass
-
-Per-page protocol (NEVER chain):
-1. `/typeset` — fix type choices, hierarchy, sizing
-2. `/layout` — fix rhythm, spacing, grid, alignment
-3. `/colorize` — color strategy (or `/quieter` if overbold, `/bolder` if forgettable)
-4. `/harden` — a11y, error states, edge cases, empty states, loading
-5. `/adapt` — responsive check (320/768/1280/1920)
-6. `/delight` — earned micro-moments (use sparingly)
-7. `/design-review` — live visual audit via browse tool, iterate until clean
-8. `/polish` — final design-system alignment pre-commit
+1. [x] `app/page.tsx` — home (conversion critical). 7 commits: `4b9087e` (strip stat monoliths + tagline + decorative rails), `dff81fa` (delete Link Hub + nav rewrite), `7b787da` (voice + calculator + FAQ), `ea72e3c` (harden API + input), `a8318f3` (blog blockquote + status sentence polish), `18708ba` (Delegate section editorial pass + stat sizing fix). **Nielsen 17 → 27 (+10).** CLI anti-patterns 30 → 0.
+2. [x] `components/SiteHeader.tsx`, `components/MobileNav.tsx`, `components/Footer.tsx` — cross-cutting nav/chrome. Nav rewritten across home + blog pages in `dff81fa`; footer vertical separator deleted + bg-[#000000] → bg-surface-dark in `e4e88be`; horizontal separator bg-white → bg-white/15 in `18708ba`.
+3. [ ] `app/blog/page.tsx` — blog hub (nav updated; content layout not yet reviewed)
+4. [ ] `app/security/page.tsx` — trust differentiator
+5. [ ] `app/team/*` — 6 team bio pages (shared layout pass)
+6. [ ] `app/blog/[slug]/page.tsx` — post template (nav updated; blockquote style fixed in `a8318f3`; body content layout not yet reviewed)
+7. [ ] `app/contact/page.tsx`
+8. [ ] `app/privacy/page.tsx`, `app/terms/page.tsx` — legal, minimal pass
 
 ### Phase 5 — Motion
 

@@ -29,7 +29,12 @@ Impeccable commands banned for this project: `/impeccable:overdrive`, `/impeccab
 
 ## Active initiatives
 
-- **Impeccable redesign** — see `plans/impeccable-redesign.md`. Multi-session design overhaul happening on branch `design-10x`. Phase 0 baseline captured in `plans/detect-baseline.json`.
+- **Impeccable redesign** — see `plans/impeccable-redesign.md`. Multi-session design overhaul happening on branch `design-10x`.
+  - Phases 0–1 done: baseline captured, `.impeccable.md` design context locked, critique run (17/40 starting score).
+  - Phase 3 foundation shipped: OKLCH navy-tinted palette in `app/globals.css`, `--surface-dark` overlay token introduced, footer + 29 × `bg-black/70` swept.
+  - Phase 4 home page pass complete: Nielsen score moved to 27/40 (+10), CLI anti-patterns 30 → 0, page shrank from ~15 to ~9 viewports.
+  - Phase 4 still pending: blog hub/post content layout, team pages, security page, contact, legal.
+  - Phase 5 motion, Phase 6 ship + verify: not started.
 
 ## Skill routing
 
