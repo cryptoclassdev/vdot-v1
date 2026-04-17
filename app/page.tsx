@@ -30,9 +30,13 @@ export default function Home() {
   const [validatorData, setValidatorData] = useState<{
     activeStake: number
     apy: number
+    commission: number
+    uptime: number
   }>({
-    activeStake: 510181, // Fallback value
-    apy: 8.2, // Fallback value
+    activeStake: 510181, // Fallback — overwritten by live Stakewiz data
+    apy: 8.2,
+    commission: 5,
+    uptime: 100,
   })
 
   useEffect(() => {
@@ -45,11 +49,12 @@ export default function Home() {
           setValidatorData({
             activeStake: Math.round(data.activated_stake),
             apy: Number.parseFloat(data.total_apy.toFixed(1)),
+            commission: typeof data.commission === "number" ? data.commission : 5,
+            uptime: typeof data.uptime === "number" ? Number.parseFloat(data.uptime.toFixed(2)) : 100,
           })
         }
       } catch (error) {
         console.error("Failed to fetch validator data:", error)
-        // Keep fallback values on error
       }
     }
 
@@ -204,107 +209,79 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Tagline Section - "A brand that rewards you while keeping Solana Strong" */}
-      <section className="relative flex min-h-screen items-center justify-center bg-background px-4 py-20 md:px-8 lg:px-15">
-        <div className="mx-auto w-full max-w-[2188px]">
-          <div className="flex items-center gap-4 sm:gap-6 md:gap-8 lg:gap-12">
-            {/* Navy vertical bar on the left */}
-            <div className="h-[300px] w-2 flex-shrink-0 rounded-full bg-brand-navy md:h-[400px] md:w-3 lg:h-[500px] lg:w-4 xl:h-[600px] xl:w-5 2xl:h-[700px] 2xl:w-6" />
+      {/* Editorial stat strip — replaces the three full-bleed stat monoliths and the
+          glitter/highlighter tagline. Data wears a suit, not a costume. */}
+      <section
+        aria-labelledby="stats-heading"
+        className="relative bg-background px-4 py-24 md:px-8 md:py-32 lg:px-15"
+      >
+        <div className="mx-auto max-w-7xl">
+          <p
+            id="stats-heading"
+            className="text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground"
+          >
+            The validator, by the numbers
+          </p>
 
-            {/* Text content */}
-            <div className="flex-1 min-w-0">
-              {/* "A brand that ..." with orange underline */}
-              <div className="mb-4 inline-block sm:mb-6 md:mb-8 lg:mb-10 xl:mb-12">
-                <p className="break-words text-xl font-bold text-foreground sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
-                  A brand that ...
-                </p>
-                <div className="mt-2 h-1 w-full rounded-full bg-brand-orange md:h-1.5 lg:h-2 xl:h-2.5 2xl:h-3" />
-              </div>
-
-              {/* Main tagline with "strong" highlighted */}
-              <div className="relative">
-                <h2 className="break-words text-lg font-bold leading-tight text-foreground sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-7xl">
-                  rewards you while keeping Solana{" "}
-                  <span className="relative inline-block">
-                    <span className="relative z-10 bg-brand-cyan px-1.5 py-0.5 text-white sm:px-2 sm:py-0.5 md:px-3 md:py-1 lg:px-4 lg:py-1.5 xl:px-5 xl:py-2 2xl:px-6 2xl:py-3">
-                      Strong
-                    </span>
-                    <Image
-                      src="/images/design-mode/blue-glitter.png"
-                      alt=""
-                      width={112}
-                      height={112}
-                      sizes="(max-width: 640px) 32px, (max-width: 1280px) 72px, 112px"
-                      className="absolute -right-4 -top-8 h-8 w-auto rotate-[24.89deg] sm:-right-6 sm:-top-10 sm:h-10 md:-right-10 md:-top-16 md:h-14 lg:-right-14 lg:-top-20 lg:h-18 xl:-right-16 xl:-top-24 xl:h-20 2xl:-right-20 2xl:-top-32 2xl:h-28"
-                      aria-hidden="true"
-                    />
-                  </span>
-                </h2>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative flex min-h-screen items-center justify-center bg-background px-4 py-20 md:px-8 lg:px-15">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-center">
-          <div className="relative mb-4 w-full">
-            <div className="mx-auto flex w-full max-w-[320px] flex-col items-center justify-center rounded-3xl bg-brand-orange px-6 py-10 text-center sm:h-[420px] sm:w-[680px] sm:max-w-none md:h-[540px] md:w-[860px] lg:h-[714px] lg:w-[1153px]">
-              <p className="mb-4 break-words text-2xl font-semibold leading-tight text-white sm:text-3xl md:mb-5 md:text-4xl lg:mb-6 lg:text-5xl">
-                Established in
-              </p>
-              <h2 className="break-words text-7xl font-bold leading-none text-white sm:text-8xl md:text-9xl">2022</h2>
-            </div>
-          </div>
-
-          <div className="flex w-full flex-col items-center gap-4">
-            <div className="h-[28px] w-[246px] rounded-full bg-brand-cyan sm:h-[32px] sm:w-[492px] md:h-[36px] md:w-[644px] lg:h-[43px] lg:w-[922px]" />
-            <div className="h-[28px] w-[212px] rounded-full bg-brand-navy sm:h-[32px] sm:w-[423px] md:h-[36px] md:w-[554px] lg:h-[43px] lg:w-[922px]" />
-          </div>
-        </div>
-      </section>
-
-      <section className="relative flex min-h-screen items-center justify-center bg-background px-4 py-20 md:px-8 lg:px-15">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-center">
-          <div className="mb-4 flex w-full flex-col items-center gap-4">
-            <div className="h-[28px] w-[246px] rounded-full bg-brand-orange sm:h-[32px] sm:w-[492px] md:h-[36px] md:w-[644px] lg:h-[42px] lg:w-[922px]" />
-          </div>
-
-          <div className="relative mb-4 w-full">
-            <div className="mx-auto flex w-full max-w-[320px] flex-col items-center justify-center rounded-3xl bg-brand-cyan px-6 py-10 text-center sm:h-[420px] sm:w-[680px] sm:max-w-none md:h-[540px] md:w-[860px] lg:h-[714px] lg:w-[1153px]">
-              <p className="mb-4 break-words text-2xl font-semibold leading-tight text-white sm:text-3xl md:mb-5 md:text-4xl lg:mb-6 lg:text-5xl">
-                Current Staked SOL
-              </p>
-              <h2 className="break-words text-7xl font-bold leading-none text-white sm:text-8xl md:text-9xl">
+          <dl className="mt-12 grid gap-x-8 gap-y-14 sm:grid-cols-2 md:mt-16 lg:grid-cols-4">
+            <div>
+              <dt className="text-[0.75rem] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                Active stake
+              </dt>
+              <dd className="mt-3 flex items-baseline gap-1.5 text-5xl font-bold tabular-nums leading-none text-foreground md:text-6xl lg:text-7xl">
                 {formatNumber(validatorData.activeStake)}
-              </h2>
+                <span className="text-xl font-medium text-muted-foreground md:text-2xl lg:text-3xl">
+                  SOL
+                </span>
+              </dd>
             </div>
-          </div>
-
-          <div className="flex w-full flex-col items-center gap-4">
-            <div className="h-[28px] w-[246px] rounded-full bg-brand-navy sm:h-[32px] sm:w-[492px] md:h-[36px] md:w-[644px] lg:h-[43px] lg:w-[922px]" />
-          </div>
-        </div>
-      </section>
-
-      {/* Annual Percentage Yield Section */}
-      <section className="relative flex min-h-screen items-center justify-center bg-background px-4 py-20 md:px-8 lg:px-15">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-center">
-          <div className="mb-4 flex w-full flex-col items-center gap-4">
-            <div className="h-[28px] w-[212px] rounded-full bg-brand-orange sm:h-[32px] sm:w-[423px] md:h-[36px] md:w-[554px] lg:h-[43px] lg:w-[922px]" />
-            <div className="h-[28px] w-[246px] rounded-full bg-brand-cyan sm:h-[32px] sm:w-[492px] md:h-[36px] md:w-[644px] lg:h-[43px] lg:w-[922px]" />
-          </div>
-
-          <div className="relative mb-8 w-full">
-            <div className="mx-auto flex w-full max-w-[320px] flex-col items-center justify-center rounded-3xl bg-brand-navy px-6 py-10 text-center sm:h-[420px] sm:w-[680px] sm:max-w-none md:h-[540px] md:w-[860px] lg:h-[714px] lg:w-[1153px]">
-              <p className="mb-4 break-words text-2xl font-semibold leading-tight text-white sm:text-3xl md:mb-5 md:text-4xl lg:mb-6 lg:text-5xl">
-                Annual Percentage Yield
-              </p>
-              <h2 className="break-words text-6xl font-bold leading-none text-white sm:text-7xl md:text-8xl lg:text-9xl">
-                {validatorData.apy}% APY
-              </h2>
+            <div>
+              <dt className="text-[0.75rem] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                Annual yield
+              </dt>
+              <dd className="mt-3 flex items-baseline gap-1.5 text-5xl font-bold tabular-nums leading-none text-foreground md:text-6xl lg:text-7xl">
+                {validatorData.apy}
+                <span className="text-xl font-medium text-muted-foreground md:text-2xl lg:text-3xl">
+                  %
+                </span>
+              </dd>
             </div>
-          </div>
+            <div>
+              <dt className="text-[0.75rem] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                Commission
+              </dt>
+              <dd className="mt-3 flex items-baseline gap-1.5 text-5xl font-bold tabular-nums leading-none text-foreground md:text-6xl lg:text-7xl">
+                {validatorData.commission}
+                <span className="text-xl font-medium text-muted-foreground md:text-2xl lg:text-3xl">
+                  %
+                </span>
+              </dd>
+            </div>
+            <div>
+              <dt className="text-[0.75rem] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                Uptime
+              </dt>
+              <dd className="mt-3 flex items-baseline gap-1.5 text-5xl font-bold tabular-nums leading-none text-foreground md:text-6xl lg:text-7xl">
+                {validatorData.uptime}
+                <span className="text-xl font-medium text-muted-foreground md:text-2xl lg:text-3xl">
+                  %
+                </span>
+              </dd>
+            </div>
+          </dl>
+
+          <p className="mt-16 max-w-prose text-sm text-muted-foreground md:text-base">
+            Live data from{" "}
+            <a
+              href="https://stakewiz.com/validator/Va1idkzkB6LEmVFmxWbWU8Ao9qehC62Tjmf68L3uYKj"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-foreground underline decoration-muted-foreground/40 underline-offset-4 transition-colors hover:decoration-foreground"
+            >
+              stakewiz.com
+            </a>
+            . Validator operating on Solana since 2022.
+          </p>
         </div>
       </section>
 
@@ -315,17 +292,16 @@ export default function Home() {
         onClick={handleOutsideTap}
       >
         <div className="mx-auto w-full max-w-[2188px]">
-          {/* Section Header with orange vertical bar */}
-          <div className="mb-12 flex items-start gap-4 md:mb-16 lg:mb-20">
-            <div className="h-[60px] w-1 flex-shrink-0 rounded-full bg-brand-orange md:h-[100px] md:w-[12px] xl:h-[140px] xl:w-[16px] 2xl:h-[177px] 2xl:w-[21px]" />
-            <div>
-              <h2 className="mb-2 break-words text-4xl font-bold text-foreground md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl">
-                The Team
-              </h2>
-              <p className="break-words text-base font-medium text-muted-foreground md:text-lg xl:text-xl 2xl:text-2xl">
-                Here to educate and help the ecosystem.
-              </p>
-            </div>
+          <div className="mb-16 max-w-3xl md:mb-20 lg:mb-24">
+            <p className="text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground">
+              The team
+            </p>
+            <h2 className="mt-3 break-words text-4xl font-bold leading-[1.05] text-foreground md:text-6xl lg:text-7xl xl:text-8xl">
+              Built by operators who run Solana every day.
+            </h2>
+            <p className="mt-6 max-w-prose text-base text-muted-foreground md:text-lg">
+              Education, operations, and content. Here to help the ecosystem.
+            </p>
           </div>
 
           {/* Mobile: 2-column Pinterest layout */}
@@ -1558,7 +1534,6 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="h-[50px] w-1 flex-shrink-0 rounded-full bg-brand-orange sm:h-[80px] sm:w-2 md:h-[80px] md:w-[10px] lg:h-[100px] lg:w-[12px] xl:h-[120px] xl:w-[14px] 2xl:h-[140px] 2xl:w-[16px]" />
             </div>
           </div>
         </div>
