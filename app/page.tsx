@@ -133,11 +133,6 @@ export default function Home() {
     fallback: "Cached",
     loading: "Syncing",
   }
-  const validatorDataStatusSentence: Record<typeof validatorDataStatus, string> = {
-    live: "Data refreshed on each visit from ",
-    fallback: "Reference values shown; live data temporarily unavailable from ",
-    loading: "Fetching current data from ",
-  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -255,12 +250,12 @@ export default function Home() {
           </dl>
 
           <p
-            className="mt-16 max-w-prose text-sm text-muted-foreground md:text-base"
+            className="mt-16 text-sm text-muted-foreground md:text-base"
             aria-live="polite"
             role="status"
           >
             <span
-              className="mr-2 inline-flex items-center gap-1.5 align-middle text-[0.7rem] font-medium uppercase tracking-[0.14em]"
+              className="mr-3 inline-flex items-center gap-1.5 align-middle text-[0.7rem] font-medium uppercase tracking-[0.14em]"
               aria-label={`Data status: ${validatorDataStatus}`}
             >
               <span
@@ -275,7 +270,7 @@ export default function Home() {
               />
               {validatorDataStatusLabel[validatorDataStatus]}
             </span>
-            {validatorDataStatusSentence[validatorDataStatus]}
+            Source:{" "}
             <a
               href="https://stakewiz.com/validator/Va1idkzkB6LEmVFmxWbWU8Ao9qehC62Tjmf68L3uYKj"
               target="_blank"
@@ -284,7 +279,6 @@ export default function Home() {
             >
               stakewiz.com
             </a>
-            . Validator operating on Solana since 2022.
           </p>
         </div>
       </section>
