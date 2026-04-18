@@ -6,8 +6,6 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { ChevronDown } from "lucide-react"
 import { Footer } from "@/components/Footer"
 import { SiteHeader } from "@/components/SiteHeader"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
@@ -19,7 +17,6 @@ export default function Home() {
   const router = useRouter()
   const [activeCard, setActiveCard] = useState<string | null>(null)
   const [activeLinkCard, setActiveLinkCard] = useState<string | null>(null)
-  const [isWalletDropdownOpen, setIsWalletDropdownOpen] = useState(false)
   const [selectedWallet, setSelectedWallet] = useState<"phantom" | "solflare" | "backpack">("phantom")
   const [solAmount, setSolAmount] = useState(100)
 
@@ -28,6 +25,18 @@ export default function Home() {
     solflare: blobAssets.solflareVideo,
     backpack: blobAssets.backpackVideo,
   }
+
+  const walletOptions: Array<{
+    id: "phantom" | "solflare" | "backpack"
+    name: string
+    icon: string
+    iconClass: string
+    unoptimized?: boolean
+  }> = [
+    { id: "phantom", name: "Phantom", icon: "/images/design-mode/Phantom-Icon_App_60x60.png", iconClass: "h-full w-full object-cover" },
+    { id: "solflare", name: "Solflare", icon: "/images/design-mode/solflare-icon.svg", iconClass: "h-full w-full object-contain", unoptimized: true },
+    { id: "backpack", name: "Backpack", icon: "/images/design-mode/backpack-icon.png", iconClass: "h-full w-full object-contain p-0.5" },
+  ]
 
   const [validatorData, setValidatorData] = useState<{
     activeStake: number
@@ -713,126 +722,67 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Delegate in one click section */}
+      {/* Stake section — "Delegate in your wallet" */}
       <section
         id="staking"
-        className="relative flex min-h-screen items-center justify-center overflow-hidden bg-muted px-4 py-20 md:px-8 lg:px-15"
+        aria-labelledby="staking-heading"
+        className="relative bg-muted px-4 py-24 md:px-8 md:py-32 lg:px-15"
       >
-        <div className="relative mx-auto h-full w-full max-w-[2188px] sm:h-screen">
-          {/* Mobile Layout - Vertical Stack */}
-          <div className="flex flex-col items-center justify-start pt-8 sm:hidden">
-            <div className="mb-2 text-center">
-              <h2 className="mb-2 whitespace-nowrap text-3xl font-bold text-foreground">Delegate in one click</h2>
-            </div>
-
-            {/* Subheading and Dropdown */}
-            <div className="text-center">
-              <p className="mb-3 break-words text-sm font-medium text-muted-foreground">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
+            <div>
+              <p className="mb-3 text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                Delegation
+              </p>
+              <h2
+                id="staking-heading"
+                className="text-4xl font-bold leading-[1.05] text-foreground md:text-6xl lg:text-7xl xl:text-8xl"
+              >
+                Delegate in your wallet.
+              </h2>
+              <p className="mt-6 max-w-prose text-base text-muted-foreground md:text-lg">
                 Your coins. Your custody. Your rewards.
               </p>
 
-              <div className="flex justify-center">
-                <div className="relative">
-                  <Button
-                    onClick={() => setIsWalletDropdownOpen(!isWalletDropdownOpen)}
-                    className="bg-brand-orange rounded-full px-4 py-3 text-xs font-semibold text-white shadow-lg hover:bg-brand-orange-hover flex items-center gap-2"
-                  >
-                    {selectedWallet.charAt(0).toUpperCase() + selectedWallet.slice(1)}
-                    <ChevronDown
-                      className={`h-4 w-4 transition-transform ${isWalletDropdownOpen ? "rotate-180" : ""}`}
-                    />
-                  </Button>
-
-                  {/* Wallet Dropdown Menu */}
-                  {isWalletDropdownOpen && (
-                    <div className="absolute right-0 top-full mt-2 w-[240px] rounded-2xl bg-card shadow-2xl border border-border overflow-hidden z-50">
-                      {/* Phantom */}
-                      <button
-                        onClick={() => {
-                          setSelectedWallet("phantom")
-                          setIsWalletDropdownOpen(false)
-                        }}
-                        className="w-full flex items-center gap-3 px-5 py-4 hover:bg-accent transition-colors border-b border-border"
-                      >
-                        <div className="flex h-10 w-10 items-center justify-center rounded-lg overflow-hidden">
-                          <Image
-                            src="/images/design-mode/Phantom-Icon_App_60x60.png"
-                            alt="Phantom"
-                            width={40}
-                            height={40}
-                            sizes="40px"
-                            className="h-full w-full object-cover"
-                          />
-                        </div>
-                        <span className="text-base font-bold text-gray-900">Phantom</span>
-                      </button>
-
-                      {/* Solflare */}
-                      <button
-                        onClick={() => {
-                          setSelectedWallet("solflare")
-                          setIsWalletDropdownOpen(false)
-                        }}
-                        className="w-full flex items-center gap-3 px-5 py-4 hover:bg-accent transition-colors border-b border-border"
-                      >
-                        <div className="flex h-10 w-10 items-center justify-center rounded-lg overflow-hidden">
-                          <Image
-                            src="/images/design-mode/solflare-icon.svg"
-                            alt="Solflare"
-                            width={40}
-                            height={40}
-                            sizes="40px"
-                            unoptimized
-                            className="h-full w-full object-contain"
-                          />
-                        </div>
-                        <span className="text-base font-bold text-gray-900">Solflare</span>
-                      </button>
-
-                      {/* Backpack */}
-                      <button
-                        onClick={() => {
-                          setSelectedWallet("backpack")
-                          setIsWalletDropdownOpen(false)
-                        }}
-                        className="w-full flex items-center gap-3 px-5 py-4 hover:bg-accent transition-colors border-b border-border"
-                      >
-                        <div className="flex h-10 w-10 items-center justify-center rounded-lg overflow-hidden">
-                          <Image
-                            src="/images/design-mode/backpack-icon.png"
-                            alt="Backpack"
-                            width={40}
-                            height={40}
-                            sizes="40px"
-                            className="h-full w-full object-contain p-1.5"
-                          />
-                        </div>
-                        <span className="text-base font-bold text-gray-900">Backpack</span>
-                      </button>
-
-                      {/* Ledger - commented out for now */}
-                      {/* <button
-                        onClick={() => setIsWalletDropdownOpen(false)}
-                        className="w-full flex items-center gap-3 px-5 py-4 hover:bg-amber-50 transition-colors"
-                      >
-                        <div className="flex h-10 w-10 items-center justify-center rounded-lg overflow-hidden">
-                          <img
-                            src="/images/design-mode/led.png"
-                            alt="Ledger"
-                            className="h-full w-full object-contain"
-                          />
-                        </div>
-                        <span className="text-base font-bold text-gray-900">Ledger</span>
-                      </button> */}
-                    </div>
-                  )}
-                </div>
+              <div
+                role="group"
+                aria-label="Wallet preview"
+                className="mt-12 md:mt-16 flex flex-wrap items-center gap-x-5 gap-y-3 md:gap-x-8"
+              >
+                {walletOptions.map((wallet) => {
+                  const isSelected = selectedWallet === wallet.id
+                  return (
+                    <button
+                      key={wallet.id}
+                      type="button"
+                      aria-pressed={isSelected}
+                      onClick={() => setSelectedWallet(wallet.id)}
+                      className={`flex items-center gap-2 whitespace-nowrap border-b-2 pb-3 transition-colors ${
+                        isSelected
+                          ? "border-brand-orange text-foreground"
+                          : "border-transparent text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      <span className="flex h-6 w-6 items-center justify-center overflow-hidden rounded-md md:h-8 md:w-8">
+                        <Image
+                          src={wallet.icon}
+                          alt=""
+                          width={32}
+                          height={32}
+                          sizes="32px"
+                          {...(wallet.unoptimized ? { unoptimized: true } : {})}
+                          className={wallet.iconClass}
+                        />
+                      </span>
+                      <span className="text-sm font-semibold md:text-base">{wallet.name}</span>
+                    </button>
+                  )
+                })}
               </div>
             </div>
 
-            {/* Device mockup - Centered */}
-            <div className="mb-8 flex justify-center">
-              <div className="relative h-[280px] w-[150px] rounded-[40px]">
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative h-[360px] w-[194px] md:h-[520px] md:w-[280px] lg:h-[620px] lg:w-[334px] xl:h-[720px] xl:w-[388px]">
                 <LazyLoadVideo
                   src={walletVideos[selectedWallet]}
                   alt={`${selectedWallet} wallet staking interface`}
@@ -840,142 +790,6 @@ export default function Home() {
                   poster="/images/design-mode/5-phantom%201.png"
                 />
               </div>
-            </div>
-          </div>
-
-          {/* Desktop Layout - Absolute Positioning */}
-          {/* Device mockup - left side */}
-          <div className="hidden sm:block absolute left-[5%] top-1/2 z-10 -translate-y-1/2 sm:left-[8%] md:left-[6%] lg:left-[8%] xl:left-[10%] 2xl:left-[12%]">
-            <div className="relative h-[450px] w-[240px] sm:h-[450px] sm:w-[240px] md:h-[550px] md:w-[290px] lg:h-[650px] lg:w-[340px] xl:h-[750px] xl:w-[390px] 2xl:h-[850px] 2xl:w-[440px]">
-              <LazyLoadVideo
-                src={walletVideos[selectedWallet]}
-                alt={`${selectedWallet} wallet staking interface`}
-                className="h-full w-full"
-                poster="/images/design-mode/5-phantom%201.png"
-              />
-            </div>
-          </div>
-
-          {/* Content - right side */}
-          <div className="hidden sm:block absolute right-[5%] z-20 max-w-[320px] sm:right-[8%] sm:top-[22%] sm:max-w-[320px] md:right-[6%] md:top-[22%] md:max-w-[400px] lg:right-[8%] lg:top-[20%] lg:max-w-[480px] xl:right-[10%] xl:top-[18%] xl:max-w-[560px] 2xl:right-[12%] 2xl:top-[20%] 2xl:max-w-[640px]">
-            <div className="flex items-start gap-2 sm:gap-3 md:gap-4">
-              <div className="flex-1 text-right">
-                {/* Heading - stays in white area */}
-                <h2 className="mb-2 whitespace-nowrap text-3xl font-bold text-foreground sm:mb-2 sm:text-3xl md:mb-2 md:text-4xl lg:mb-4 lg:text-5xl xl:mb-4 xl:text-6xl 2xl:mb-4 2xl:text-7xl">
-                  Delegate in one click
-                </h2>
-
-                <p className="mb-3 mt-12 break-words text-sm font-medium text-muted-foreground sm:mb-4 sm:mt-2 sm:text-sm sm:font-bold sm:text-white md:mt-0 md:text-base md:text-white lg:mb-5 lg:mt-2 lg:text-lg lg:text-white xl:mb-2 xl:mt-4 xl:text-xl xl:text-white 2xl:mt-4 2xl:text-2xl 2xl:text-white">
-                  Your coins. Your custody. Your rewards.
-                </p>
-
-                <div className="flex justify-end">
-                  <div className="relative">
-                    <Button
-                      onClick={() => setIsWalletDropdownOpen(!isWalletDropdownOpen)}
-                      className="bg-brand-orange rounded-full px-4 py-3 text-xs font-semibold text-white shadow-lg hover:bg-brand-orange-hover sm:px-4 sm:py-3 sm:text-xs md:px-6 md:py-4 md:text-sm lg:px-8 lg:py-5 lg:text-xl 2xl:px-12 2xl:py-7 2xl:text-xl flex items-center gap-2"
-                    >
-                      {selectedWallet.charAt(0).toUpperCase() + selectedWallet.slice(1)}
-                      <ChevronDown
-                        className={`h-4 w-4 transition-transform ${isWalletDropdownOpen ? "rotate-180" : ""}`}
-                      />
-                    </Button>
-
-                    {/* Wallet Dropdown Menu */}
-                    {isWalletDropdownOpen && (
-                      <div className="absolute right-0 top-full mt-2 w-[240px] sm:w-[240px] md:w-[280px] lg:w-[320px] xl:w-[360px] 2xl:w-[400px] rounded-2xl bg-card shadow-2xl border border-border overflow-hidden z-50">
-                        {/* Phantom */}
-                        <button
-                          onClick={() => {
-                            setSelectedWallet("phantom")
-                            setIsWalletDropdownOpen(false)
-                          }}
-                          className="w-full flex items-center gap-3 px-5 py-4 sm:px-5 sm:py-4 md:px-6 md:py-5 hover:bg-accent transition-colors border-b border-border"
-                        >
-                          <div className="flex h-10 w-10 sm:h-10 sm:w-10 md:h-12 md:w-12 items-center justify-center rounded-lg overflow-hidden">
-                            <Image
-                              src="/images/design-mode/Phantom-Icon_App_60x60.png"
-                              alt="Phantom"
-                              width={48}
-                              height={48}
-                              sizes="48px"
-                              className="h-full w-full object-cover"
-                            />
-                          </div>
-                          <span className="text-base sm:text-base md:text-lg lg:text-xl font-bold text-gray-900">
-                            Phantom
-                          </span>
-                        </button>
-
-                        {/* Solflare */}
-                        <button
-                          onClick={() => {
-                            setSelectedWallet("solflare")
-                            setIsWalletDropdownOpen(false)
-                          }}
-                          className="w-full flex items-center gap-3 px-5 py-4 sm:px-5 sm:py-4 md:px-6 md:py-5 hover:bg-accent transition-colors border-b border-border"
-                        >
-                          <div className="flex h-10 w-10 sm:h-10 sm:w-10 md:h-12 md:w-12 items-center justify-center rounded-lg overflow-hidden">
-                            <Image
-                              src="/images/design-mode/solflare-icon.svg"
-                              alt="Solflare"
-                              width={48}
-                              height={48}
-                              sizes="48px"
-                              unoptimized
-                              className="h-full w-full object-contain"
-                            />
-                          </div>
-                          <span className="text-base sm:text-base md:text-lg lg:text-xl font-bold text-gray-900">
-                            Solflare
-                          </span>
-                        </button>
-
-                        {/* Backpack */}
-                        <button
-                          onClick={() => {
-                            setSelectedWallet("backpack")
-                            setIsWalletDropdownOpen(false)
-                          }}
-                          className="w-full flex items-center gap-3 px-5 py-4 sm:px-5 sm:py-4 md:px-6 md:py-5 hover:bg-accent transition-colors border-b border-border"
-                        >
-                          <div className="flex h-10 w-10 sm:h-10 sm:w-10 md:h-12 md:w-12 items-center justify-center rounded-lg overflow-hidden">
-                            <Image
-                              src="/images/design-mode/backpack-icon.png"
-                              alt="Backpack"
-                              width={48}
-                              height={48}
-                              sizes="48px"
-                              className="h-full w-full object-contain p-1.5 sm:p-1.5 md:p-2"
-                            />
-                          </div>
-                          <span className="text-base sm:text-base md:text-lg lg:text-xl font-bold text-gray-900">
-                            Backpack
-                          </span>
-                        </button>
-
-                        {/* Ledger - commented out for now */}
-                        {/* <button
-                          onClick={() => setIsWalletDropdownOpen(false)}
-                          className="w-full flex items-center gap-3 px-5 py-4 sm:px-5 sm:py-4 md:px-6 md:py-5 hover:bg-amber-50 transition-colors"
-                        >
-                          <div className="flex h-10 w-10 sm:h-10 sm:w-10 md:h-12 md:w-12 items-center justify-center rounded-lg overflow-hidden">
-                            <img
-                              src="/images/design-mode/led.png"
-                              alt="Ledger"
-                              className="h-full w-full object-contain"
-                            />
-                          </div>
-                          <span className="text-base sm:text-base md:text-lg lg:text-xl font-bold text-gray-900">
-                            Ledger
-                          </span>
-                        </button>*/}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-
             </div>
           </div>
         </div>
