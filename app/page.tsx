@@ -824,7 +824,7 @@ export default function Home() {
                   inputMode="decimal"
                   value={formatNumber(solAmount)}
                   onChange={handleSolInputChange}
-                  className="w-full min-w-0 max-w-[6ch] border-b-2 border-muted-foreground/25 bg-transparent pb-1 text-4xl font-bold tabular-nums leading-none text-foreground outline-none transition-colors placeholder:text-muted-foreground hover:border-muted-foreground/50 focus:border-brand-orange md:text-5xl lg:text-6xl"
+                  className="w-full min-w-0 max-w-[6ch] border-b-2 border-muted-foreground/25 bg-transparent text-4xl font-bold tabular-nums leading-none text-foreground outline-none transition-colors placeholder:text-muted-foreground hover:border-muted-foreground/50 focus:border-brand-orange md:text-5xl lg:text-6xl"
                   placeholder="100"
                   aria-label="Amount of SOL to stake"
                 />
