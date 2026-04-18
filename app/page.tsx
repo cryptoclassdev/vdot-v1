@@ -175,7 +175,7 @@ export default function Home() {
               href="#staking"
               className="group inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background shadow-sm transition-colors hover:bg-foreground/90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-orange md:px-8 md:py-4 md:text-base"
             >
-              Start delegating
+              Start staking
               <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5">
                 →
               </span>
