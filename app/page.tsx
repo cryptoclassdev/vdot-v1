@@ -286,10 +286,10 @@ export default function Home() {
       {/* The Team section with Pinterest/bento-style layout */}
       <section
         id="team"
-        className="relative flex min-h-screen items-center justify-center bg-background px-6 py-20 md:px-8 lg:px-15"
+        className="relative bg-background px-4 py-24 md:px-8 md:py-32 lg:px-15"
         onClick={handleOutsideTap}
       >
-        <div className="mx-auto w-full max-w-[2188px]">
+        <div className="mx-auto w-full max-w-7xl">
           <div className="mb-16 max-w-3xl md:mb-20 lg:mb-24">
             <p className="text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground">
               The team
@@ -304,7 +304,7 @@ export default function Home() {
 
           {/* Mobile: 2-column Pinterest layout */}
           <div
-            className={`group flex flex-row gap-4 overflow-hidden px-4 py-8 sm:hidden ${activeCard ? "[&>*>*]:scale-[0.65]" : ""}`}
+            className={`group flex flex-row gap-4 overflow-hidden px-4 py-8 sm:hidden ${activeCard ? "[&>*>*]:scale-[0.95]" : ""}`}
           >
             {/* Column 1 - 3 cards */}
             <div className="flex flex-1 flex-col gap-4">
@@ -319,8 +319,8 @@ export default function Home() {
                     handleCardTap("mobile-hfp")
                   }
                 }}
-                className={`group/card relative aspect-square overflow-hidden rounded-2xl shadow-xl transition-all duration-300 origin-center cursor-pointer ${
-                  activeCard === "mobile-hfp" ? "!scale-[1.1] !shadow-2xl !z-10" : ""
+                className={`group/card relative aspect-square overflow-hidden rounded-2xl shadow-md transition-all duration-300 origin-center cursor-pointer ${
+                  activeCard === "mobile-hfp" ? "!scale-[1.04] !shadow-lg !z-10" : ""
                 }`}
               >
                 <Image
@@ -342,9 +342,9 @@ export default function Home() {
                     activeCard === "mobile-hfp" ? "opacity-100" : ""
                   }`}
                 >
-                  <h3 className="mb-1 text-sm font-bold leading-tight text-white">HFP</h3>
-                  <p className="mb-1.5 text-[10px] font-semibold leading-tight text-white/90">Founder</p>
-                  <p className="line-clamp-3 text-[8px] leading-snug text-white/80">
+                  <h3 className="mb-1 text-xs font-semibold leading-tight text-white">HFP</h3>
+                  <p className="mb-1.5 text-[10px] font-medium uppercase tracking-[0.1em] leading-tight text-white/70">Founder</p>
+                  <p className="line-clamp-3 text-[10px] leading-snug text-white/75">
                     A 17-year branding leader, HFP identified Bitcoin's potential early and, by 2021, recognized
                     Solana's capacity to deliver real-world decentralization. His strategic direction established
                     validator.com's brand and continues to guide its long-term positioning.
@@ -363,8 +363,8 @@ export default function Home() {
                     handleCardTap("mobile-sebastian")
                   }
                 }}
-                className={`group/card relative aspect-square overflow-hidden rounded-2xl shadow-xl transition-all duration-300 origin-center cursor-pointer ${
-                  activeCard === "mobile-sebastian" ? "!scale-[1.1] !shadow-2xl !z-10" : ""
+                className={`group/card relative aspect-square overflow-hidden rounded-2xl shadow-md transition-all duration-300 origin-center cursor-pointer ${
+                  activeCard === "mobile-sebastian" ? "!scale-[1.04] !shadow-lg !z-10" : ""
                 }`}
               >
                 <Image
@@ -386,9 +386,9 @@ export default function Home() {
                     activeCard === "mobile-sebastian" ? "opacity-100" : ""
                   }`}
                 >
-                  <h3 className="mb-1 text-sm font-bold leading-tight text-white">Sebastian Montgomery</h3>
-                  <p className="mb-1.5 text-[10px] font-semibold leading-tight text-white/90">General Manager</p>
-                  <p className="line-clamp-3 text-[8px] leading-snug text-white/80">
+                  <h3 className="mb-1 text-xs font-semibold leading-tight text-white">Sebastian Montgomery</h3>
+                  <p className="mb-1.5 text-[10px] font-medium uppercase tracking-[0.1em] leading-tight text-white/70">General Manager</p>
+                  <p className="line-clamp-3 text-[10px] leading-snug text-white/75">
                     Sebastian started the validator in mid-2022 and leads its growth, operations, and content strategy.
                     A prominent voice in the Solana ecosystem, he has produced more than 1,000 educational videos and
                     continues to drive the vision for the next 1,000 — advancing global understanding of decentralized
@@ -408,8 +408,8 @@ export default function Home() {
                     handleCardTap("mobile-dan")
                   }
                 }}
-                className={`group/card relative aspect-square overflow-hidden rounded-2xl shadow-xl transition-all duration-300 origin-center cursor-pointer ${
-                  activeCard === "mobile-dan" ? "!scale-[1.1] !shadow-2xl !z-10" : ""
+                className={`group/card relative aspect-square overflow-hidden rounded-2xl shadow-md transition-all duration-300 origin-center cursor-pointer ${
+                  activeCard === "mobile-dan" ? "!scale-[1.04] !shadow-lg !z-10" : ""
                 }`}
               >
                 <Image
@@ -431,9 +431,9 @@ export default function Home() {
                     activeCard === "mobile-dan" ? "opacity-100" : ""
                   }`}
                 >
-                  <h3 className="mb-1 text-sm font-bold leading-tight text-white">Dan Phillips</h3>
-                  <p className="mb-1.5 text-[10px] font-semibold leading-tight text-white/90">Business Developer</p>
-                  <p className="line-clamp-3 text-[8px] leading-snug text-white/80">
+                  <h3 className="mb-1 text-xs font-semibold leading-tight text-white">Dan Phillips</h3>
+                  <p className="mb-1.5 text-[10px] font-medium uppercase tracking-[0.1em] leading-tight text-white/70">Business Developer</p>
+                  <p className="line-clamp-3 text-[10px] leading-snug text-white/75">
                     Dan is a seasoned professional dedicated to building at the intersection of traditional business and
                     Web3. He holds a Bachelor's degree in Economics and has a strong background in consulting and sales,
                     having worked as an alumnus of industry-leading firms including KPMG, Oracle, and HubSpot.
@@ -449,8 +449,8 @@ export default function Home() {
                   e.stopPropagation()
                   handleCardTap("mobile-mukul")
                 }}
-                className={`group/card relative mt-12 aspect-square overflow-hidden rounded-2xl shadow-xl transition-all duration-300 origin-center ${
-                  activeCard === "mobile-mukul" ? "!scale-[1.1] !shadow-2xl !z-10" : ""
+                className={`group/card relative mt-12 aspect-square overflow-hidden rounded-2xl shadow-md transition-all duration-300 origin-center ${
+                  activeCard === "mobile-mukul" ? "!scale-[1.04] !shadow-lg !z-10" : ""
                 }`}
               >
                 <Image
@@ -472,8 +472,8 @@ export default function Home() {
                     activeCard === "mobile-mukul" ? "opacity-100" : ""
                   }`}
                 >
-                  <h3 className="mb-1 text-sm font-bold leading-tight text-white">The Intern</h3>
-                  <p className="line-clamp-3 text-[8px] leading-snug text-white/80">
+                  <h3 className="mb-1 text-xs font-semibold leading-tight text-white">The Intern</h3>
+                  <p className="line-clamp-3 text-[10px] leading-snug text-white/75">
                     The intern keeps validator.com plugged into Solana's culture and Crypto Twitter. Mixing research,
                     creativity, and humor, into content you want to keep up to date with.
                   </p>
@@ -485,8 +485,8 @@ export default function Home() {
                   e.stopPropagation()
                   handleCardTap("mobile-pedro")
                 }}
-                className={`group/card relative aspect-square overflow-hidden rounded-2xl shadow-xl transition-all duration-300 origin-center ${
-                  activeCard === "mobile-pedro" ? "!scale-[1.1] !shadow-2xl !z-10" : ""
+                className={`group/card relative aspect-square overflow-hidden rounded-2xl shadow-md transition-all duration-300 origin-center ${
+                  activeCard === "mobile-pedro" ? "!scale-[1.04] !shadow-lg !z-10" : ""
                 }`}
               >
                 <Image
@@ -508,9 +508,9 @@ export default function Home() {
                     activeCard === "mobile-pedro" ? "opacity-100" : ""
                   }`}
                 >
-                  <h3 className="mb-1 text-sm font-bold leading-tight text-white">Pedro</h3>
-                  <p className="mb-1.5 text-[10px] font-semibold leading-tight text-white/90">Lead Editor & Artist</p>
-                  <p className="line-clamp-3 text-[8px] leading-snug text-white/80">
+                  <h3 className="mb-1 text-xs font-semibold leading-tight text-white">Pedro</h3>
+                  <p className="mb-1.5 text-[10px] font-medium uppercase tracking-[0.1em] leading-tight text-white/70">Lead Editor & Artist</p>
+                  <p className="line-clamp-3 text-[10px] leading-snug text-white/75">
                     Pedro leads the creative production at validator.com, crafting visually engaging content that
                     informs, inspires, and connects with audiences. His work focuses on expanding the reach of
                     validator.com and driving broader awareness and adoption of the Solana ecosystem through high-impact
@@ -524,8 +524,8 @@ export default function Home() {
                   e.stopPropagation()
                   handleCardTap("mobile-chris")
                 }}
-                className={`group/card relative aspect-square overflow-hidden rounded-2xl shadow-xl transition-all duration-300 origin-center ${
-                  activeCard === "mobile-chris" ? "!scale-[1.1] !shadow-2xl !z-10" : ""
+                className={`group/card relative aspect-square overflow-hidden rounded-2xl shadow-md transition-all duration-300 origin-center ${
+                  activeCard === "mobile-chris" ? "!scale-[1.04] !shadow-lg !z-10" : ""
                 }`}
               >
                 <Image
@@ -547,9 +547,9 @@ export default function Home() {
                     activeCard === "mobile-chris" ? "opacity-100" : ""
                   }`}
                 >
-                  <h3 className="mb-1 text-sm font-bold leading-tight text-white">Chris</h3>
-                  <p className="mb-1.5 text-[10px] font-semibold leading-tight text-white/90">Lead Researcher</p>
-                  <p className="line-clamp-2 text-[8px] leading-snug text-white/80">
+                  <h3 className="mb-1 text-xs font-semibold leading-tight text-white">Chris</h3>
+                  <p className="mb-1.5 text-[10px] font-medium uppercase tracking-[0.1em] leading-tight text-white/70">Lead Researcher</p>
+                  <p className="line-clamp-2 text-[10px] leading-snug text-white/75">
                     Steers our content research, breaking Solana updates into plain, useful takeaways.
                   </p>
                 </div>
@@ -562,7 +562,7 @@ export default function Home() {
             {/* Column 1 - 1 card with top margin */}
             <div className="flex flex-1 flex-col gap-6 md:gap-7 lg:gap-8 xl:gap-9 2xl:gap-10">
               <Link href="/team/hfp" className="cursor-pointer">
-                <div className="group/card relative mt-16 aspect-square transform-gpu overflow-hidden rounded-2xl shadow-xl transition-all duration-300 will-change-transform group-has-[.group\/card:hover]:scale-75 hover:!scale-[1.3] hover:shadow-2xl hover:z-10 md:mt-20 lg:mt-24 xl:mt-28 2xl:hover:!scale-[1.35]">
+                <div className="group/card relative mt-16 aspect-square transform-gpu overflow-hidden rounded-2xl shadow-md transition-all duration-300 will-change-transform group-has-[.group\/card:hover]:scale-95 hover:!scale-[1.05] hover:shadow-lg hover:z-10 md:mt-20 lg:mt-24 xl:mt-28">
                   <Image
                     src="/team/HFP-DP.png"
                     alt="hfp-dp"
@@ -572,9 +572,9 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-surface-dark/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 md:p-5 lg:p-6">
-                    <h3 className="mb-1.5 text-xl font-bold text-white md:text-2xl lg:text-2xl">HFP</h3>
-                    <p className="mb-2 text-base font-semibold text-white/90 md:text-lg lg:text-lg">Founder</p>
-                    <p className="break-words text-xs leading-snug text-white/80 md:text-sm lg:text-sm">
+                    <h3 className="mb-1.5 text-lg font-semibold text-white md:text-xl">HFP</h3>
+                    <p className="mb-2 text-xs font-medium uppercase tracking-[0.14em] text-white/70 md:text-sm">Founder</p>
+                    <p className="break-words text-xs leading-normal text-white/80 md:text-sm">
                       A 17-year branding leader, HFP identified Bitcoin's potential early and, by 2021, recognized
                       Solana's capacity to deliver real-world decentralization. His strategic direction established
                       validator.com's brand and continues to guide its long-term positioning.
@@ -587,7 +587,7 @@ export default function Home() {
             {/* Column 2 - 2 cards */}
             <div className="flex flex-1 flex-col gap-6 md:gap-7 lg:gap-8 xl:gap-9 2xl:gap-10">
               <Link href="/team/seb" className="cursor-pointer">
-                <div className="group/card relative aspect-square transform-gpu overflow-hidden rounded-2xl shadow-xl transition-all duration-300 will-change-transform group-has-[.group\/card:hover]:scale-75 hover:!scale-[1.3] hover:shadow-2xl hover:z-10 2xl:hover:!scale-[1.35]">
+                <div className="group/card relative aspect-square transform-gpu overflow-hidden rounded-2xl shadow-md transition-all duration-300 will-change-transform group-has-[.group\/card:hover]:scale-95 hover:!scale-[1.05] hover:shadow-lg hover:z-10">
                   <Image
                     src="/team/Seb-DP.png"
                     alt="seb-dp"
@@ -597,11 +597,11 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-surface-dark/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 md:p-5 lg:p-6">
-                    <h3 className="mb-1.5 text-xl font-bold text-white md:text-2xl lg:text-2xl">
+                    <h3 className="mb-1.5 text-lg font-semibold text-white md:text-xl">
                       Sebastian Montgomery
                     </h3>
-                    <p className="mb-2 text-base font-semibold text-white/90 md:text-lg lg:text-lg">General Manager</p>
-                    <p className="break-words text-xs leading-snug text-white/80 md:text-sm lg:text-sm">
+                    <p className="mb-2 text-xs font-medium uppercase tracking-[0.14em] text-white/70 md:text-sm">General Manager</p>
+                    <p className="break-words text-xs leading-normal text-white/80 md:text-sm">
                       Sebastian started the validator in mid-2022 and leads its growth, operations, and content
                       strategy. A prominent voice in the Solana ecosystem, he has produced more than 1,000 educational
                       videos and continues to drive the vision for the next 1,000 — advancing global understanding of
@@ -611,7 +611,7 @@ export default function Home() {
                 </div>
               </Link>
               <Link href="/team/dan" className="cursor-pointer">
-                <div className="group/card relative aspect-square transform-gpu overflow-hidden rounded-2xl shadow-xl transition-all duration-300 will-change-transform group-has-[.group\/card:hover]:scale-75 hover:!scale-[1.3] hover:shadow-2xl hover:z-10 2xl:hover:!scale-[1.35]">
+                <div className="group/card relative aspect-square transform-gpu overflow-hidden rounded-2xl shadow-md transition-all duration-300 will-change-transform group-has-[.group\/card:hover]:scale-95 hover:!scale-[1.05] hover:shadow-lg hover:z-10">
                   <Image
                     src="/team/Dan-DP.png"
                     alt="dan-dp"
@@ -621,13 +621,13 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-surface-dark/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 md:p-5 lg:p-6">
-                    <h3 className="mb-1.5 text-xl font-bold text-white md:text-2xl lg:text-3xl xl:text-xl 2xl:text-2xl">
+                    <h3 className="mb-1.5 text-lg font-semibold text-white md:text-xl">
                       Dan Phillips
                     </h3>
-                    <p className="mb-2 text-base font-semibold text-white/90 md:text-lg lg:text-lg">
+                    <p className="mb-2 text-xs font-medium uppercase tracking-[0.14em] text-white/70 md:text-sm">
                       Business Developer
                     </p>
-                    <p className="break-words text-xs leading-snug text-white/80 md:text-sm lg:text-sm">
+                    <p className="break-words text-xs leading-normal text-white/80 md:text-sm">
                       Dan is a seasoned professional dedicated to building at the intersection of traditional business
                       and Web3. He holds a Bachelor's degree in Economics and has a strong background in consulting and
                       sales, having worked as an alumnus of industry-leading firms including KPMG, Oracle, and HubSpot.
@@ -640,7 +640,7 @@ export default function Home() {
             {/* Column 3 - 2 cards with top margin on first */}
             <div className="flex flex-1 flex-col gap-6 md:gap-7 lg:gap-8 xl:gap-9 2xl:gap-10">
               <Link href="/team/mukul" className="cursor-pointer">
-                <div className="group/card relative mt-12 aspect-square transform-gpu overflow-hidden rounded-2xl shadow-xl transition-all duration-300 will-change-transform group-has-[.group\/card:hover]:scale-75 hover:!scale-[1.3] hover:shadow-2xl hover:z-10 md:mt-16 lg:mt-20 xl:mt-24 2xl:hover:!scale-[1.35]">
+                <div className="group/card relative mt-12 aspect-square transform-gpu overflow-hidden rounded-2xl shadow-md transition-all duration-300 will-change-transform group-has-[.group\/card:hover]:scale-95 hover:!scale-[1.05] hover:shadow-lg hover:z-10 md:mt-16 lg:mt-20 xl:mt-24">
                   <Image
                     src="/team/Mukul-DP.png"
                     alt="mukul-dp"
@@ -650,10 +650,10 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 rounded-2xl bg-surface-dark/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
                   <div className="absolute inset-0 rounded-2xl flex flex-col items-center justify-center p-4 text-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 md:p-5 lg:p-6">
-                    <h3 className="mb-1.5 text-xl font-bold text-white md:text-2xl lg:text-3xl xl:text-xl 2xl:text-2xl">
+                    <h3 className="mb-1.5 text-lg font-semibold text-white md:text-xl">
                       The Intern
                     </h3>
-                    <p className="break-words text-xs leading-snug text-white/80 md:text-sm lg:text-sm">
+                    <p className="break-words text-xs leading-normal text-white/80 md:text-sm">
                       The intern keeps validator.com plugged into Solana's culture and Crypto Twitter. Mixing research,
                       creativity, and humor, into content you want to keep up to date with.
                     </p>
@@ -661,7 +661,7 @@ export default function Home() {
                 </div>
               </Link>
               <Link href="/team/pedro" className="cursor-pointer">
-                <div className="group/card relative aspect-square transform-gpu overflow-hidden rounded-2xl shadow-xl transition-all duration-300 will-change-transform group-has-[.group\/card:hover]:scale-75 hover:!scale-[1.3] hover:shadow-2xl hover:z-10 2xl:hover:!scale-[1.35]">
+                <div className="group/card relative aspect-square transform-gpu overflow-hidden rounded-2xl shadow-md transition-all duration-300 will-change-transform group-has-[.group\/card:hover]:scale-95 hover:!scale-[1.05] hover:shadow-lg hover:z-10">
                   <Image
                     src="/team/pedro.png"
                     alt="pedro-dp"
@@ -671,13 +671,13 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 rounded-2xl bg-surface-dark/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
                   <div className="absolute inset-0 rounded-2xl flex flex-col items-center justify-center p-4 text-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 md:p-5 lg:p-6">
-                    <h3 className="mb-1.5 text-xl font-bold text-white md:text-2xl lg:text-3xl xl:text-xl 2xl:text-2xl">
+                    <h3 className="mb-1.5 text-lg font-semibold text-white md:text-xl">
                       Pedro
                     </h3>
-                    <p className="mb-2 text-base font-semibold text-white/90 md:text-lg lg:text-lg">
+                    <p className="mb-2 text-xs font-medium uppercase tracking-[0.14em] text-white/70 md:text-sm">
                       Lead Editor & Artist
                     </p>
-                    <p className="break-words text-xs leading-snug text-white/80 md:text-sm lg:text-sm">
+                    <p className="break-words text-xs leading-normal text-white/80 md:text-sm">
                       Pedro leads the creative production at validator.com, crafting visually engaging content that
                       informs, inspires, and connects with audiences. His work focuses on expanding the reach of
                       validator.com and driving broader awareness and adoption of the Solana ecosystem through
@@ -691,7 +691,7 @@ export default function Home() {
             {/* Column 4 - 1 card */}
             <div className="flex flex-1 flex-col gap-6 md:gap-7 lg:gap-8 xl:gap-9 2xl:gap-10">
               <Link href="/team/chris" className="cursor-pointer">
-                <div className="group/card relative mt-36 aspect-square transform-gpu overflow-hidden rounded-2xl shadow-xl transition-all duration-300 will-change-transform group-has-[.group\/card:hover]:scale-75 hover:!scale-[1.3] hover:shadow-2xl hover:z-10 2xl:hover:!scale-[1.35]">
+                <div className="group/card relative mt-36 aspect-square transform-gpu overflow-hidden rounded-2xl shadow-md transition-all duration-300 will-change-transform group-has-[.group\/card:hover]:scale-95 hover:!scale-[1.05] hover:shadow-lg hover:z-10">
                   <Image
                     src="/team/Chris-DP.png"
                     alt="chris-dp"
@@ -701,11 +701,11 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-surface-dark/70 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 md:p-5 lg:p-6">
-                    <h3 className="mb-1.5 text-xl font-bold text-white md:text-2xl lg:text-3xl xl:text-xl 2xl:text-2xl">
+                    <h3 className="mb-1.5 text-lg font-semibold text-white md:text-xl">
                       Chris
                     </h3>
-                    <p className="mb-2 text-base font-semibold text-white/90 md:text-lg lg:text-lg">Lead Researcher</p>
-                    <p className="break-words text-xs leading-snug text-white/80 md:text-sm lg:text-sm">
+                    <p className="mb-2 text-xs font-medium uppercase tracking-[0.14em] text-white/70 md:text-sm">Lead Researcher</p>
+                    <p className="break-words text-xs leading-normal text-white/80 md:text-sm">
                       Steers our content research, breaking Solana updates into plain, useful takeaways.
                     </p>
                   </div>
