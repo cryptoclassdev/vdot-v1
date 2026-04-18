@@ -691,7 +691,7 @@ export default function Home() {
             {/* Column 4 - 1 card */}
             <div className="flex flex-1 flex-col gap-6 md:gap-7 lg:gap-8 xl:gap-9 2xl:gap-10">
               <Link href="/team/chris" className="cursor-pointer">
-                <div className="group/card relative mt-36 aspect-square transform-gpu overflow-hidden rounded-2xl shadow-md transition-all duration-300 will-change-transform group-has-[.group\/card:hover]:scale-95 hover:!scale-[1.05] hover:shadow-lg hover:z-10">
+                <div className="group/card relative mt-20 aspect-square transform-gpu overflow-hidden rounded-2xl shadow-md transition-all duration-300 will-change-transform group-has-[.group\/card:hover]:scale-95 hover:!scale-[1.05] hover:shadow-lg hover:z-10 md:mt-28 lg:mt-40 xl:mt-48 2xl:mt-56">
                   <Image
                     src="/team/Chris-DP.png"
                     alt="chris-dp"
