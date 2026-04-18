@@ -141,15 +141,15 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative flex min-h-screen items-center justify-center bg-background px-4 py-20 md:px-8 lg:px-15">
         <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <div className="flex flex-col items-center space-y-8">
+          <div className="flex flex-col items-center space-y-8 lg:items-start">
             <div
               data-reveal
               className="flex items-center gap-3"
               style={{ ["--reveal-delay" as string]: "0ms" }}
             >
-              <div className="h-20 w-20 rounded-2xl bg-brand-navy sm:h-24 sm:w-24 md:h-28 md:w-28" />
-              <div className="h-20 w-20 rounded-2xl bg-brand-cyan sm:h-24 sm:w-24 md:h-28 md:w-28" />
-              <div className="h-20 w-20 rounded-2xl bg-brand-orange sm:h-24 sm:w-24 md:h-28 md:w-28" />
+              <div className="h-16 w-16 rounded-2xl bg-brand-navy sm:h-20 sm:w-20 md:h-24 md:w-24" />
+              <div className="h-16 w-16 rounded-2xl bg-brand-cyan sm:h-20 sm:w-20 md:h-24 md:w-24" />
+              <div className="h-16 w-16 rounded-2xl bg-brand-orange sm:h-20 sm:w-20 md:h-24 md:w-24" />
             </div>
 
             <div className="w-full space-y-5 text-center lg:text-left">
@@ -168,6 +168,18 @@ export default function Home() {
                 A Solana validator. Operated transparently since 2022.
               </p>
             </div>
+
+            <a
+              data-reveal
+              style={{ ["--reveal-delay" as string]: "400ms" }}
+              href="#staking"
+              className="group inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background shadow-sm transition-colors hover:bg-foreground/90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-orange md:px-8 md:py-4 md:text-base"
+            >
+              Start delegating
+              <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5">
+                →
+              </span>
+            </a>
           </div>
 
           <div className="flex items-center justify-center">
